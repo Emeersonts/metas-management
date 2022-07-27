@@ -1,0 +1,9 @@
+include:
+  - project: devops/gitlab-cicd
+    file: templates/pipelines/ocp_pipe.yml
+    ref: master
+variables:
+  platform: "ROSA"
+  chaining_build: "true"
+  release_url: "https://releasenotes.gerdau.digital"
+  teamsChannelId: "19:PFaaaRjETV7ofzV_HSsXHMdCmLCnG8zatQpXEbYB4IM1@thread.tacv2" #
