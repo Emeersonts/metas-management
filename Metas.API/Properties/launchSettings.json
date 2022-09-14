@@ -15,17 +15,14 @@
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DOTNET_STARTUP_PROJECT": "Metas.API/Metas.API.csproj"
       }
     },
     "Metas.API": {
       "commandName": "Project",
       "launchBrowser": true,
-      //"launchUrl": "aweatherforecast",
-      "applicationUrl": "https://localhost:5001",
+      "applicationUrl": "http://localhost:8080",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "DOTNET_STARTUP_PROJECT": "Metas.API/Metas.API.csproj"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
   }
