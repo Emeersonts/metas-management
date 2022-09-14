@@ -14,9 +14,9 @@ namespace Metas.Infrastructure
             SqlConnection.ClearAllPools();
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "STFSAOC045548-L\\SQLEXPRESS";
-            builder.UserID = "Lmetas";
-            builder.Password = "Pzero#12";
+            builder.DataSource = "dev-metas-system-management-database.c3vcojkjp9yx.us-east-1.rds.amazonaws.com";
+            builder.UserID = "admin";
+            builder.Password = "GHWFV8HB0oViP1FbEPhl";
             builder.InitialCatalog = "bMetas";
             SqlConnection conn = new SqlConnection(builder.ConnectionString);
 
@@ -52,9 +52,9 @@ namespace Metas.Infrastructure
             SqlConnection.ClearAllPools();
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "STFSAOC045548-L\\SQLEXPRESS";
-            builder.UserID = "Lmetas";
-            builder.Password = "Pzero#12";
+            builder.DataSource = "dev-metas-system-management-database.c3vcojkjp9yx.us-east-1.rds.amazonaws.com";
+            builder.UserID = "admin";
+            builder.Password = "GHWFV8HB0oViP1FbEPhl";
             builder.InitialCatalog = "bMetas";
 
             SqlConnection conn = new SqlConnection(builder.ConnectionString);

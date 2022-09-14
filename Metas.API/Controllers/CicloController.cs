@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace Metas.API.Controllers
 {
     [ApiController]
-    [Route("Ciclo/")]
+    //[Route("Ciclo/")]
+    [Route("[controller]")]
 
     public class CicloController : Controller
     {
