@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 namespace Metas.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    //[Route("[controller]")]
+    [Route("zCiclo/")]
+    public class WeatherForecastController : Controller
     {
         private static readonly string[] Summaries = new[]
         {
@@ -20,7 +21,7 @@ namespace Metas.API.Controllers
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
-            _logger = logger;
+            //_logger = logger;
         }
 
         [HttpGet]
@@ -34,6 +35,8 @@ namespace Metas.API.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+
+
         }
     }
 }

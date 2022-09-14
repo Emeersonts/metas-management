@@ -122,8 +122,6 @@ namespace Metas.API
                 endpoints.MapControllers();
             });
 
-            
-
         }
     }
 }

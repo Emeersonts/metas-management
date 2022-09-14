@@ -32,6 +32,7 @@ namespace Metas.Application.Service
                 Ciclo ucicloDTO = new Ciclo();
 
                 ucicloDTO.ANOCICLO = (int)result.Rows[i]["ANOCICLO"];
+                ucicloDTO.NOME = result.Rows[i]["NOME"].ToString();
 
                 lciclo.Add(ucicloDTO);
 
