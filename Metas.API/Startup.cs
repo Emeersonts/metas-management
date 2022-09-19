@@ -33,7 +33,7 @@ namespace Metas.API
         public IConfiguration Configuration { get; }
 
 
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        //readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -83,19 +83,29 @@ namespace Metas.API
 
 
             // seguindo cors
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy(name: MyAllowSpecificOrigins,
+            //                      policy =>
+            //                      {
+            //                          policy.WithOrigins("http://meta-project-backend-dev.gerdau.digital",
+            //                                              "http://meta-project-frontend-dev.gerdau.digital");
+            //                      });
+            //});
+
+            //// services.AddResponseCaching();
+            //services.AddControllers();
+
 
             services.AddCors(options =>
             {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
-                                  policy =>
-                                  {
-                                      policy.WithOrigins("http://meta-project-backend-dev.gerdau.digital",
-                                                          "http://meta-project-frontend-dev.gerdau.digital");
-                                  });
+                options.AddPolicy("CorsPolicy",
+                       builder =>
+                       builder.AllowAnyOrigin()
+                              .AllowAnyMethod()
+                              .AllowAnyHeader());
             });
 
-            // services.AddResponseCaching();
-            services.AddControllers();
 
         }
 
@@ -149,22 +159,27 @@ namespace Metas.API
 
 
             //Confoguirar CORS
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            //app.UseHttpsRedirection();
+            //app.UseStaticFiles();
+            //app.UseRouting();
+
+            //app.UseCors(MyAllowSpecificOrigins);
+
+            //// app.UseResponseCaching();
+
+            //app.UseAuthorization();
+
             app.UseRouting();
-
-            app.UseCors(MyAllowSpecificOrigins);
-
-            // app.UseResponseCaching();
-
-            app.UseAuthorization();
-
-
+            app.UseCors("CorsPolicy");
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
 
         }
