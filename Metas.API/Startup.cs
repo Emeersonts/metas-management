@@ -89,8 +89,8 @@ namespace Metas.API
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   policy =>
                                   {
-                                      policy.WithOrigins("https://meta-project-backend-dev.gerdau.digital/ciclo/listciclo",
-                                                          "https://meta-project-frontend-dev.gerdau.digital");
+                                      policy.WithOrigins("http://meta-project-backend-dev.gerdau.digital",
+                                                          "http://meta-project-frontend-dev.gerdau.digital");
                                   });
             });
 
