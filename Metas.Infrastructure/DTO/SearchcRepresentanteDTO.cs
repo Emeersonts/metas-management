@@ -17,5 +17,9 @@ namespace Metas.Infrastructure.DTO
             BUSCA = busca;
         }
 
+        public SearchcRepresentanteDTO(int pagina)
+        {
+            PAGINA = pagina;
+        }
     }
 }

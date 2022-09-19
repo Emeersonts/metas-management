@@ -11,6 +11,33 @@ namespace Metas.Infrastructure.Repository
 {
     public class RepositoryRepresentante : IRepositoryRepresentante
     {
+        async Task<DataTable> IRepositoryRepresentante.RGetFindColaborador(SearchcRepresentanteDTO dto)
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[03];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PAGINA", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = dto.PAGINA;
+
+            ClsData pk = new ClsData();
+
+            var ui = await pk.ExecReader(parametro, "[SMetas].[C_COLABORADOR]");
+
+            return ui;
+        }
+
         async Task<DataTable> IRepositoryRepresentante.RGetFindIndicatorSAP(SearchcRepresentanteDTO dto)
         {
             int cont = 0;

@@ -17,6 +17,35 @@ namespace Metas.Application.Service
             this._ServiceRepresentante = serviceCiclo;
         }
 
+        public async Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto)
+        {
+            FormColaboradorDTO lForIndicadorSAPDTO = new FormColaboradorDTO();
+
+            var resultAfast = await _ServiceRepresentante.GetFindIndicatorSAP(new SearchcRepresentanteDTO(dto.PAGINA));
+            List<RColaboradorDTO> lIndicadorSapDTO = new List<RColaboradorDTO>();
+
+            int pgtotal = 0;
+
+            for (int J = 0; J < resultAfast.Rows.Count; J++)
+            {
+                RColaboradorDTO uLindicadorSAPDTO = new RColaboradorDTO();
+                uLindicadorSAPDTO.EMAIL = resultAfast.Rows[J]["EMAIL"].ToString();
+                uLindicadorSAPDTO.NOMECOMPLETO = resultAfast.Rows[J]["NOMECOMPLETO"].ToString();
+                //uLindicadorSAPDTO.NPESSOAL = (int)resultAfast.Rows[J]["NPESSOAL"].ToString();
+                uLindicadorSAPDTO.TITULO = resultAfast.Rows[J]["TITULO"].ToString();
+
+                pgtotal = (int)resultAfast.Rows[J]["PG"];
+
+                lIndicadorSapDTO.Add(uLindicadorSAPDTO);
+
+            }
+
+            lForIndicadorSAPDTO.PGTOTAL = pgtotal;
+            lForIndicadorSAPDTO.ListColaborador = lIndicadorSapDTO;
+
+            return lForIndicadorSAPDTO;
+        }
+
         public async Task<ForIndicadorSAP> OnGetFindIndicatorSAP(IndicadorDTO dto)
         {
 

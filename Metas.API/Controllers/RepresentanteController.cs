@@ -32,5 +32,18 @@ namespace Metas.API.Controllers
             }
             return Ok(result);
         }
+
+        // Lista de colaboradores
+        [HttpPost]
+        [Route("ListIColaborador")]
+        public async Task<ActionResult> GetListColaborador(ColaboradorDTO dto)
+        {
+            var result = await _applicationServiceRepresentante.OnGetFindColaborador(dto);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
     }
 }

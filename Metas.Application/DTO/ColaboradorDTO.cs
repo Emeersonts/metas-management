@@ -6,9 +6,6 @@ namespace Metas.Application.DTO
 {
     public class ColaboradorDTO
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public decimal Valor { get; set; }
-        public DateTime Datacadastro { get; set; }
+        public int PAGINA { get; set; }
     }
 }
