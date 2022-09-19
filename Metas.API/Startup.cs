@@ -7,6 +7,7 @@ using Metas.Infrastructure;
 using Metas.Infrastructure.Interface;
 using Metas.Infrastructure.Repository;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +31,9 @@ namespace Metas.API
         }
 
         public IConfiguration Configuration { get; }
+
+
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -78,15 +82,34 @@ namespace Metas.API
             //--------------------------
 
 
+            // seguindo cors
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  policy =>
+                                  {
+                                      policy.WithOrigins("https://meta-project-backend-dev.gerdau.digital/ciclo/listciclo",
+                                                          "https://meta-project-frontend-dev.gerdau.digital");
+                                  });
+            });
+
+            // services.AddResponseCaching();
+            services.AddControllers();
 
         }
+
 
         public void ConfigiureContainer(ContainerBuilder Bilder)
         {
 
             Bilder.RegisterModule(new ModuleIOC());
+
         }
+
+
+
+
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -122,6 +145,29 @@ namespace Metas.API
                 endpoints.MapControllers();
             });
 
+
+
+
+            //Confoguirar CORS
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
+
+            // app.UseResponseCaching();
+
+            app.UseAuthorization();
+
+
+
+
         }
+
     }
 }

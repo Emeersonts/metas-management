@@ -10,5 +10,7 @@ namespace Metas.DomainCore.Interface
     public interface IServiceRepresentante
     {
         Task<DataTable> GetFindIndicatorSAP(SearchcRepresentanteDTO parameters);
+
+        Task<DataTable> GetFindColaborador(SearchcRepresentanteDTO parameters);
     }
 }

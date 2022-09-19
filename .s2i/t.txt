@@ -1,0 +1,116 @@
+docmosdc odmfi gardi od relal
+
+
+baerto em jubnlho  aprovação 
+indicador melsal colunna resiltg ppreenchjdioa de janieo r ajkujçolo
+  anula - inidcdor de acordo com sua frequntia
+janeiro fechho 
+sge pagar 
+dia 22 22 de janiero  
+
+Crinair formulário automati - a media aque ekl criar, vir do sap depois 
+
+
+
+
+
+corm exiev ba r consil resuilvbadod
+  somente para o gerstoe 
+
+altger no meio do dcilioeop
+
+
+
+verde o que ja aocntecou 
+para aocntecer pçendeite
+data para inserir o resulgador
+rocho par ismetie e para  
+dsata sinalizadoa - arap 
+
+
+so remover antes da aproivação - ja somntes indidcadeo
+
+
+Colaborador
+  Dashboard formulario  Metas
+    - Tela 3 Status formulário
+    - Exibiçãod a metas
+     -Exbição de resultas- exebição faltas
+    -tela de orieentaçlçã tela 16 - passar o endereço
+    -tela culctura Gerdaru tela 18 - pasar somente o endereço
+    - somnente endereço do help desk
+    -cilco
+Representante ------------------------------------------------------------------
+    -  Dashboard formulario  Metas tela 3
+    - Tela 3 Status formulário
+    - Exibiçãod a metas
+    -Exbição de resultas
+     
+    ---- edição das metas
+    ----- Selecionar indicadores (tel 39)
+     ----- adidocniar indicadores (39) adionar o indicar de formar diretenet mas na base de ados
+    --- Enviar para aprovação (tela3 39)
+    -- salvar formulário
+    -- imprimir
+   -- remover indicadores
+
+Notificação
+
+Formulario metas de represnteante
+  - inbformnações de quantidade de formiularop
+  -cisuaizar equi
+  -solictar ajuste 
+  - visualizar ata
+cronocrmar metas
+  - visuaalisar eventos
+Historio das solicitações
+cultura gerdaru
+
+Orientações
+
+
+-CILO C ENOTIFIAÇÃO FICOU COMO GERAL
+
+ 
+
+
+
+
+
+
+ 
+{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:39773",
+      "sslPort": 44359
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "Ciclo",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Metas.API": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:8080",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+
+
+
+
+
+

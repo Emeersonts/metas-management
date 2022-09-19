@@ -17,6 +17,16 @@ namespace Metas.DomainCore.Service
             this._repository = repository;
         }
 
+        public async Task<DataTable> GetFindColaborador(SearchcRepresentanteDTO parameters)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetFindColaborador(parameters);
+
+            return result;
+
+        }
+
         public async Task<DataTable> GetFindIndicatorSAP(SearchcRepresentanteDTO parameters)
         {
             DataTable ty = new DataTable();
@@ -25,5 +35,6 @@ namespace Metas.DomainCore.Service
 
             return result;
         }
+
     }
 }

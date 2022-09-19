@@ -16,9 +16,11 @@ namespace Metas.Infrastructure.DTO
             MES = mes;
         }
 
+        // Mes,Pagina
         public SearchcColaborador(int anociclo)
         {
             ANOCICLO = anociclo;
         }
+
     }
 }

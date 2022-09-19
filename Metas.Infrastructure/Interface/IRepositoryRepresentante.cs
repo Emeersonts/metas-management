@@ -10,5 +10,6 @@ namespace Metas.Infrastructure.Interface
     public interface IRepositoryRepresentante
     {
         Task<DataTable> RGetFindIndicatorSAP(SearchcRepresentanteDTO dto);
+        Task<DataTable> RGetFindColaborador(SearchcRepresentanteDTO dto);
     }
 }

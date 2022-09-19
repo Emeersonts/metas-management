@@ -9,5 +9,6 @@ namespace Metas.Application.Interface
     public interface IAplicationServiceRepresetante
     {
         Task<ForIndicadorSAP> OnGetFindIndicatorSAP(IndicadorDTO dto);
+        Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto);
     }
 }
