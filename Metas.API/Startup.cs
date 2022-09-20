@@ -142,12 +142,19 @@ namespace Metas.API
 
             app.UseRouting();
 
-            app.UseAuthorization();
+           // app.UseAuthorization();
 
             
             //cookies
             app.UseAuthentication();
-            app.UseAuthorization();
+
+
+            // cors
+            app.UseCors("CorsPolicy");
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
 
             app.UseEndpoints(endpoints =>
@@ -174,12 +181,10 @@ namespace Metas.API
 
             //app.UseAuthorization();
 
-            app.UseRouting();
-            app.UseCors("CorsPolicy");
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            //app.UseRouting();
+
+            
+            
 
 
         }
