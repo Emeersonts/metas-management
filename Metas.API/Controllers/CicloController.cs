@@ -1,5 +1,6 @@
 ﻿using Metas.Application.DTO;
 using Metas.Application.Interface;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ namespace Metas.API.Controllers
         }
 
         //Lista dos anos(Ciclos)
+        [EnableCors("CorsPolicy")]
         [HttpGet]
         [Route("ListCiclo")]
         public async Task<ActionResult> GetListCiclo()
