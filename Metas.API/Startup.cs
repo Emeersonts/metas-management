@@ -32,9 +32,6 @@ namespace Metas.API
 
         public IConfiguration Configuration { get; }
 
-
-        //readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -79,24 +76,6 @@ namespace Metas.API
             });
 
             services.AddControllersWithViews();
-            //--------------------------
-
-
-            // seguindo cors
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy(name: MyAllowSpecificOrigins,
-            //                      policy =>
-            //                      {
-            //                          policy.WithOrigins("http://meta-project-backend-dev.gerdau.digital",
-            //                                              "http://meta-project-frontend-dev.gerdau.digital");
-            //                      });
-            //});
-
-            //// services.AddResponseCaching();
-            //services.AddControllers();
-
-
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -121,7 +100,7 @@ namespace Metas.API
 
 
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -137,14 +116,14 @@ namespace Metas.API
                 //c.RoutePrefix = string.Empty;
             });
 
-           
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-           // app.UseAuthorization();
+            // app.UseAuthorization();
 
-            
+
             //cookies
             app.UseAuthentication();
 
@@ -183,8 +162,8 @@ namespace Metas.API
 
             //app.UseRouting();
 
-            
-            
+
+
 
 
         }
