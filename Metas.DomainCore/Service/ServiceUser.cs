@@ -29,6 +29,24 @@ namespace Metas.DomainCore.Service
             }
         }
 
+        public async Task<DataTable> GetListFrequency()
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetListFrequency();
+
+            return result;
+        }
+
+        public async Task<DataTable> GetListMeasure()
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetListMeasure();
+
+            return result;
+        }
+
         public async Task<DataTable> GetTutorialByUser()
         {
             DataTable ty = new DataTable();

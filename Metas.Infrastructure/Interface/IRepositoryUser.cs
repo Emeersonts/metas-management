@@ -12,5 +12,7 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RGetTutorialByUser();
         Task<DataTable> RGetUserNotification();
         Task<int> RDeactiveTutorial(TutorialUsuario tutorialusuario);
+        Task<DataTable> RGetListFrequency();
+        Task<DataTable> RGetListMeasure();
     }
 }

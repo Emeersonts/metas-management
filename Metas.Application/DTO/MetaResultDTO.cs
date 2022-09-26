@@ -10,5 +10,7 @@ namespace Metas.Application.DTO
         public decimal APURADO { get; set; }
         public DateTime DATAAPURACAO { get; set; }
         public string DESCRICAO { get; set; }
+        public string RESULTADOCLICLO { get; set; }
+        public int MESINICIO { get; set; }
     }
 }

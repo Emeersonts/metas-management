@@ -6,7 +6,9 @@ namespace Metas.Application.DTO
 {
     public class MetasDTO
     {
-        public string NOMECLICLO { get; set; }
+        public int MESINICIO { get; set; }
+        public int IDCELULATRABALHO { get; set; }
+        public string NOMEFORMULARIO { get; set; }
         public int IDINDICADOR { get; set; }
         public String NOMEINDICADOR { get; set; }
         public String NOMEUNIDADEMEDIDA { get; set; }
@@ -19,10 +21,11 @@ namespace Metas.Application.DTO
         public Decimal SIMULADOAPURADO { get; set; }
         public DateTime DATAAPURACAO { get; set; }
 
-        public MetasDTO(string nomeciclo, int idindicador,string nomeindicador, string nomeunidademedida, string descricao,decimal peso, decimal minimo,
+        public MetasDTO(int idcelulatrabalho, string nomeformulario, int idindicador,string nomeindicador, string nomeunidademedida, string descricao,decimal peso, decimal minimo,
             decimal planejado,decimal desafio, decimal resultadoapurado, decimal simuladoaapurado, DateTime dataapuracao)
         {
-            NOMECLICLO = nomeciclo;
+            IDCELULATRABALHO = idcelulatrabalho;
+            NOMEFORMULARIO = nomeformulario;
             IDINDICADOR = idindicador;
             NOMEINDICADOR = nomeindicador;
             NOMEUNIDADEMEDIDA = nomeunidademedida;

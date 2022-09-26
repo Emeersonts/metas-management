@@ -100,5 +100,34 @@ namespace Metas.API.Controllers
 
         }
 
+        //Lista geral de dfrequencia
+        [HttpGet]
+        [Route("ListFrequency")]
+        public async Task<ActionResult> GetListFrequency()
+        {
+            var result = await _applicationServiceUser.OnGetListFrequency();
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+        // lista geral de unidade de medida
+        [HttpGet]
+        [Route("ListMeasure")]
+        public async Task<ActionResult> GetListMeasure()
+        {
+            var result = await _applicationServiceUser.OnGetListMeasure();
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
     }
 }

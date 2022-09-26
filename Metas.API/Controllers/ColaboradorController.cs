@@ -34,6 +34,20 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        // Lista de Metas equipes anterior
+        [HttpPost]
+        [Route("ListMetaPrevius")]
+        public async Task<ActionResult> GetMetasPreviusByUsuarioCiclo(CicloUsuarioDTO dto)
+        {
+            Metas.Profile.pkxd.type = 1;
+            var result = await _applicationServiceColaborador.OnGetFindMeta(dto);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
         // lista de resultado das metas do colaborador
         [HttpPost]
         [Route("ListMetaResultado")]
@@ -47,6 +61,18 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        [HttpPost]
+        [Route("ListMetaResultadoPrevius")]
+        public async Task<ActionResult> GetMetasPreviusByUsuarioCicloResult(CicloUsuarioDTO dto)
+        {
+            Metas.Profile.pkxd.type = 1;
+            var result = await _applicationServiceColaborador.OnGetFindMetaResult(dto);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
         //Lista afastamento do colaborador
         [HttpPost]
         [Route("ListRemoval")]
