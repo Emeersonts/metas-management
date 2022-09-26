@@ -11,5 +11,7 @@ namespace Metas.Application.Interface
         Task<LisTutorialDTO> OnGetTutorialByUser();
         Task<ListNotificacaoDTO> OnGetUserNotification();
         Task OnDeactiveTutorial(TutorialUsuarioDTO dto);
+        Task<ListFrequenciaDTO> OnGetListFrequency();
+        Task<ListUnidadeMedidaDTO> OnGetListMeasure();
     }
 }

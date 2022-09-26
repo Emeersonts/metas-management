@@ -1,4 +1,5 @@
-﻿using Metas.Infrastructure.DTO;
+﻿using Metas.Domain;
+using Metas.Infrastructure.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,6 +11,9 @@ namespace Metas.Infrastructure.Interface
     public interface IRepositoryRepresentante
     {
         Task<DataTable> RGetFindIndicatorSAP(SearchcRepresentanteDTO dto);
+        Task<DataTable> RGetListIndicatorAdd(SearchcIndicadorDTO dto);
         Task<DataTable> RGetFindColaborador(SearchcRepresentanteDTO dto);
+        Task<int> RSaveIndicador(Indicador indicador);
+        Task<int> RRemoveIndicador(int IDINDICADOR);
     }
 }

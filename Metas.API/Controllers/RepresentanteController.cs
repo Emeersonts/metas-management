@@ -33,10 +33,24 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
-        // Lista de colaboradores
+        // Lista de indicadores a serem incluidos (retorno)
         [HttpPost]
-        [Route("ListIColaborador")]
-        public async Task<ActionResult> GetListColaborador(ColaboradorDTO dto)
+        [Route("ListIndicatorAdd")]
+        public async Task<ActionResult> GetListIndicatorAdd(EIndicadorAddDTO dto)
+        {
+            Metas.Profile.pkxd.type = 1;
+            var result = await _applicationServiceRepresentante.OnGetListIndicatorAdd(dto);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
+        // Lista de colaboradores (Time)
+        [HttpPost]
+        [Route("ListTeam")]
+        public async Task<ActionResult> GetListTeam(ColaboradorDTO dto)
         {
             var result = await _applicationServiceRepresentante.OnGetFindColaborador(dto);
             if (result == null)
@@ -44,6 +58,62 @@ namespace Metas.API.Controllers
                 return NotFound();
             }
             return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("SendForApprovalIndicador")]
+        public async Task<ActionResult> SendForApprovalIndicador(GIndicadorDTTO dto)
+        {
+
+            var result = await _applicationServiceRepresentante.OnSendForApprovalIndicador(dto);
+            
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {  
+                return Ok("Erro ao cadastrar idicador");
+            }
+
+        }
+
+        // Remover indicador
+        [HttpDelete]
+        [Route("RemoveIndicador")]
+        public async Task<ActionResult> RemoveIndicador(int IDINDICADOR)
+        {
+
+            var result = await _applicationServiceRepresentante.OnRemoveIndicador(IDINDICADOR);
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok("Erro ao Remover idicador. Está em uso, não pode ser removido <>");
+            }
+
+        }
+
+        // Atializa representante
+        [HttpDelete]
+        [Route("RepresentativeUpdate")]
+        public async Task<ActionResult> RepresentativeUpdate(int IDINDICADOR)
+        {
+
+            var result = await _applicationServiceRepresentante.OnRemoveIndicador(IDINDICADOR);
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok("Erro ao Remover idicador. Está em uso, não pode ser removido <>");
+            }
+
         }
     }
 }

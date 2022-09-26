@@ -12,5 +12,7 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> GetTutorialByUser();
         Task<DataTable> GetUserNotification();
         Task DeactiveTutorial(TutorialUsuario tutotialusuairo);
+        Task<DataTable> GetListFrequency();
+        Task<DataTable> GetListMeasure();
     }
 }

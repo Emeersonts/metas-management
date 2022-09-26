@@ -24,6 +24,29 @@ namespace Metas.Application.Service
             await _ServiceUser.DeactiveTutorial(tutorialusuario);
         }
 
+        public async Task<ListUnidadeMedidaDTO> OnGetListMeasure()
+        {
+            var result = await _ServiceUser.GetListMeasure();
+
+            ListUnidadeMedidaDTO listunidademedida = new ListUnidadeMedidaDTO();
+            List<UnidadeMedida> lunidademedida = new List<UnidadeMedida>();
+
+            for (int i = 0; i < result.Rows.Count; i++)
+            {
+                UnidadeMedida unidademedidaDTO = new UnidadeMedida();
+
+                unidademedidaDTO.DESCRICAO = result.Rows[i]["DESCRICAO"].ToString();
+                unidademedidaDTO.IDUNIDADEMEDIDA = (int)result.Rows[i]["IDUNIDADEMEDIDA"];
+                unidademedidaDTO.NOME = result.Rows[i]["NOME"].ToString();
+
+                lunidademedida.Add(unidademedidaDTO);
+            }
+
+            listunidademedida.ListUnidadeMedida = lunidademedida;
+
+            return listunidademedida;
+        }
+
         public async Task<LisTutorialDTO> OnGetTutorialByUser()
         {
             var result = await _ServiceUser.GetTutorialByUser();
@@ -73,6 +96,30 @@ namespace Metas.Application.Service
 
             return listnotificacao;
         }
+
+        async Task<ListFrequenciaDTO> IAplicationServiceUser.OnGetListFrequency()
+        {
+            var result = await _ServiceUser.GetListFrequency();
+
+            ListFrequenciaDTO listfrequencia = new ListFrequenciaDTO();
+            List<Frequencia> lfrequencia = new List<Frequencia>();
+
+            for (int i = 0; i < result.Rows.Count; i++)
+            {
+
+                Frequencia ufreuencia = new Frequencia();
+
+                ufreuencia.DESCRICAO = result.Rows[i]["DESCRICAO"].ToString();
+                ufreuencia.IDFREQUENCIA = (int)result.Rows[i]["IDFREQUENCIA"];
+
+                lfrequencia.Add(ufreuencia);
+
+            }
+            listfrequencia.ListFrequencia = lfrequencia;
+
+            return listfrequencia;
+        }
+
 
     }
 }

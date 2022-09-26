@@ -1,4 +1,5 @@
-﻿using Metas.DomainCore.Interface;
+﻿using Metas.Domain;
+using Metas.DomainCore.Interface;
 using Metas.Infrastructure.DTO;
 using Metas.Infrastructure.Interface;
 using System;
@@ -36,5 +37,25 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
+        public async Task<DataTable> GetListIndicatorAdd(SearchcIndicadorDTO parameters)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetListIndicatorAdd(parameters);
+
+            return result;
+        }
+
+        public async Task<int> RemoveIndicador(int idindicador)
+        {
+            var result = await _repository.RRemoveIndicador(idindicador);
+            return result;
+        }
+
+        public async Task<int> SaveIndicador(Indicador parameters)
+        {
+            var result = await _repository.RSaveIndicador(parameters);
+            return result;
+        }
     }
 }

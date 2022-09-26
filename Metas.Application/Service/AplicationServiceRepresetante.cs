@@ -21,7 +21,7 @@ namespace Metas.Application.Service
         {
             FormColaboradorDTO lForIndicadorSAPDTO = new FormColaboradorDTO();
 
-            var resultAfast = await _ServiceRepresentante.GetFindIndicatorSAP(new SearchcRepresentanteDTO(dto.PAGINA));
+            var resultAfast = await _ServiceRepresentante.GetFindColaborador(new SearchcRepresentanteDTO(dto.PAGINA));
             List<RColaboradorDTO> lIndicadorSapDTO = new List<RColaboradorDTO>();
 
             int pgtotal = 0;
@@ -31,7 +31,7 @@ namespace Metas.Application.Service
                 RColaboradorDTO uLindicadorSAPDTO = new RColaboradorDTO();
                 uLindicadorSAPDTO.EMAIL = resultAfast.Rows[J]["EMAIL"].ToString();
                 uLindicadorSAPDTO.NOMECOMPLETO = resultAfast.Rows[J]["NOMECOMPLETO"].ToString();
-                //uLindicadorSAPDTO.NPESSOAL = (int)resultAfast.Rows[J]["NPESSOAL"].ToString();
+                uLindicadorSAPDTO.NPESSOAL = (int)resultAfast.Rows[J]["NPESSOAL"];
                 uLindicadorSAPDTO.TITULO = resultAfast.Rows[J]["TITULO"].ToString();
 
                 pgtotal = (int)resultAfast.Rows[J]["PG"];
@@ -78,5 +78,55 @@ namespace Metas.Application.Service
 
         }
 
+        public async Task<FormIndicador> OnGetListIndicatorAdd(EIndicadorAddDTO dto)
+        {
+            FormIndicador lForIndicador = new FormIndicador();
+
+            var resultIndicador = await _ServiceRepresentante.GetListIndicatorAdd(new SearchcIndicadorDTO(dto.INDICADORES));
+            List<IndicadorAddDTO> lIndicador = new List<IndicadorAddDTO>();
+
+            for (int J = 0; J < resultIndicador.Rows.Count; J++)
+            {
+                IndicadorAddDTO uLindicador = new IndicadorAddDTO();
+                
+                uLindicador.DESCRICAO = resultIndicador.Rows[J]["DESCRICAO"].ToString();
+                uLindicador.DESCRICAOINDICADOR = resultIndicador.Rows[J]["DESCRICAOINDICADOR"].ToString();
+                uLindicador.IDFREQUENCIA = (int)resultIndicador.Rows[J]["DESAFIO"];
+                uLindicador.IDINDICADOR = (int)resultIndicador.Rows[J]["IDINDICADOR"];
+                uLindicador.IDUNIDADEMEDIDA = (int)resultIndicador.Rows[J]["IDUNIDADEMEDIDA"];
+                uLindicador.NOMEINDICADOR = resultIndicador.Rows[J]["NOMEINDICADOR"].ToString();
+                uLindicador.NOME = resultIndicador.Rows[J]["IDINDICADOR"].ToString();
+                uLindicador.MINIMO = 0;
+                uLindicador.PESO = 0;
+                uLindicador.PLANEJADO = 0;
+                uLindicador.DESAFIO = 0;
+
+                lIndicador.Add(uLindicador);
+            }
+
+            lForIndicador.ListIndicador = lIndicador;
+
+            return lForIndicador;
+
+        }
+
+        public async Task<int> OnRemoveIndicador(int idindicador)
+        {
+            var resultIndicador = await _ServiceRepresentante.RemoveIndicador(idindicador);
+
+            return resultIndicador;
+        }
+
+        public async Task<int> OnSendForApprovalIndicador(GIndicadorDTTO dto)
+        {
+            var Indicador = new Metas.Domain.Indicador(dto.IDINDICADOR, dto.NOME, dto.DESCRICAOINDICADOR, dto.IDUNIDADEMEDIDA,
+                dto.IDFREQUENCIA, dto.PESO, dto.MINIMO, dto.PLANEJADO, dto.DESAFIO, dto.IDCICLO, dto.IDFORMULARIOMETA, dto.IDCELULATRABALHO
+            );
+
+            var resultIndicador = await _ServiceRepresentante.SaveIndicador(Indicador);
+
+            return resultIndicador;
+
+        }
     }
 }
