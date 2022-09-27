@@ -98,7 +98,7 @@ namespace Metas.API.Controllers
         }
 
         // Atializa representante
-        [HttpDelete]
+        [HttpPut]
         [Route("RepresentativeUpdate")]
         public async Task<ActionResult> RepresentativeUpdate(int IDINDICADOR)
         {

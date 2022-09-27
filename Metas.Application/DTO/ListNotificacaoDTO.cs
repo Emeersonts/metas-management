@@ -7,6 +7,6 @@ namespace Metas.Application.DTO
 {
     public class ListNotificacaoDTO
     {
-        public IEnumerable<Notificacao> ListTutorial { get; set; }
+        public IEnumerable<Notificacao> ListNotificacao { get; set; }
     }
 }
