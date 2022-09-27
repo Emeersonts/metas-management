@@ -87,12 +87,13 @@ namespace Metas.Application.Service
                 ututorialDTO.TITULO = result.Rows[i]["TITULO"].ToString();
                 ututorialDTO.IDNOTIFICACAO = (int)result.Rows[i]["IDNOTIFICACAO"];
                 ututorialDTO.PRAZO = (DateTime)result.Rows[i]["PRAZO"];
+                ututorialDTO.DATAPOSTAL = (DateTime)result.Rows[i]["DATAPOSTAL"];
 
                 lnotificacao.Add(ututorialDTO);
 
             }
 
-            listnotificacao.ListTutorial = lnotificacao;
+            listnotificacao.ListNotificacao = lnotificacao;
 
             return listnotificacao;
         }

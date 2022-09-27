@@ -10,5 +10,6 @@ namespace Metas.Domain
         public string DESCRICAO { get; set; }
         public string TITULO { get; set; }
         public DateTime PRAZO { get; set; }
+        public DateTime DATAPOSTAL { get; set; }
     }
 }
