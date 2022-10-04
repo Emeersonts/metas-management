@@ -120,7 +120,7 @@ namespace Metas.Application.Service
         public async Task<int> OnSendForApprovalIndicador(GIndicadorDTTO dto)
         {
             var Indicador = new Metas.Domain.Indicador(dto.IDINDICADOR, dto.NOME, dto.DESCRICAOINDICADOR, dto.IDUNIDADEMEDIDA,
-                dto.IDFREQUENCIA, dto.PESO, dto.MINIMO, dto.PLANEJADO, dto.DESAFIO, dto.IDCICLO, dto.IDFORMULARIOMETA, dto.IDCELULATRABALHO
+                dto.IDFREQUENCIA, dto.PESO, dto.MINIMO, dto.PLANEJADO, dto.DESAFIO, dto.IDCICLO, dto.IDCELULATRABALHO
             );
 
             var resultIndicador = await _ServiceRepresentante.SaveIndicador(Indicador);

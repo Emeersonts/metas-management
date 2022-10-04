@@ -42,45 +42,63 @@ namespace Metas.Application.Service
 
         public async Task<FormularioMetasDTO> OnGetFindMeta(CicloUsuarioDTO dto)
         {
-            int idstatus = 0;
-            string nomestatus = "";
-
             var result = await _ServiceColaborador.GetFindMeta(new SearchcColaborador(dto.ANOCICLO, dto.MES));
 
             FormularioMetasDTO lFormularioMetasDTO = new FormularioMetasDTO();
-            List<MetasDTO> lMetasDTO = new List<MetasDTO>();
+
+            List<FormularioDTO> LformularioDTO = new List<FormularioDTO>();
+
+            string grupo = "";
+            string grupom = "";
 
             for (int i = 0; i < result.Rows.Count; i++)
             {
 
-                MetasDTO ulMetasDTO = new MetasDTO();
-                ulMetasDTO.IDCELULATRABALHO = (int)result.Rows[i]["IDCELULATRABALHO"];
-                ulMetasDTO.MESINICIO = (int)result.Rows[i]["MESINICIO"];
-                ulMetasDTO.NOMEFORMULARIO = result.Rows[i]["NOMEFORMULARIO"].ToString();
-                ulMetasDTO.NOMEINDICADOR = result.Rows[i]["NOMEINDICADOR"].ToString();
-                ulMetasDTO.IDINDICADOR= (int)result.Rows[i]["IDINDICADOR"];
-                ulMetasDTO.NOMEUNIDADEMEDIDA= result.Rows[i]["NOMEUNIDADEMEDIDA"].ToString();
-                ulMetasDTO.DESCRICAO = result.Rows[i]["DESCRICAO"].ToString();
-                ulMetasDTO.PESO = (decimal)result.Rows[i]["PESO"];
-                ulMetasDTO.MINIMO =  (decimal)result.Rows[i]["MINIMO"];
-                ulMetasDTO.PLANEJADO  = (decimal)result.Rows[i]["PLANEJADO"];
-                ulMetasDTO.DESAFIO= (decimal)result.Rows[i]["DESAFIO"];
-                if (result.Rows[i]["RESULTADOAPURADO"] != DBNull.Value)  { ulMetasDTO.RESULTADOAPURADO = (decimal)result.Rows[i]["RESULTADOAPURADO"];}
-                if (result.Rows[i]["SIMULADOAPURADO"] != DBNull.Value) { ulMetasDTO.SIMULADOAPURADO = (decimal)result.Rows[i]["SIMULADOAPURADO"]; }
-                if (result.Rows[i]["DATAAPURACAO"] != DBNull.Value) { ulMetasDTO.DATAAPURACAO = (DateTime)result.Rows[i]["DATAAPURACAO"]; }
-                if (i ==0)
+                if (grupo != (result.Rows[i]["IDFORMULARIOMETA"].ToString() + result.Rows[i]["IDCELULATRABALHO"].ToString()))
                 {
-                    idstatus = (int)result.Rows[i]["IDSTATUS"];
-                    nomestatus = result.Rows[i]["NOMESTATUS"].ToString();
-                }
+                    FormularioDTO uformulariodto = new FormularioDTO();
+                    List<MetasDTO> lMetasDTO = new List<MetasDTO>();
 
-                lMetasDTO.Add(ulMetasDTO);
+                    uformulariodto.IDFORMULARIOMETA = (int)result.Rows[i]["IDFORMULARIOMETA"];
+                    uformulariodto.NOMEFORMULARIO = result.Rows[i]["NOMEFORMULARIO"].ToString();
+                    uformulariodto.IDCELULATRABALHO = (int)result.Rows[i]["IDCELULATRABALHO"];
+                    grupo = (result.Rows[i]["IDFORMULARIOMETA"].ToString() + result.Rows[i]["IDCELULATRABALHO"].ToString());
+                    
+                    for (int j = 0; j < result.Rows.Count; j++)
+                    {
+                        grupom = (result.Rows[j]["IDFORMULARIOMETA"].ToString() + result.Rows[j]["IDCELULATRABALHO"].ToString());
+                        if (grupom == grupo)
+                        {
+                            MetasDTO ulMetasDTO = new MetasDTO();
+                            ulMetasDTO.MESINICIO = (int)result.Rows[j]["MESINICIO"];
+                            ulMetasDTO.NOMEFORMULARIO = result.Rows[j]["NOMEFORMULARIO"].ToString();
+                            ulMetasDTO.NOMEINDICADOR = result.Rows[j]["NOMEINDICADOR"].ToString();
+                            ulMetasDTO.IDINDICADOR = (int)result.Rows[j]["IDINDICADOR"];
+                            ulMetasDTO.NOMEUNIDADEMEDIDA = result.Rows[j]["NOMEUNIDADEMEDIDA"].ToString();
+                            ulMetasDTO.DESCRICAO = result.Rows[j]["DESCRICAO"].ToString();
+                            ulMetasDTO.PESO = (decimal)result.Rows[j]["PESO"];
+                            ulMetasDTO.MINIMO = (decimal)result.Rows[j]["MINIMO"];
+                            ulMetasDTO.PLANEJADO = (decimal)result.Rows[j]["PLANEJADO"];
+                            ulMetasDTO.DESAFIO = (decimal)result.Rows[j]["DESAFIO"];
+                            ulMetasDTO.RESULTADO = (int)result.Rows[j]["RESULTADO"];
+                            ulMetasDTO.IDSTATUS = (int)result.Rows[j]["IDSTATUS"];
+                            ulMetasDTO.NOMESTATUS = result.Rows[j]["NOMESTATUS"].ToString();
+                            if (result.Rows[j]["RESULTADOAPURADO"] != DBNull.Value) { ulMetasDTO.RESULTADOAPURADO = (decimal)result.Rows[j]["RESULTADOAPURADO"]; }
+                            if (result.Rows[j]["SIMULADOAPURADO"] != DBNull.Value) { ulMetasDTO.SIMULADOAPURADO = (decimal)result.Rows[j]["SIMULADOAPURADO"]; }
+                            if (result.Rows[j]["DATAAPURACAO"] != DBNull.Value) { ulMetasDTO.DATAAPURACAO = (DateTime)result.Rows[j]["DATAAPURACAO"]; }
+                            lMetasDTO.Add(ulMetasDTO);
+
+                        }
+                    }
+
+                    uformulariodto.ListMeta = lMetasDTO;
+                    LformularioDTO.Add(uformulariodto);
+                    
+                }
             }
 
-            lFormularioMetasDTO.idstatus = idstatus;
-            lFormularioMetasDTO.nomestatus = nomestatus;
+            lFormularioMetasDTO.Listform = LformularioDTO;
 
-            lFormularioMetasDTO.ListMeta = lMetasDTO;
             return lFormularioMetasDTO;
         }
 

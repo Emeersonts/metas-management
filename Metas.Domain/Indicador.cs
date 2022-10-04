@@ -21,7 +21,7 @@ namespace Metas.Domain
 
         public Indicador(int idindicador, string nome, string descricaoindicador, int idunidademedida,
             int idfrequencia, decimal peso, decimal minimo, decimal planejado, decimal desafio, int idciclo,
-            int idforumlariometa, int idcelulatrabalho
+            int idcelulatrabalho
         )
         {
             IDINDICADOR = idindicador;
@@ -34,7 +34,6 @@ namespace Metas.Domain
             PLANEJADO = planejado;
             DESAFIO = desafio;
             IDCICLO = idciclo;
-            IDFORMULARIOMETA = idforumlariometa;
             IDCELULATRABALHO = idcelulatrabalho;
         }
 

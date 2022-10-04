@@ -60,6 +60,7 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        //  Salvar indicadores       
         [HttpPost]
         [Route("SendForApprovalIndicador")]
         public async Task<ActionResult> SendForApprovalIndicador(GIndicadorDTTO dto)
