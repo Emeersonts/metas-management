@@ -127,11 +127,6 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = indicador.IDCICLO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@IDFORMULARIOMETA", SqlDbType.Int);
-            parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = indicador.IDFORMULARIOMETA;
-
-            cont++;
             parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = indicador.IDCELULATRABALHO;

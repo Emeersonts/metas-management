@@ -2,9 +2,11 @@
 using Metas.Application.Interface;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Metas.API.Controllers
@@ -39,6 +41,7 @@ namespace Metas.API.Controllers
         [EnableCors("CorsPolicy")]
         [HttpGet]
         [Route("ListCiclo")]
+        [SwaggerResponse((int)HttpStatusCode.OK, "Endpoint para preparar para aprovação")]
         public async Task<ActionResult> GetListCiclo()
         {
             var result = await _applicationServiceCiclo.OnGetListCiclo();

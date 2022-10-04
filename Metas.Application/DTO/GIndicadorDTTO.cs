@@ -16,7 +16,6 @@ namespace Metas.Application.DTO
         public decimal PLANEJADO { get; set; }
         public decimal DESAFIO { get; set; }
         public int IDCICLO { get; set; }
-        public int IDFORMULARIOMETA { get; set; }
         public int IDCELULATRABALHO { get; set; }
 
     }
