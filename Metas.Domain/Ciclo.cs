@@ -8,6 +8,5 @@ namespace Metas.Domain
     {
         public int IDCICLO { get; set; }
         public int ANOCICLO { get; set; }
-        public string NOME { get; set; }
     }
 }
