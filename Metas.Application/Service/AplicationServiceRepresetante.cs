@@ -94,6 +94,7 @@ namespace Metas.Application.Service
                 uLindicador.IDFREQUENCIA = (int)resultIndicador.Rows[J]["DESAFIO"];
                 uLindicador.IDINDICADOR = (int)resultIndicador.Rows[J]["IDINDICADOR"];
                 uLindicador.IDUNIDADEMEDIDA = (int)resultIndicador.Rows[J]["IDUNIDADEMEDIDA"];
+                uLindicador.NOMEUNIDADEMEDIDA = resultIndicador.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
                 uLindicador.NOMEINDICADOR = resultIndicador.Rows[J]["NOMEINDICADOR"].ToString();
                 uLindicador.NOME = resultIndicador.Rows[J]["IDINDICADOR"].ToString();
                 uLindicador.MINIMO = 0;

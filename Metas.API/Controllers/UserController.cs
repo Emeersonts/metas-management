@@ -46,7 +46,9 @@ namespace Metas.API.Controllers
         {
             var pk = new Metas.Profile.pkxd(1, 1, "es", 1,0);
 
-            return Task.FromResult(1);
+            int result =1;
+
+            return Task.FromResult(result);
             
         }
 
