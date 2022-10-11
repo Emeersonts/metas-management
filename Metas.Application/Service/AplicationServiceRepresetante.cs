@@ -78,6 +78,35 @@ namespace Metas.Application.Service
 
         }
 
+        public async Task<ForMetaRelatorioDTO> OnGetGoalsReport(int CICLO)
+        {
+            ForMetaRelatorioDTO lForIndicador = new ForMetaRelatorioDTO();
+
+            var resultIndicador = await _ServiceRepresentante.GetGoalsReport(CICLO);
+            List<MetasDTO> lIndicador = new List<MetasDTO>();
+
+            for (int J = 0; J < resultIndicador.Rows.Count; J++)
+            {
+                MetasDTO uLindicador = new MetasDTO();
+                
+                uLindicador.NOMEINDICADOR = resultIndicador.Rows[J]["NOMEINDICADOR"].ToString();
+                uLindicador.NOMEUNIDADEMEDIDA = resultIndicador.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
+                uLindicador.DESCRICAO = resultIndicador.Rows[J]["DESCRICAO"].ToString();
+                uLindicador.PESO = (decimal)resultIndicador.Rows[J]["PESO"];
+                uLindicador.MINIMO = (decimal)resultIndicador.Rows[J]["MINIMO"];
+                uLindicador.PLANEJADO = (decimal)resultIndicador.Rows[J]["PLANEJADO"];
+                uLindicador.DESAFIO = (decimal)resultIndicador.Rows[J]["DESAFIO"];
+                uLindicador.RESULTADOAPURADO = (decimal)resultIndicador.Rows[J]["RESULTADOAPURADO"];
+                uLindicador.MESINICIO = (int)resultIndicador.Rows[J]["MES"];
+                
+                lIndicador.Add(uLindicador);
+            }
+
+            lForIndicador.ListMeta = lIndicador;
+
+            return lForIndicador;
+        }
+
         public async Task<FormIndicador> OnGetListIndicatorAdd(EIndicadorAddDTO dto)
         {
             FormIndicador lForIndicador = new FormIndicador();
@@ -111,6 +140,32 @@ namespace Metas.Application.Service
 
         }
 
+        public async Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto)
+        {
+            ForSolicitacaoDTO lForsolicitacao = new ForSolicitacaoDTO();
+
+            var resultSolicitacao = await _ServiceRepresentante.GetListsolicitation(new SearchcSolicitgacaoDTO(dto.BUSCA,dto.ORIGEM,dto.RESPONSACAL,dto.STATUS));
+            List<SolicitacaoDTO> lsoliocitacao = new List<SolicitacaoDTO>();
+
+            for (int J = 0; J < resultSolicitacao.Rows.Count; J++)
+            {
+                SolicitacaoDTO uSolicitacao = new SolicitacaoDTO();
+
+                uSolicitacao.DESCRICAO = resultSolicitacao.Rows[J]["DESCRICAO"].ToString();
+                if (resultSolicitacao.Rows[J]["CONCLUSAO"] != DBNull.Value) { uSolicitacao.CONCLUSAO = (DateTime)resultSolicitacao.Rows[J]["CONCLUSAO"]; }
+                uSolicitacao.ABERTURA = (DateTime)resultSolicitacao.Rows[J]["ABERTURA"];
+                uSolicitacao.ORIGEM = resultSolicitacao.Rows[J]["ORIGEM"].ToString();
+                uSolicitacao.RESPONSAVEL = resultSolicitacao.Rows[J]["RESPONSAVEL"].ToString();
+                uSolicitacao.STATUS = resultSolicitacao.Rows[J]["STATUS"].ToString();
+                uSolicitacao.TITULO = resultSolicitacao.Rows[J]["TITULO"].ToString();
+                lsoliocitacao.Add(uSolicitacao);
+            }
+
+            lForsolicitacao.ListSolicitacao = lsoliocitacao;
+
+            return lForsolicitacao;
+        }
+
         public async Task<int> OnRemoveIndicador(int idindicador)
         {
             var resultIndicador = await _ServiceRepresentante.RemoveIndicador(idindicador);
@@ -128,6 +183,29 @@ namespace Metas.Application.Service
 
             return resultIndicador;
 
+        }
+                
+        async Task<ForCronogramaDTO> IAplicationServiceRepresetante.OnTimeline()
+        {
+            ForCronogramaDTO lCronogramaDTO = new ForCronogramaDTO();
+
+            var resultAfast = await _ServiceRepresentante.Timeline();
+            List<CronogramaDTO> ListCronogramaDTO = new List<CronogramaDTO>();
+
+            for (int J = 0; J < resultAfast.Rows.Count; J++)
+            {
+                CronogramaDTO uCronogramaDTO = new CronogramaDTO();
+                uCronogramaDTO.DATAPROGRAMADA = (DateTime)resultAfast.Rows[J]["DATAPROGRAMADA"];
+                uCronogramaDTO.DESCRICAO = resultAfast.Rows[J]["DESCRICAO"].ToString();
+                uCronogramaDTO.TITULO = resultAfast.Rows[J]["TITULO"].ToString();
+
+                ListCronogramaDTO.Add(uCronogramaDTO);
+
+            }
+            
+            lCronogramaDTO.Listform = ListCronogramaDTO;
+
+            return lCronogramaDTO;
         }
     }
 }

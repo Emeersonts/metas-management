@@ -12,7 +12,7 @@ namespace Metas.Infrastructure.Interface
     {
         Task<DataTable> RGetFindMeta(SearchcColaborador dto);
         Task<DataTable> RGetFindMetaResult(SearchcColaborador dto);
-        Task<DataTable> RGetFindAfastamento(SearchcColaborador dto);
+        Task<DataTable> RGetFindAfastamento(int ciclo);
 
     }
 }

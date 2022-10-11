@@ -26,11 +26,11 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<DataTable> GetFindGetListProgressStatus(SearchcColaborador parameters)
+        public async Task<DataTable> GetFindGetListProgressStatus(int CICLO)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetFindGetListProgressStatus(parameters);
+            var result = await _repository.RGetFindGetListProgressStatus(CICLO);
 
             return result;
         }

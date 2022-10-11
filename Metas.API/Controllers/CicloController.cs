@@ -1,6 +1,7 @@
 ﻿using Metas.Application.DTO;
 using Metas.Application.Interface;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
@@ -12,7 +13,6 @@ using System.Threading.Tasks;
 namespace Metas.API.Controllers
 {
     [ApiController]
-    //[Route("Ciclo/")]
     [Route("[controller]")]
 
     public class CicloController : Controller
@@ -26,9 +26,10 @@ namespace Metas.API.Controllers
         // Lista o progresso do status de um ciclo
         [HttpPost]
         [Route("ListProgressStatus")]
-        public async Task<ActionResult> GetListProgressStatus (CicloUsuarioDTO dto)
+        public async Task<ActionResult> GetListProgressStatus (int CICLO)
         {
-            var result = await _applicationServiceCiclo.OnGetListProgressStatus(dto); 
+
+            var result = await _applicationServiceCiclo.OnGetListProgressStatus(CICLO); 
             if (result == null)
             {
                 return NotFound();

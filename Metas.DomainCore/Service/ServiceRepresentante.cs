@@ -37,11 +37,29 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
+        public async Task<DataTable> GetGoalsReport(int ciclo)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetGoalsReport(ciclo);
+
+            return result;
+        }
+
         public async Task<DataTable> GetListIndicatorAdd(SearchcIndicadorDTO parameters)
         {
             DataTable ty = new DataTable();
 
             var result = await _repository.RGetListIndicatorAdd(parameters);
+
+            return result;
+        }
+
+        public async Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetListsolicitation(parameters);
 
             return result;
         }
@@ -55,6 +73,15 @@ namespace Metas.DomainCore.Service
         public async Task<int> SaveIndicador(Indicador parameters)
         {
             var result = await _repository.RSaveIndicador(parameters);
+            return result;
+        }
+
+        public async Task<DataTable> Timeline()
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RTimeline();
+
             return result;
         }
     }

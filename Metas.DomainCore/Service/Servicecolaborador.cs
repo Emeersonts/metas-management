@@ -19,11 +19,11 @@ namespace Metas.DomainCore.Service
             this._repository = repository;
         }
 
-        public async Task<DataTable> GetFindAfastamento(SearchcColaborador parameters)
+        public async Task<DataTable> GetFindAfastamento(int CICLO)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetFindAfastamento(parameters);
+            var result = await _repository.RGetFindAfastamento(CICLO);
 
             return result;
 

@@ -17,11 +17,11 @@ namespace Metas.Application.Service
             this._ServiceColaborador = serviceColaborador;
         }
 
-        public async Task<FormularioResultadoMeta> OnGetFindAfastamento(CicloUsuarioDTO dto)
+        public async Task<FormularioResultadoMeta> OnGetFindAfastamento(int CICLO)
         {
             FormularioResultadoMeta lFormularioResultadoMetasDTO = new FormularioResultadoMeta();
 
-            var resultAfast = await _ServiceColaborador.GetFindAfastamento(new SearchcColaborador(dto.ANOCICLO));
+            var resultAfast = await _ServiceColaborador.GetFindAfastamento(CICLO);
             List<AfastamentDTO> lAfastamentoDTO = new List<AfastamentDTO>();
 
             for (int J = 0; J < resultAfast.Rows.Count; J++)

@@ -13,7 +13,7 @@ namespace Metas.Infrastructure.Repository
 {
     public class RepositoryColaborador : IRepositoryColaborador
     {
-        async Task<DataTable> IRepositoryColaborador.RGetFindAfastamento(SearchcColaborador dto)
+        async Task<DataTable> IRepositoryColaborador.RGetFindAfastamento(int CICLO)
         {
             
             int cont = 0;
@@ -44,7 +44,7 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = dto.ANOCICLO;
+            parametro[cont].Value = CICLO;
 
             ClsData pk = new ClsData();
 

@@ -24,6 +24,30 @@ namespace Metas.Application.Service
             await _ServiceUser.DeactiveTutorial(tutorialusuario);
         }
 
+        public async Task<LisTutorialDTO> OnGetGetCulture()
+        {
+            var result = await _ServiceUser.GetGetCulture();
+
+            LisTutorialDTO listtutorial = new LisTutorialDTO();
+            List<Tutorial> ltutorial = new List<Tutorial>();
+
+            for (int i = 0; i < result.Rows.Count; i++)
+            {
+                Tutorial ututorialDTO = new Tutorial();
+
+                ututorialDTO.ENDERECO = result.Rows[i]["ENDERECO"].ToString();
+                ututorialDTO.TITULO = result.Rows[i]["TITULO"].ToString();
+
+                ltutorial.Add(ututorialDTO);
+
+            }
+
+            listtutorial.ListTutorial = ltutorial;
+
+            return listtutorial;
+
+        }
+
         public async Task<ListUnidadeMedidaDTO> OnGetListMeasure()
         {
             var result = await _ServiceUser.GetListMeasure();

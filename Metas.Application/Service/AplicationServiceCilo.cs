@@ -43,9 +43,9 @@ namespace Metas.Application.Service
 
         }
 
-        public async Task<ListStatusAtribuidoDTO> OnGetListProgressStatus(CicloUsuarioDTO dto)
+        public async Task<ListStatusAtribuidoDTO> OnGetListProgressStatus(int CICLO)
         {
-            var result = await _ServiceCiclo.GetFindGetListProgressStatus(new SearchcColaborador(dto.ANOCICLO, dto.MES));
+            var result = await _ServiceCiclo.GetFindGetListProgressStatus(CICLO);
 
             ListStatusAtribuidoDTO liststatusatribuido = new ListStatusAtribuidoDTO();
             List<StatusAtribuido> lstatusAtribuido = new List<StatusAtribuido>();

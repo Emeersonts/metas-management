@@ -9,7 +9,7 @@ namespace Metas.DomainCore.Interface
 {
     public interface IServiceCilo
     {
-        Task<DataTable> GetFindGetListProgressStatus(SearchcColaborador parameters);
+        Task<DataTable> GetFindGetListProgressStatus(int ciclo);
         Task<DataTable> GetFindGetListCiclo();
     }
 }

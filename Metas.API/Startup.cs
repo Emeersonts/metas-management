@@ -39,26 +39,26 @@ namespace Metas.API
             
             
             //nivekl1
-            services.AddScoped<IAplicationServiceCliente, AplicationServiceCliente>();
             services.AddScoped<IAplicationServiceColaborador, AplicationServiceColaborador>();
             services.AddScoped<IAplicationServiceCiclo, AplicationServiceCilo>();
             services.AddScoped<IAplicationServiceUser, AplicationServiceUser>();
             services.AddScoped<IAplicationServiceRepresetante, AplicationServiceRepresetante>();
+            services.AddScoped<IAplcationServiceGestor, AplcationServiceGestor>();
             //
 
             //nivel2
-            services.AddScoped<IServiceCliente, ServiceCliente>();
             services.AddScoped<IServiceColaborador, Servicecolaborador>();
             services.AddScoped<IServiceCilo, ServiceCiclo>();
             services.AddScoped<IServiceUser, ServiceUser>();
             services.AddScoped<IServiceRepresentante, ServiceRepresentante>();
+            services.AddScoped<IServiceGestor, ServiceGestor>();
 
             //* nivek 3
-            services.AddScoped<IRepositoryCliente, RepositoryCliente>();
             services.AddScoped<IRepositoryColaborador, RepositoryColaborador>();
             services.AddScoped<IRepositoryCiclo, RepositoryCiclo>();
             services.AddScoped<IRepositoryUser, RepositoryUser>();
             services.AddScoped<IRepositoryRepresentante, RepositoryRepresentante>();
+            services.AddScoped<IRepositoryGestor,RepositoryGestor>();
 
             services.AddSwaggerGen();
             services.AddSwaggerGen(c =>
@@ -96,10 +96,6 @@ namespace Metas.API
 
         }
 
-
-
-
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -125,8 +121,10 @@ namespace Metas.API
 
 
             //cookies
+            // Quem é você?
             app.UseAuthentication();
-
+            // Verifica Permissões
+            app.UseAuthorization();
 
             // cors
             app.UseCors("CorsPolicy");
@@ -134,7 +132,6 @@ namespace Metas.API
             {
                 endpoints.MapControllers();
             });
-
 
             app.UseEndpoints(endpoints =>
             {

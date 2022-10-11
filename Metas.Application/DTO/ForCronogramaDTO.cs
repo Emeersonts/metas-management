@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Metas.Application.DTO
 {
-    public class FormularioMetasDTO
+    public class ForCronogramaDTO
     {
-        public IEnumerable<FormularioDTO> Listform { get; set; }
+        public IEnumerable<CronogramaDTO> Listform { get; set; }
     }
 }

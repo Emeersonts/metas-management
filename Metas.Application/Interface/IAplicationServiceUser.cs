@@ -9,6 +9,7 @@ namespace Metas.Application.Interface
     public interface IAplicationServiceUser
     {
         Task<LisTutorialDTO> OnGetTutorialByUser();
+        Task<LisTutorialDTO> OnGetGetCulture();
         Task<ListNotificacaoDTO> OnGetUserNotification();
         Task OnDeactiveTutorial(TutorialUsuarioDTO dto);
         Task<ListFrequenciaDTO> OnGetListFrequency();
