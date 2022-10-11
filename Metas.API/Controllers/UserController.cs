@@ -2,12 +2,14 @@
 using Metas.Application.Interface;
 using Metas.Application.Service;
 using Metas.Domain;
+using Metas.Profile;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,9 @@ namespace Metas.API.Controllers
             this._applicationServiceUser = ApplicationServiceUser;
         }
 
+        private readonly IMemoryCache _memorychache;
+        private const string COUNTRYES_KEY = "cc";
+
         //[Authorize]
         //public ActionResult Usuarios()
         //{
@@ -44,13 +49,40 @@ namespace Metas.API.Controllers
         [Route("WhichUser")]
         public  Task<int> GetListCiclo()
         {
-            var pk = new Metas.Profile.pkxd(1, 1, "es", 1,0);
 
+            var userInfo = new Metas.Profile.pkxd(1, 1, "es", 1, 0);
+            {
+            };
+
+            var usuario = "Anônimo";
+            var autenticado = true;
+            usuario = HttpContext.User.Identity.Name;
+
+            //var autenticado = false;
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                usuario = HttpContext.User.Identity.Name;
+                autenticado = true;
+            }
+            else
+            {
+                usuario = "Não Logado";
+                autenticado = false;
+            }
+                        
             int result =1;
 
             return Task.FromResult(result);
             
         }
+
+        //[Authorize]
+        //public ActionResult Usuarios()
+        //{
+        //    var usuario = new pkxd(1, 1, "es", 1, 0);
+        //    //return usuario();
+        //    //return View(usuario.GetUsuarios());
+        //}
 
         // lista tutorial
         [HttpGet]
@@ -66,6 +98,19 @@ namespace Metas.API.Controllers
 
         }
 
+        //Cultura
+        [HttpGet]
+        [Route("Culture")]
+        public async Task<ActionResult> GetCulture()
+        {
+            var result = await _applicationServiceUser.OnGetGetCulture();
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+
+        }
         // Lista notificações do usuário
         [HttpGet]
         [Route("ListNotification")]

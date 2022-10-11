@@ -10,6 +10,7 @@ namespace Metas.Infrastructure.Interface
     public interface IRepositoryUser
     {
         Task<DataTable> RGetTutorialByUser();
+        Task<DataTable> RGetCulture();
         Task<DataTable> RGetUserNotification();
         Task<int> RDeactiveTutorial(TutorialUsuario tutorialusuario);
         Task<DataTable> RGetListFrequency();

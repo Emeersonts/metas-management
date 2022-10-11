@@ -61,6 +61,7 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        //Lista de resultados das metas emequipes anterriores
         [HttpPost]
         [Route("ListMetaResultadoPrevius")]
         public async Task<ActionResult> GetMetasPreviusByUsuarioCicloResult(CicloUsuarioDTO dto)
@@ -73,12 +74,13 @@ namespace Metas.API.Controllers
             }
             return Ok(result);
         }
-        //Lista afastamento do colaborador
+
+        //Lista de afastamento do colaborador
         [HttpPost]
         [Route("ListRemoval")]
-        public async Task<ActionResult> GetAfastamentoByUsuarioCiclo(CicloUsuarioDTO dto)
+        public async Task<ActionResult> GetAfastamentoByUsuarioCiclo(int CICLLO)
         {
-            var result = await _applicationServiceColaborador.OnGetFindAfastamento(dto);
+            var result = await _applicationServiceColaborador.OnGetFindAfastamento(CICLLO);
             if (result == null)
             {
                 return NotFound();

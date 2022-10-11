@@ -12,6 +12,87 @@ namespace Metas.Infrastructure.Repository
 {
     public class RepositoryRepresentante : IRepositoryRepresentante
     {
+        async public Task<DataTable> RGetGoalsReport(int ciclo)
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[03];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = ciclo;
+
+            ClsData pk = new ClsData();
+
+            var ui = await pk.ExecReader(parametro, "[SMetas].[C_METARELATORIO]");
+
+            return ui;
+        }
+
+        async public Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto)
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[08];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
+            parametro[cont].IsNullable = false;
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = Metas.Profile.pkxd.function;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
+            parametro[cont].IsNullable = false;
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = Metas.Profile.pkxd.user;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@BUSCA", SqlDbType.VarChar);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = dto.BUSCA;
+
+            cont++;
+            parametro[cont] = new SqlParameter("ORIGEM", SqlDbType.Bit);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = dto.ORIGEM;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@RESPONSAVEL", SqlDbType.Bit);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = dto.RESPONSACAL;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@STATUS", SqlDbType.Bit);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = dto.STATUS;
+
+            ClsData pk = new ClsData();
+
+            var ui = await pk.ExecReader(parametro, "[SMetas].[C_SOLICITACAO]");
+
+            return ui;
+        }
+
         async public Task<int> RRemoveIndicador(int IDINDICADOR)
         {
             int cont = 0;
@@ -135,7 +216,7 @@ namespace Metas.Infrastructure.Repository
             var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_INDICADOR]");
 
             return ui;
-    }
+        }
 
         async Task<DataTable> IRepositoryRepresentante.RGetFindColaborador(SearchcRepresentanteDTO dto)
         {
@@ -261,6 +342,33 @@ namespace Metas.Infrastructure.Repository
             ClsData pk = new ClsData();
 
             var ui = await pk.ExecReader(parametro, "[SMetas].[C_INDICADORES]");
+
+            return ui;
+        }
+
+        async Task<DataTable> IRepositoryRepresentante.RTimeline()
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[03];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            cont++; 
+            parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = Metas.Profile.pkxd.user;
+
+            ClsData pk = new ClsData();
+
+            var ui = await pk.ExecReader(parametro, "[SMetas].[C_CRONOGRAMA]");
 
             return ui;
         }

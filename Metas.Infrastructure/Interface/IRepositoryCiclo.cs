@@ -9,7 +9,7 @@ namespace Metas.Infrastructure.Interface
 {
     public interface IRepositoryCiclo
     {
-        Task<DataTable> RGetFindGetListProgressStatus(SearchcColaborador dto);
+        Task<DataTable> RGetFindGetListProgressStatus(int CICLO);
 
         Task<DataTable> RGetFindGetListCiclo();
     }

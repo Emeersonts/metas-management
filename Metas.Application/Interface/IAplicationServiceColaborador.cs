@@ -10,6 +10,6 @@ namespace Metas.Application.Interface
     {
         Task<FormularioMetasDTO> OnGetFindMeta(CicloUsuarioDTO dto);
         Task<ForMetasResultDTO> OnGetFindMetaResult(CicloUsuarioDTO dto);
-        Task<FormularioResultadoMeta> OnGetFindAfastamento(CicloUsuarioDTO dto);
+        Task<FormularioResultadoMeta> OnGetFindAfastamento(int ciclo);
     }
 }

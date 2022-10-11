@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Metas.Application.DTO
 {
-    public class FormularioMetasDTO
+    public class ForMetaRelatorioDTO
     {
-        public IEnumerable<FormularioDTO> Listform { get; set; }
+        public IEnumerable<MetasDTO> ListMeta { get; set; }
     }
 }

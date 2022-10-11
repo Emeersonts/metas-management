@@ -29,6 +29,15 @@ namespace Metas.DomainCore.Service
             }
         }
 
+        public async Task<DataTable> GetGetCulture()
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetCulture();
+
+            return result;
+        }
+
         public async Task<DataTable> GetListFrequency()
         {
             DataTable ty = new DataTable();

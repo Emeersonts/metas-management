@@ -10,6 +10,7 @@ namespace Metas.DomainCore.Interface
     public interface IServiceUser
     {
         Task<DataTable> GetTutorialByUser();
+        Task<DataTable> GetGetCulture();
         Task<DataTable> GetUserNotification();
         Task DeactiveTutorial(TutorialUsuario tutotialusuairo);
         Task<DataTable> GetListFrequency();

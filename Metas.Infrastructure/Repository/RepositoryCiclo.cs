@@ -28,7 +28,7 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async Task<DataTable> IRepositoryCiclo.RGetFindGetListProgressStatus(SearchcColaborador dto)
+        async Task<DataTable> IRepositoryCiclo.RGetFindGetListProgressStatus(int ciclo)
         {
             int cont = 0;
 
@@ -36,7 +36,8 @@ namespace Metas.Infrastructure.Repository
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.type;
+            parametro[cont].Value = 0;
+            //parametro[cont].Value = Metas.Profile.pkxd.type;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
@@ -59,7 +60,7 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = dto.ANOCICLO;
+            parametro[cont].Value = ciclo;
 
             ClsData pk = new ClsData();
 
@@ -69,4 +70,5 @@ namespace Metas.Infrastructure.Repository
 
         }
     }
+
 }

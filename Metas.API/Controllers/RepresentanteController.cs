@@ -47,6 +47,34 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        // Relatorio de metas
+        [HttpPost]
+        [Route("GoalsReport")]
+        public async Task<ActionResult> GetGoalsReport(int CICLO)
+        {
+            Metas.Profile.pkxd.type = 1;
+            var result = await _applicationServiceRepresentante.OnGetGoalsReport(CICLO);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
+        //Lista de solicitações
+        [HttpPost]
+        [Route("Listsolicitation")]
+        public async Task<ActionResult> GetListsolicitation(ESolicitacaoDTO dto)
+        {
+            Metas.Profile.pkxd.type = 1;
+            var result = await _applicationServiceRepresentante.OnGetListsolicitation(dto);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
         // Lista de colaboradores (Time)
         [HttpPost]
         [Route("ListTeam")]
@@ -59,6 +87,21 @@ namespace Metas.API.Controllers
             }
             return Ok(result);
         }
+
+        // Cronograma
+        [HttpPost]
+        [Route("Timeline")]
+        public async Task<ActionResult> Timeline()
+        {
+            var result = await _applicationServiceRepresentante.OnTimeline();
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
+
 
         //  Salvar indicadores       
         [HttpPost]

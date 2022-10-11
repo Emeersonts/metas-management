@@ -12,7 +12,10 @@ namespace Metas.Infrastructure.Interface
     {
         Task<DataTable> RGetFindIndicatorSAP(SearchcRepresentanteDTO dto);
         Task<DataTable> RGetListIndicatorAdd(SearchcIndicadorDTO dto);
+        Task<DataTable> RGetGoalsReport(int ciclo);
+        Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto);
         Task<DataTable> RGetFindColaborador(SearchcRepresentanteDTO dto);
+        Task<DataTable> RTimeline();
         Task<int> RSaveIndicador(Indicador indicador);
         Task<int> RRemoveIndicador(int IDINDICADOR);
     }
