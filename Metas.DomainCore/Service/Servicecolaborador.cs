@@ -38,14 +38,15 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<DataTable> GetFindMetaResult(SearchcColaborador parameters)
+        public async Task<DataTable> GetFindMetaResult(int anociclo)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetFindMetaResult(parameters);
+            var result = await _repository.RGetFindMetaResult(anociclo);
 
             return result;
 
         }
+
     }
 }

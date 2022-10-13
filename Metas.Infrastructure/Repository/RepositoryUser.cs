@@ -77,6 +77,13 @@ namespace Metas.Infrastructure.Repository
 
             SqlParameter[] parametro = new SqlParameter[03];
 
+            parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
+            parametro[cont].IsNullable = false;
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 1;
+            //parametro[cont].Value = Metas.Profile.pkxd.user;
+
+            cont++;
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = Metas.Profile.pkxd.type;

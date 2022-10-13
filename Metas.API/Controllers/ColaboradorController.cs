@@ -51,9 +51,9 @@ namespace Metas.API.Controllers
         // lista de resultado das metas do colaborador
         [HttpPost]
         [Route("ListMetaResultado")]
-        public async Task<ActionResult> GetMetasByUsuarioCicloResult(CicloUsuarioDTO dto)
+        public async Task<ActionResult> GetMetasByUsuarioCicloResult(int ANOCICLO)
         {
-            var result = await _applicationServiceColaborador.OnGetFindMetaResult(dto);
+            var result = await _applicationServiceColaborador.OnGetFindMetaResult(ANOCICLO);
             if (result == null)
             {
                 return NotFound();
@@ -64,10 +64,10 @@ namespace Metas.API.Controllers
         //Lista de resultados das metas emequipes anterriores
         [HttpPost]
         [Route("ListMetaResultadoPrevius")]
-        public async Task<ActionResult> GetMetasPreviusByUsuarioCicloResult(CicloUsuarioDTO dto)
+        public async Task<ActionResult> GetMetasPreviusByUsuarioCicloResult(int anociclo)
         {
             Metas.Profile.pkxd.type = 1;
-            var result = await _applicationServiceColaborador.OnGetFindMetaResult(dto);
+            var result = await _applicationServiceColaborador.OnGetFindMetaResult(anociclo);
             if (result == null)
             {
                 return NotFound();
