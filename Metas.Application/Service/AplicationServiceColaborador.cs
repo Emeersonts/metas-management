@@ -62,6 +62,9 @@ namespace Metas.Application.Service
                     uformulariodto.IDFORMULARIOMETA = (int)result.Rows[i]["IDFORMULARIOMETA"];
                     uformulariodto.NOMEFORMULARIO = result.Rows[i]["NOMEFORMULARIO"].ToString();
                     uformulariodto.IDCELULATRABALHO = (int)result.Rows[i]["IDCELULATRABALHO"];
+                    uformulariodto.IDSTATUS = (int)result.Rows[i]["IDSTATUS"];
+                    uformulariodto.NOMESTATUS = result.Rows[i]["NOMESTATUS"].ToString();
+
                     grupo = (result.Rows[i]["IDFORMULARIOMETA"].ToString() + result.Rows[i]["IDCELULATRABALHO"].ToString());
                     
                     for (int j = 0; j < result.Rows.Count; j++)
@@ -81,19 +84,15 @@ namespace Metas.Application.Service
                             ulMetasDTO.PLANEJADO = (decimal)result.Rows[j]["PLANEJADO"];
                             ulMetasDTO.DESAFIO = (decimal)result.Rows[j]["DESAFIO"];
                             ulMetasDTO.RESULTADO = (int)result.Rows[j]["RESULTADO"];
-                            ulMetasDTO.IDSTATUS = (int)result.Rows[j]["IDSTATUS"];
-                            ulMetasDTO.NOMESTATUS = result.Rows[j]["NOMESTATUS"].ToString();
                             if (result.Rows[j]["RESULTADOAPURADO"] != DBNull.Value) { ulMetasDTO.RESULTADOAPURADO = (decimal)result.Rows[j]["RESULTADOAPURADO"]; }
                             if (result.Rows[j]["SIMULADOAPURADO"] != DBNull.Value) { ulMetasDTO.SIMULADOAPURADO = (decimal)result.Rows[j]["SIMULADOAPURADO"]; }
                             if (result.Rows[j]["DATAAPURACAO"] != DBNull.Value) { ulMetasDTO.DATAAPURACAO = (DateTime)result.Rows[j]["DATAAPURACAO"]; }
                             lMetasDTO.Add(ulMetasDTO);
-
                         }
                     }
 
                     uformulariodto.ListMeta = lMetasDTO;
                     LformularioDTO.Add(uformulariodto);
-                    
                 }
             }
 
