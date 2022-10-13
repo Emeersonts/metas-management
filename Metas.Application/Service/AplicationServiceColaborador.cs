@@ -101,9 +101,9 @@ namespace Metas.Application.Service
             return lFormularioMetasDTO;
         }
 
-        public async Task<ForMetasResultDTO> OnGetFindMetaResult(CicloUsuarioDTO dto)
+        public async Task<ForMetasResultDTO> OnGetFindMetaResult(int ANOCICLO)
         {
-            var result = await _ServiceColaborador.GetFindMetaResult(new SearchcColaborador(dto.ANOCICLO, dto.MES));
+            var result = await _ServiceColaborador.GetFindMetaResult(ANOCICLO);
 
             ForMetasResultDTO lFormularioMetasResultDTO = new ForMetasResultDTO();
             List<MetaResultDTO> lMetasResultDTO = new List<MetaResultDTO>();

@@ -11,7 +11,7 @@ namespace Metas.Infrastructure.Interface
     public interface IRepositoryColaborador
     {
         Task<DataTable> RGetFindMeta(SearchcColaborador dto);
-        Task<DataTable> RGetFindMetaResult(SearchcColaborador dto);
+        Task<DataTable> RGetFindMetaResult(int ANOCICLO);
         Task<DataTable> RGetFindAfastamento(int ciclo);
 
     }
