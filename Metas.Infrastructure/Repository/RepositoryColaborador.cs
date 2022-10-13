@@ -22,13 +22,14 @@ namespace Metas.Infrastructure.Repository
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.type;
+            parametro[cont].Value = 0;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.user;
+            parametro[cont].Value = 1;
+            //parametro[cont].Value = Metas.Profile.pkxd.user;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
@@ -67,7 +68,8 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.user;
+            //parametro[cont].Value = Metas.Profile.pkxd.user;
+            parametro[cont].Value = 1;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
@@ -111,7 +113,8 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.user;
+            parametro[cont].Value = 1;
+            //parametro[cont].Value = Metas.Profile.pkxd.user;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
