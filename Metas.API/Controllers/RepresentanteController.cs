@@ -61,6 +61,20 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+
+        // Lista de indicadores semestral para envio de pedido de aprovação
+        [HttpPost]
+        [Route("AddSIndicator")]
+        public async Task<ActionResult> GetAddSIndicator(int CICLO)
+        {
+            Metas.Profile.pkxd.type = 1;
+            var result = await _applicationServiceRepresentante.OnGetAddSIndicator(CICLO);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
         //Lista de solicitações
         [HttpPost]
         [Route("Listsolicitation")]
@@ -136,7 +150,7 @@ namespace Metas.API.Controllers
             }
             else
             {
-                return Ok("Erro ao Remover idicador. Está em uso, não pode ser removido <>");
+                return Ok(result + "-Erro ao Remover idicador. Está em uso, não pode ser removido <>");
             }
 
         }

@@ -86,18 +86,12 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.type;
+            parametro[cont].Value = 0;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Output;
             parametro[cont].Value = 0;
-
-            cont++;
-            parametro[cont] = new SqlParameter("@IDPERFIL", SqlDbType.Int);
-            parametro[cont].IsNullable = false;
-            parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.profile;
 
             ClsData pk = new ClsData();
 

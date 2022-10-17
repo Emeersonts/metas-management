@@ -115,9 +115,10 @@ namespace Metas.Application.Service
                 ulMetasResulDTO.RESULTADOCLICLO = result.Rows[i]["RESULTADOCLICLO"].ToString();
                 ulMetasResulDTO.APURADO = (decimal)result.Rows[i]["APURADO"];
                 ulMetasResulDTO.MESINICIO = (int)result.Rows[i]["MESINICIO"];
-
+                ulMetasResulDTO.DATAAPURACAO = (DateTime)result.Rows[i]["DATAAPURACAO"];
                 lMetasResultDTO.Add(ulMetasResulDTO);
             }
+
 
             lFormularioMetasResultDTO.ListMetaResult = lMetasResultDTO;
             return lFormularioMetasResultDTO;

@@ -18,6 +18,15 @@ namespace Metas.DomainCore.Service
             this._repository = repository;
         }
 
+        public async Task<DataTable> GetAddSIndicator(int ciclo)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetAddSIndicator(ciclo);
+
+            return result;
+        }
+
         public async Task<DataTable> GetFindColaborador(SearchcRepresentanteDTO parameters)
         {
             DataTable ty = new DataTable();

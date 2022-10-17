@@ -56,6 +56,7 @@ namespace Metas.API.Controllers
 
             var usuario = "Anônimo";
             var autenticado = true;
+
             usuario = HttpContext.User.Identity.Name;
 
             //var autenticado = false;
