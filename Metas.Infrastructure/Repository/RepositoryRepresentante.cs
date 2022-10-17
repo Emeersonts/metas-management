@@ -275,11 +275,6 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = 0;
 
             cont++;
-            parametro[cont] = new SqlParameter("@PAGINA", SqlDbType.Int);
-            parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = dto.PAGINA;
-
-            cont++;
             parametro[cont] = new SqlParameter("@NPAGINA", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = dto.PAGINA;
