@@ -1,6 +1,5 @@
 ﻿using Metas.Application.DTO;
 using Metas.Application.Interface;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -39,7 +38,6 @@ namespace Metas.API.Controllers
         }
 
         //Lista dos anos(Ciclos)
-        [EnableCors("CorsPolicy")]
         [HttpGet]
         [Route("ListCiclo")]
         [SwaggerResponse((int)HttpStatusCode.OK, "Endpoint para preparar para aprovação")]

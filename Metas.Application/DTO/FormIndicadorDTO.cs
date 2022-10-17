@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Metas.Application.DTO
 {
-    public class FormIndicador
+    public class FormIndicadorDTO
     {
         public IEnumerable<IndicadorAddDTO> ListIndicador { get; set; }
     }

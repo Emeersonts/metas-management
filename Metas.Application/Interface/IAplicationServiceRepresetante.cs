@@ -9,8 +9,9 @@ namespace Metas.Application.Interface
     public interface IAplicationServiceRepresetante
     {
         Task<ForIndicadorSAP> OnGetFindIndicatorSAP(IndicadorDTO dto);
-        Task<FormIndicador> OnGetListIndicatorAdd(EIndicadorAddDTO dto);
+        Task<FormIndicadorDTO> OnGetListIndicatorAdd(EIndicadorAddDTO dto);
         Task<ForMetaRelatorioDTO> OnGetGoalsReport(int CICLO);
+        Task<ForSIndicadorDTO> OnGetAddSIndicator(int CICLO);
         Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto);
         Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto);
         Task<ForCronogramaDTO> OnTimeline();

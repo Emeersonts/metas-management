@@ -17,6 +17,43 @@ namespace Metas.Application.Service
             this._ServiceRepresentante = serviceCiclo;
         }
 
+        public async Task<ForSIndicadorDTO> OnGetAddSIndicator(int CICLO)
+        {
+
+            ForSIndicadorDTO lForIndicador = new ForSIndicadorDTO();
+
+            var resultIndicador = await _ServiceRepresentante.GetAddSIndicator(CICLO);
+            List<IndicadorSDTO> lIndicador = new List<IndicadorSDTO>();
+
+            for (int J = 0; J < resultIndicador.Rows.Count; J++)
+            {
+                IndicadorSDTO uLindicador = new IndicadorSDTO();
+
+                uLindicador.JAN = (decimal)resultIndicador.Rows[J]["JAN"];
+                uLindicador.FEV = (decimal)resultIndicador.Rows[J]["FEV"];
+                uLindicador.MAR = (decimal)resultIndicador.Rows[J]["MAR"];
+                uLindicador.ABR = (decimal)resultIndicador.Rows[J]["ABR"];
+                uLindicador.MAI = (decimal)resultIndicador.Rows[J]["ABR"];
+                uLindicador.JUN = (decimal)resultIndicador.Rows[J]["JUN"];
+                uLindicador.JUL = (decimal)resultIndicador.Rows[J]["JUL"];
+                uLindicador.AGO = (decimal)resultIndicador.Rows[J]["AGO"];
+                uLindicador.SET = (decimal)resultIndicador.Rows[J]["SET"];
+                uLindicador.OUT = (decimal)resultIndicador.Rows[J]["OUT"];
+                uLindicador.NOV = (decimal)resultIndicador.Rows[J]["NOV"];
+                uLindicador.DEZ = (decimal)resultIndicador.Rows[J]["DEZ"];
+                uLindicador.IDMETA = (int)resultIndicador.Rows[J]["IDMETA"];
+                uLindicador.INDICADOR = resultIndicador.Rows[J]["INDICADOR"].ToString();
+                uLindicador.TITULO = resultIndicador.Rows[J]["TITULO"].ToString();
+                uLindicador.PESO = (int)resultIndicador.Rows[J]["PESO"];
+
+                lIndicador.Add(uLindicador);
+            }
+
+            lForIndicador.ListSIndicador = lIndicador;
+
+            return lForIndicador;
+        }
+
         public async Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto)
         {
             FormColaboradorDTO lForIndicadorSAPDTO = new FormColaboradorDTO();
@@ -107,9 +144,9 @@ namespace Metas.Application.Service
             return lForIndicador;
         }
 
-        public async Task<FormIndicador> OnGetListIndicatorAdd(EIndicadorAddDTO dto)
+        public async Task<FormIndicadorDTO> OnGetListIndicatorAdd(EIndicadorAddDTO dto)
         {
-            FormIndicador lForIndicador = new FormIndicador();
+            FormIndicadorDTO lForIndicador = new FormIndicadorDTO();
 
             var resultIndicador = await _ServiceRepresentante.GetListIndicatorAdd(new SearchcIndicadorDTO(dto.INDICADORES));
             List<IndicadorAddDTO> lIndicador = new List<IndicadorAddDTO>();
