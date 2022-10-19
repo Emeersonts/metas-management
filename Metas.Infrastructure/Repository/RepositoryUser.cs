@@ -30,7 +30,7 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.user;
+            parametro[cont].Value = 1;
 
             ClsData pk = new ClsData();
 

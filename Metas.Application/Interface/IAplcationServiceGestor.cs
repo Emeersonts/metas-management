@@ -8,6 +8,6 @@ namespace Metas.Application.Interface
 {
     public interface IAplcationServiceGestor
     {
-        Task<ForMetaRelatorioDTO> OnGetTeam(int ciclo);
+        Task<ForEquipeDTO> OnVializeTeam(int ciclo);
     }
 }

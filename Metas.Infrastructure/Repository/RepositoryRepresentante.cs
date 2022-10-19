@@ -176,7 +176,7 @@ namespace Metas.Infrastructure.Repository
 
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[16];
+            SqlParameter[] parametro = new SqlParameter[14];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -244,14 +244,9 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = indicador.DESAFIO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@IDCICLO", SqlDbType.Int);
+            parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = indicador.IDCICLO;
-
-            cont++;
-            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
-            parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = indicador.IDCELULATRABALHO;
+            parametro[cont].Value = indicador.ANOCICLO;
 
             ClsData pk = new ClsData();
             var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_INDICADOR]");
@@ -263,7 +258,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[04];
+            SqlParameter[] parametro = new SqlParameter[05];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -275,9 +270,14 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = 0;
 
             cont++;
-            parametro[cont] = new SqlParameter("@NPAGINA", SqlDbType.Int);
+            parametro[cont] = new SqlParameter("@PAGINA", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = dto.PAGINA;
+            
+            cont++;
+            parametro[cont] = new SqlParameter("@NPAGINA", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 10;
 
             cont++;
             parametro[cont] = new SqlParameter("@NPESSOAL", SqlDbType.Int);
@@ -299,7 +299,7 @@ namespace Metas.Infrastructure.Repository
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.type;
+            parametro[cont].Value = 0;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
@@ -347,7 +347,7 @@ namespace Metas.Infrastructure.Repository
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.type;
+            parametro[cont].Value = 1;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);

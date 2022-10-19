@@ -19,12 +19,12 @@ namespace Metas.API.Controllers
             this._applicationServiceGestor = ApplicationServigestor;
         }
 
-        // Relatorio das equipes
+        // Visualizar equipe
         [HttpPost]
-        [Route("Team")]
+        [Route("VializeTeam")] 
         public async Task<ActionResult> GetTeam(int CICLO)
         {
-            var result = await _applicationServiceGestor.OnGetTeam(CICLO);
+            var result = await _applicationServiceGestor.OnVializeTeam(CICLO);
             if (result == null)
             {
                 return NotFound();

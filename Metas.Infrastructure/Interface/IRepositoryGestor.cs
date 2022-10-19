@@ -9,5 +9,6 @@ namespace Metas.Infrastructure.Interface
     public interface IRepositoryGestor
     {
         Task<DataTable> RGetGoalsReport(int CICLO);
+        Task<DataTable> RVializeTeam(int CICLO);
     }
 }
