@@ -15,13 +15,10 @@ namespace Metas.Domain
         public decimal MINIMO { get; set; }
         public decimal PLANEJADO { get; set; }
         public decimal DESAFIO { get; set; }
-        public int IDCICLO { get; set; }
-        public int IDFORMULARIOMETA { get; set; }
-        public int IDCELULATRABALHO { get; set; }
+        public int ANOCICLO { get; set; }
 
         public Indicador(int idindicador, string nome, string descricaoindicador, int idunidademedida,
-            int idfrequencia, decimal peso, decimal minimo, decimal planejado, decimal desafio, int idciclo,
-            int idcelulatrabalho
+            int idfrequencia, decimal peso, decimal minimo, decimal planejado, decimal desafio, int anocilo
         )
         {
             IDINDICADOR = idindicador;
@@ -33,10 +30,8 @@ namespace Metas.Domain
             MINIMO = minimo;
             PLANEJADO = planejado;
             DESAFIO = desafio;
-            IDCICLO = idciclo;
-            IDCELULATRABALHO = idcelulatrabalho;
+            ANOCICLO = anocilo;
         }
-
 
     }
 }

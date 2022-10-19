@@ -15,7 +15,7 @@ namespace Metas.Application.Interface
         Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto);
         Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto);
         Task<ForCronogramaDTO> OnTimeline();
-        Task<int> OnSendForApprovalIndicador(GIndicadorDTTO dto);
+        Task<int> OnSaveForm(GIndicadorDTTO dto);
         Task<int> OnRemoveIndicador(int idindicador);
 
     }

@@ -9,5 +9,6 @@ namespace Metas.DomainCore.Interface
     public interface IServiceGestor
     {
         Task<DataTable> GetGoalsReport(int ciclo);
+        Task<DataTable> VializeTeam(int ciclo);
     }
 }

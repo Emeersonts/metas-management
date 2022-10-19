@@ -25,5 +25,13 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
+        public async Task<DataTable> VializeTeam(int ciclo)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RVializeTeam(ciclo);
+
+            return result;
+        }
     }
 }
