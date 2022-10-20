@@ -18,6 +18,8 @@ namespace Metas.Application.DTO
                     return "03-São seis metas no máximo cadastras por OU <>";
                 case 4:
                     return "04-O indicador EBTIDA não pode ser removido <>";
+                case 241:
+                    return "241-Conversão de valores inválida<>";
                 case 515:
                     return "515-Parametros inválidos<>";
                 case 547:
