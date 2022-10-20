@@ -137,10 +137,11 @@ namespace Metas.API.Controllers
         //Envia indicadores para aprovação
         [HttpPost]
         [Route("SendForApprovalIndicador")]
-        public async Task<ActionResult> SendForApprovalIndicador(GIndicadorDTTO dto)
+        public async Task<ActionResult> SendForApprovalIndicador(int ANOCICLO)
         {
 
-            var result = await _applicationServiceRepresentante.OnSaveForm(dto);
+            var result = await _applicationServiceRepresentante.OnSendForApprovalIndicador(ANOCICLO);
+            var ob = new InterrupcaoDTO();
 
             if (result == 0)
             {
@@ -148,7 +149,7 @@ namespace Metas.API.Controllers
             }
             else
             {
-                return Ok("Erro ao cadastrar idicador");
+                return Ok(ob.IT(result));
             }
 
         }
