@@ -253,6 +253,53 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
+        async public Task<int> RSendForApprovalIndicador(int ciclo)
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[7];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
+            parametro[cont].IsNullable = false;
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 1;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 2;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDNOTIFICACAO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 1;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = ciclo;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDPERFIL", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 3;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            ClsData pk = new ClsData();
+            var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_NOTIFICACAOPERFIL]");
+
+            return ui;
+        }
+
         async Task<DataTable> IRepositoryRepresentante.RGetFindColaborador(SearchcRepresentanteDTO dto)
         {
             int cont = 0;

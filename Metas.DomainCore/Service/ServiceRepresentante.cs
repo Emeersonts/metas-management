@@ -85,6 +85,12 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
+        public async Task<int> SendForApprovalIndicador(int ANOCILO)
+        {
+            var result = await _repository.RSendForApprovalIndicador(ANOCILO);
+            return result;
+        }
+
         public async Task<DataTable> Timeline()
         {
             DataTable ty = new DataTable();
