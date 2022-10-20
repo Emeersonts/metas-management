@@ -340,8 +340,8 @@ namespace Metas.Infrastructure.Repository
         async Task<DataTable> IRepositoryRepresentante.RGetFindIndicatorSAP(SearchcRepresentanteDTO dto)
         {
             int cont = 0;
-
-            SqlParameter[] parametro = new SqlParameter[07];
+            
+            SqlParameter[] parametro = new SqlParameter[08];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -362,11 +362,16 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@PAGINA", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = dto.PAGINA;
-            
+
             cont++;
             parametro[cont] = new SqlParameter("@IDFREQUENCIA", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = dto.IDFREQUENCIA;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 2;
 
             cont++;
             parametro[cont] = new SqlParameter("@BUSCA", SqlDbType.VarChar);
@@ -389,7 +394,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[07];
+            SqlParameter[] parametro = new SqlParameter[08];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -400,6 +405,12 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = Metas.Profile.pkxd.function;
+            
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
+            parametro[cont].IsNullable = false;
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 2;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
