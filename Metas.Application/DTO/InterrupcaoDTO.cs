@@ -11,9 +11,15 @@ namespace Metas.Application.DTO
             switch (MSG)
             {
                 case 1:
-                return "01-Erro ao Remover idicador. Está em uso, não pode ser removido <>";
+                    return "01-Este indicador já foi aprovado. Não pode ser removido <>";
                 case 2:
                     return "02-A soma geral do peso ultrapassa 100 % <>";
+                case 3:
+                    return "03-São seis metas no máximo cadastras por OU <>";
+                case 4:
+                    return "04-O indicador EBTIDA não pode ser removido <>";
+                case 241:
+                    return "241-Conversão de valores inválida<>";
                 case 515:
                     return "515-Parametros inválidos<>";
                 case 547:

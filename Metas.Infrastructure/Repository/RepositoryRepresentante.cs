@@ -156,8 +156,7 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            //parametro[cont].Value = Metas.Profile.pkxd.user;
-            parametro[cont].Value = 1;
+            parametro[cont].Value = 2;
 
             cont++;
             parametro[cont] = new SqlParameter("@IDINDICADOR", SqlDbType.Int);
@@ -191,7 +190,7 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 1;
+            parametro[cont].Value = 2;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
