@@ -157,7 +157,7 @@ namespace Metas.Application.Service
                 
                 uLindicador.DESCRICAO = resultIndicador.Rows[J]["DESCRICAO"].ToString();
                 uLindicador.DESCRICAOINDICADOR = resultIndicador.Rows[J]["DESCRICAOINDICADOR"].ToString();
-                uLindicador.IDFREQUENCIA = (int)resultIndicador.Rows[J]["DESAFIO"];
+                uLindicador.IDFREQUENCIA = (int)resultIndicador.Rows[J]["IDFREQUENCIA"];
                 uLindicador.IDINDICADOR = (int)resultIndicador.Rows[J]["IDINDICADOR"];
                 uLindicador.IDUNIDADEMEDIDA = (int)resultIndicador.Rows[J]["IDUNIDADEMEDIDA"];
                 uLindicador.NOMEUNIDADEMEDIDA = resultIndicador.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
