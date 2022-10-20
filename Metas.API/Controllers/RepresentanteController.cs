@@ -136,7 +136,7 @@ namespace Metas.API.Controllers
 
         //Envia indicadores para aprovação
         [HttpPost]
-        [Route("SaveForm")]
+        [Route("SendForApprovalIndicador")]
         public async Task<ActionResult> SendForApprovalIndicador(GIndicadorDTTO dto)
         {
 

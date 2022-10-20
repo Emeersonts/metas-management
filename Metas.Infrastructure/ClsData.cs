@@ -14,6 +14,7 @@ namespace Metas.Infrastructure
             SqlConnection.ClearAllPools();
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+
             builder.DataSource = "dev-metas-system-management-database.c3vcojkjp9yx.us-east-1.rds.amazonaws.com";
             builder.UserID = "admin";
             builder.Password = "GHWFV8HB0oViP1FbEPhl";
@@ -58,6 +59,7 @@ namespace Metas.Infrastructure
             SqlConnection.ClearAllPools();
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+
             builder.DataSource = "dev-metas-system-management-database.c3vcojkjp9yx.us-east-1.rds.amazonaws.com";
             builder.UserID = "admin";
             builder.Password = "GHWFV8HB0oViP1FbEPhl";
