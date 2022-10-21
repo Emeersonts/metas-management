@@ -113,8 +113,8 @@ namespace Metas.Application.Service
                 MetaResultDTO ulMetasResulDTO = new MetaResultDTO();
                 ulMetasResulDTO.DESCRICAO = result.Rows[i]["DESCRICAO"].ToString();
                 ulMetasResulDTO.RESULTADOCLICLO = result.Rows[i]["RESULTADOCLICLO"].ToString();
-                ulMetasResulDTO.APURADO = (decimal)result.Rows[i]["APURADO"];
-                ulMetasResulDTO.MESINICIO = (int)result.Rows[i]["MESINICIO"];
+                if (result.Rows[i]["APURADO"] != DBNull.Value) { ulMetasResulDTO.APURADO = (decimal)result.Rows[i]["APURADO"]; }
+                if (result.Rows[i]["MESINICIO"] != DBNull.Value) { ulMetasResulDTO.APURADO = (int)result.Rows[i]["MESINICIO"]; }
                 ulMetasResulDTO.DATAAPURACAO = (DateTime)result.Rows[i]["DATAAPURACAO"];
                 lMetasResultDTO.Add(ulMetasResulDTO);
             }
