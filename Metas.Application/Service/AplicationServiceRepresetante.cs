@@ -148,21 +148,21 @@ namespace Metas.Application.Service
         {
             FormIndicadorDTO lForIndicador = new FormIndicadorDTO();
 
-            var resultIndicador = await _ServiceRepresentante.GetListIndicatorAdd(new SearchcIndicadorDTO(dto.INDICADORES));
+            var RsultIndicador = await _ServiceRepresentante.GetListIndicatorAdd(new SearchcIndicadorDTO(dto.INDICADORES));
             List<IndicadorAddDTO> lIndicador = new List<IndicadorAddDTO>();
 
-            for (int J = 0; J < resultIndicador.Rows.Count; J++)
+            for (int J = 0; J < RsultIndicador.Rows.Count; J++)
             {
                 IndicadorAddDTO uLindicador = new IndicadorAddDTO();
                 
-                uLindicador.DESCRICAO = resultIndicador.Rows[J]["DESCRICAO"].ToString();
-                uLindicador.DESCRICAOINDICADOR = resultIndicador.Rows[J]["DESCRICAOINDICADOR"].ToString();
-                uLindicador.IDFREQUENCIA = (int)resultIndicador.Rows[J]["IDFREQUENCIA"];
-                uLindicador.IDINDICADOR = (int)resultIndicador.Rows[J]["IDINDICADOR"];
-                uLindicador.IDUNIDADEMEDIDA = (int)resultIndicador.Rows[J]["IDUNIDADEMEDIDA"];
-                uLindicador.NOMEUNIDADEMEDIDA = resultIndicador.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
-                uLindicador.NOMEINDICADOR = resultIndicador.Rows[J]["NOMEINDICADOR"].ToString();
-                uLindicador.NOME = resultIndicador.Rows[J]["IDINDICADOR"].ToString();
+                uLindicador.DESCRICAO = RsultIndicador.Rows[J]["DESCRICAO"].ToString();
+                uLindicador.DESCRICAOINDICADOR = RsultIndicador.Rows[J]["DESCRICAOINDICADOR"].ToString();
+                uLindicador.IDFREQUENCIA = (int)RsultIndicador.Rows[J]["IDFREQUENCIA"];
+                uLindicador.IDINDICADOR = (int)RsultIndicador.Rows[J]["IDINDICADOR"];
+                uLindicador.IDUNIDADEMEDIDA = (int)RsultIndicador.Rows[J]["IDUNIDADEMEDIDA"];
+                uLindicador.NOMEUNIDADEMEDIDA = RsultIndicador.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
+                uLindicador.NOMEINDICADOR = RsultIndicador.Rows[J]["NOMEINDICADOR"].ToString();
+                uLindicador.NOME = RsultIndicador.Rows[J]["IDINDICADOR"].ToString();
                 uLindicador.MINIMO = 0;
                 uLindicador.PESO = 0;
                 uLindicador.PLANEJADO = 0;
