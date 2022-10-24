@@ -20,7 +20,7 @@ namespace Metas.API.Controllers
         }
 
         // Visualizar equipe
-        [HttpPost]
+        [HttpGet]
         [Route("VializeTeam")] 
         public async Task<ActionResult> GetTeam(int CICLO)
         {
@@ -31,6 +31,38 @@ namespace Metas.API.Controllers
             }
 
             return Ok(result);
+        }
+
+        //* Tipo de formulario
+        [HttpGet]
+        [Route("FormTtype")]
+        public async Task<ActionResult> GetFormTtype(int CICLO)
+        {
+            var result = await _applicationServiceGestor.OnGetFormTtype(CICLO);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+        // Atualiza tipo de formulario
+        [HttpPost]
+        [Route("SaveFormEditType")]
+        public async Task<ActionResult> SaveFormEditType(TipoEdicaoformularioDTO dto)
+        {
+            var result = await _applicationServiceGestor.onSaveFormEditType(dto);
+            var ob = new InterrupcaoDTO();
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok(ob.IT(result));
+            }
         }
     }
 }

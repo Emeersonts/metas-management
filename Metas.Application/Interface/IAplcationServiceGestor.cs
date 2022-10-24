@@ -9,5 +9,7 @@ namespace Metas.Application.Interface
     public interface IAplcationServiceGestor
     {
         Task<ForEquipeDTO> OnVializeTeam(int ciclo);
+        Task<ForTipóEdicaoDTO> OnGetFormTtype(int ciclo);
+        Task<int> onSaveFormEditType(TipoEdicaoformularioDTO dto);
     }
 }

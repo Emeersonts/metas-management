@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metas.Domain;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
@@ -10,5 +11,7 @@ namespace Metas.Infrastructure.Interface
     {
         Task<DataTable> RGetGoalsReport(int CICLO);
         Task<DataTable> RVializeTeam(int CICLO);
+        Task<DataTable> RGetFormTtype(int CICLO);
+        Task<int> RSaveFormEditType(TipoEdicaoFormulario tipoedicaoformularo);
     }
 }
