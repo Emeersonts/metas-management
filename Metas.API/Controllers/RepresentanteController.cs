@@ -21,9 +21,9 @@ namespace Metas.API.Controllers
         }
 
         // Lista de indicadores (SAP)
-        [HttpPost]
+        [HttpGet]
         [Route("ListIndicatorSAP")]
-        public async Task<ActionResult> GetListIndicatorSAP(IndicadorDTO dto)
+        public async Task<ActionResult> GetListIndicatorSAP([FromQuery] IndicadorDTO dto)
         {
             var result = await _applicationServiceRepresentante.OnGetFindIndicatorSAP(dto);
             if (result == null)
@@ -34,9 +34,9 @@ namespace Metas.API.Controllers
         }
 
         // Lista de indicadores a serem incluidos (retorno)
-        [HttpPost]
+        [HttpGet]
         [Route("ListIndicatorAdd")]
-        public async Task<ActionResult> GetListIndicatorAdd(EIndicadorAddDTO dto)
+        public async Task<ActionResult> GetListIndicatorAdd([FromQuery] EIndicadorAddDTO dto)
         {
             var result = await _applicationServiceRepresentante.OnGetListIndicatorAdd(dto);
             if (result == null)
@@ -47,9 +47,9 @@ namespace Metas.API.Controllers
         }
 
         // Relatorio de metas
-        [HttpPost]
+        [HttpGet]
         [Route("GoalsReport")]
-        public async Task<ActionResult> GetGoalsReport(int CICLO)
+        public async Task<ActionResult> GetGoalsReport([FromQuery] int CICLO)
         {
             Metas.Profile.pkxd.type = 1;
             var result = await _applicationServiceRepresentante.OnGetGoalsReport(CICLO);
@@ -62,9 +62,9 @@ namespace Metas.API.Controllers
 
 
         // Lista de indicadores semestral para envio de pedido de aprovação
-        [HttpPost]
+        [HttpGet]
         [Route("AddSIndicator")]
-        public async Task<ActionResult> GetAddSIndicator(int CICLO)
+        public async Task<ActionResult> GetAddSIndicator([FromQuery] int CICLO)
         {
             Metas.Profile.pkxd.type = 1;
             var result = await _applicationServiceRepresentante.OnGetAddSIndicator(CICLO);
@@ -76,9 +76,9 @@ namespace Metas.API.Controllers
         }
 
         //Lista de solicitações
-        [HttpPost]
+        [HttpGet]
         [Route("Listsolicitation")]
-        public async Task<ActionResult> GetListsolicitation(ESolicitacaoDTO dto)
+        public async Task<ActionResult> GetListsolicitation([FromQuery] ESolicitacaoDTO dto)
         {
             Metas.Profile.pkxd.type = 1;
             var result = await _applicationServiceRepresentante.OnGetListsolicitation(dto);
@@ -90,9 +90,9 @@ namespace Metas.API.Controllers
         }
 
         // Lista de colaboradores (Time)
-        [HttpPost]
+        [HttpGet]
         [Route("ListTeam")]
-        public async Task<ActionResult> GetListTeam(ColaboradorDTO dto)
+        public async Task<ActionResult> GetListTeam([FromQuery] ColaboradorDTO dto)
         {
             var result = await _applicationServiceRepresentante.OnGetFindColaborador(dto);
             if (result == null)
@@ -103,7 +103,7 @@ namespace Metas.API.Controllers
         }
 
         // Cronograma
-        [HttpPost]
+        [HttpGet]
         [Route("Timeline")]
         public async Task<ActionResult> Timeline()
         {
