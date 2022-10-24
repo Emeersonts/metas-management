@@ -1,4 +1,5 @@
-﻿using Metas.DomainCore.Interface;
+﻿using Metas.Domain;
+using Metas.DomainCore.Interface;
 using Metas.Infrastructure.Interface;
 using System;
 using System.Collections.Generic;
@@ -16,12 +17,26 @@ namespace Metas.DomainCore.Service
             this._repository = repository;
         }
 
+        public async Task<DataTable> GetFormTtype(int ciclo)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetFormTtype(ciclo);
+
+            return result;
+        }
+
         public async Task<DataTable> GetGoalsReport(int ciclo)
         {
             DataTable ty = new DataTable();
 
             var result = await _repository.RGetGoalsReport(ciclo);
 
+            return result;
+        }
+        public async Task<int> PutSaveFormEditType(TipoEdicaoFormulario parametrs)
+        {
+            var result = await _repository.RSaveFormEditType(parametrs);
             return result;
         }
 
