@@ -23,9 +23,9 @@ namespace Metas.API.Controllers
         }
 
         // Lista o progresso do status de um ciclo
-        [HttpPost]
+        [HttpGet]
         [Route("ListProgressStatus")]
-        public async Task<ActionResult> GetListProgressStatus (int CICLO)
+        public async Task<ActionResult> GetListProgressStatus ([FromQuery] int CICLO)
         {
 
             var result = await _applicationServiceCiclo.OnGetListProgressStatus(CICLO); 

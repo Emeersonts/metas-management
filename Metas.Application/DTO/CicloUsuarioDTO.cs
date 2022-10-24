@@ -8,6 +8,5 @@ namespace Metas.Application.DTO
     {
         public int ANOCICLO { get; set; }
         public int MES { get; set; }
-
     }
 }

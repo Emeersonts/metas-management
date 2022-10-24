@@ -22,7 +22,7 @@ namespace Metas.API.Controllers
         // Visualizar equipe
         [HttpGet]
         [Route("VializeTeam")] 
-        public async Task<ActionResult> GetTeam(int CICLO)
+        public async Task<ActionResult> GetTeam([FromQuery] int CICLO)
         {
             var result = await _applicationServiceGestor.OnVializeTeam(CICLO);
             if (result == null)
@@ -36,7 +36,7 @@ namespace Metas.API.Controllers
         //* Tipo de formulario
         [HttpGet]
         [Route("FormTtype")]
-        public async Task<ActionResult> GetFormTtype(int CICLO)
+        public async Task<ActionResult> GetFormTtype([FromQuery] int CICLO)
         {
             var result = await _applicationServiceGestor.OnGetFormTtype(CICLO);
             if (result == null)

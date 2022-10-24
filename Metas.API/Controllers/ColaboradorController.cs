@@ -22,9 +22,9 @@ namespace Metas.API.Controllers
         }
 
         // Lista a meta do colaborador
-        [HttpPost]
+        [HttpGet]
         [Route("ListMeta")]
-        public async Task<ActionResult> GetMetasByUsuarioCiclo(CicloUsuarioDTO dto)
+        public async Task<ActionResult> GetMetasByUsuarioCiclo([FromQuery] CicloUsuarioDTO dto  ) 
         {
             var result = await _applicationServiceColaborador.OnGetFindMeta(dto); 
             if (result == null)
@@ -35,9 +35,9 @@ namespace Metas.API.Controllers
         }
 
         // Lista de Metas equipes anterior
-        [HttpPost]
+        [HttpGet]
         [Route("ListMetaPrevius")]
-        public async Task<ActionResult> GetMetasPreviusByUsuarioCiclo(CicloUsuarioDTO dto)
+        public async Task<ActionResult> GetMetasPreviusByUsuarioCiclo([FromQuery] CicloUsuarioDTO dto)
         {
             Metas.Profile.pkxd.type = 1;
             var result = await _applicationServiceColaborador.OnGetFindMeta(dto);
@@ -49,9 +49,9 @@ namespace Metas.API.Controllers
         }
 
         // lista de resultado das metas do colaborador
-        [HttpPost]
+        [HttpGet]
         [Route("ListMetaResultado")]
-        public async Task<ActionResult> GetMetasByUsuarioCicloResult(int ANOCICLO)
+        public async Task<ActionResult> GetMetasByUsuarioCicloResult([FromQuery] int ANOCICLO)
         {
             var result = await _applicationServiceColaborador.OnGetFindMetaResult(ANOCICLO);
             if (result == null)
@@ -62,9 +62,9 @@ namespace Metas.API.Controllers
         }
 
         //Lista de resultados das metas emequipes anterriores
-        [HttpPost]
+        [HttpGet]
         [Route("ListMetaResultadoPrevius")]
-        public async Task<ActionResult> GetMetasPreviusByUsuarioCicloResult(int anociclo)
+        public async Task<ActionResult> GetMetasPreviusByUsuarioCicloResult([FromQuery] int anociclo)
         {
             Metas.Profile.pkxd.type = 1;
             var result = await _applicationServiceColaborador.OnGetFindMetaResult(anociclo);
@@ -76,9 +76,9 @@ namespace Metas.API.Controllers
         }
 
         //Lista de afastamento do colaborador
-        [HttpPost]
+        [HttpGet]
         [Route("ListRemoval")]
-        public async Task<ActionResult> GetAfastamentoByUsuarioCiclo(int CICLLO)
+        public async Task<ActionResult> GetAfastamentoByUsuarioCiclo([FromQuery] int CICLLO)
         {
             var result = await _applicationServiceColaborador.OnGetFindAfastamento(CICLLO);
             if (result == null)
