@@ -1,4 +1,5 @@
 ﻿using Metas.Application.DTO;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,8 +9,8 @@ namespace Metas.Application.Interface
 {
     public interface IAplicationServiceColaborador
     {
-        Task<FormularioMetasDTO> OnGetFindMeta(CicloUsuarioDTO dto);
-        Task<ForMetasResultDTO> OnGetFindMetaResult(int anociclo);
+        Task<FormularioMetasDTO> OnGetFindMeta(CicloUsuarioDTO dto, pkxd pkx);
+        Task<ForMetasResultDTO> OnGetFindMetaResult(int anociclo, pkxd pkx);
         Task<FormularioResultadoMeta> OnGetFindAfastamento(int ciclo);
     }
 }

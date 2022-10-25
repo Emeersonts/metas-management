@@ -2,6 +2,7 @@
 using Metas.Application.Interface;
 using Metas.DomainCore.Interface;
 using Metas.Infrastructure.DTO;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,12 +18,12 @@ namespace Metas.Application.Service
             this._ServiceRepresentante = serviceCiclo;
         }
 
-        public async Task<ForSIndicadorDTO> OnGetAddSIndicator(int CICLO)
+        public async Task<ForSIndicadorDTO> OnGetAddSIndicator(int CICLO, pkxd pkx)
         {
 
             ForSIndicadorDTO lForIndicador = new ForSIndicadorDTO();
 
-            var resultIndicador = await _ServiceRepresentante.GetAddSIndicator(CICLO);
+            var resultIndicador = await _ServiceRepresentante.GetAddSIndicator(CICLO, pkx);
             List<IndicadorSDTO> lIndicador = new List<IndicadorSDTO>();
 
             for (int J = 0; J < resultIndicador.Rows.Count; J++)
@@ -54,11 +55,11 @@ namespace Metas.Application.Service
             return lForIndicador;
         }
 
-        public async Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto)
+        public async Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto , pkxd pkx)
         {
             FormColaboradorDTO lForIndicadorSAPDTO = new FormColaboradorDTO();
 
-            var resultAfast = await _ServiceRepresentante.GetFindColaborador(new SearchcRepresentanteDTO(dto.PAGINA));
+            var resultAfast = await _ServiceRepresentante.GetFindColaborador(new SearchcRepresentanteDTO(dto.PAGINA), pkx);
             List<RColaboradorDTO> lIndicadorSapDTO = new List<RColaboradorDTO>();
 
             int pgtotal = 0;
@@ -101,7 +102,7 @@ namespace Metas.Application.Service
                 uLindicadorSAPDTO.DESCRICAO = resultAfast.Rows[J]["DESCRICAO"].ToString();
                 uLindicadorSAPDTO.NOME = resultAfast.Rows[J]["NOME"].ToString();
                 uLindicadorSAPDTO.PROCESSODESCRICAO = resultAfast.Rows[J]["PROCESSODESCRICAO"].ToString();
-                uLindicadorSAPDTO.UNIDAQDEMEDIDADESCRICAO = resultAfast.Rows[J]["UNIDAQDEMEDIDADESCRICAO"].ToString();
+                uLindicadorSAPDTO.UNIDAQDEMEDIDADESCRICAO = resultAfast.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
                 pgtotal = (int)resultAfast.Rows[J]["PG"];
                 
                 lIndicadorSapDTO.Add(uLindicadorSAPDTO);
@@ -115,11 +116,11 @@ namespace Metas.Application.Service
 
         }
 
-        public async Task<ForMetaRelatorioDTO> OnGetGoalsReport(int CICLO)
+        public async Task<ForMetaRelatorioDTO> OnGetGoalsReport(int CICLO, pkxd pkx )
         {
             ForMetaRelatorioDTO lForIndicador = new ForMetaRelatorioDTO();
 
-            var resultIndicador = await _ServiceRepresentante.GetGoalsReport(CICLO);
+            var resultIndicador = await _ServiceRepresentante.GetGoalsReport(CICLO, pkx);
             List<MetasDTO> lIndicador = new List<MetasDTO>();
 
             for (int J = 0; J < resultIndicador.Rows.Count; J++)
@@ -144,11 +145,12 @@ namespace Metas.Application.Service
             return lForIndicador;
         }
 
-        public async Task<FormIndicadorDTO> OnGetListIndicatorAdd(EIndicadorAddDTO dto)
+        public async Task<FormIndicadorDTO> OnGetListIndicatorAdd(EIndicadorAddDTO dto, pkxd pkx)
         {
             FormIndicadorDTO lForIndicador = new FormIndicadorDTO();
 
-            var RsultIndicador = await _ServiceRepresentante.GetListIndicatorAdd(new SearchcIndicadorDTO(dto.INDICADORES));
+            var RsultIndicador = await _ServiceRepresentante.GetListIndicatorAdd(new SearchcIndicadorDTO(dto.INDICADORES), pkx);
+            //
             List<IndicadorAddDTO> lIndicador = new List<IndicadorAddDTO>();
 
             for (int J = 0; J < RsultIndicador.Rows.Count; J++)

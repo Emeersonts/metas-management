@@ -81,7 +81,6 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = 1;
-            //parametro[cont].Value = Metas.Profile.pkxd.user;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);

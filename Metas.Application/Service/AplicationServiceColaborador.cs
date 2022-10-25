@@ -2,9 +2,12 @@
 using Metas.Application.Interface;
 using Metas.DomainCore.Interface;
 using Metas.Infrastructure.DTO;
+using Metas.Profile;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Metas.Application.Service
@@ -40,9 +43,10 @@ namespace Metas.Application.Service
 
         }
 
-        public async Task<FormularioMetasDTO> OnGetFindMeta(CicloUsuarioDTO dto)
+        public async Task<FormularioMetasDTO> OnGetFindMeta(CicloUsuarioDTO dto, pkxd pkx)
         {
-            var result = await _ServiceColaborador.GetFindMeta(new SearchcColaborador(dto.ANOCICLO, dto.MES));
+
+            var result = await _ServiceColaborador.GetFindMeta(new SearchcColaborador(dto.ANOCICLO, dto.MES), pkx);
 
             FormularioMetasDTO lFormularioMetasDTO = new FormularioMetasDTO();
 
@@ -101,9 +105,9 @@ namespace Metas.Application.Service
             return lFormularioMetasDTO;
         }
 
-        public async Task<ForMetasResultDTO> OnGetFindMetaResult(int ANOCICLO)
+        public async Task<ForMetasResultDTO> OnGetFindMetaResult(int ANOCICLO, pkxd pkx)
         {
-            var result = await _ServiceColaborador.GetFindMetaResult(ANOCICLO);
+            var result = await _ServiceColaborador.GetFindMetaResult(ANOCICLO, pkx);
 
             ForMetasResultDTO lFormularioMetasResultDTO = new ForMetasResultDTO();
             List<MetaResultDTO> lMetasResultDTO = new List<MetaResultDTO>();

@@ -2,6 +2,7 @@
 using Metas.DomainCore.Interface;
 using Metas.Infrastructure.DTO;
 using Metas.Infrastructure.Interface;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -29,16 +30,16 @@ namespace Metas.DomainCore.Service
 
         }
 
-        public async Task<DataTable> GetFindMeta(SearchcColaborador parameters)
+        public async Task<DataTable> GetFindMeta(SearchcColaborador parameters, pkxd pkx)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetFindMeta(parameters);
+            var result = await _repository.RGetFindMeta(parameters, pkx);
 
             return result;
         }
 
-        public async Task<DataTable> GetFindMetaResult(int anociclo)
+        public async Task<DataTable> GetFindMetaResult(int anociclo, pkxd pkx)
         {
             DataTable ty = new DataTable();
 

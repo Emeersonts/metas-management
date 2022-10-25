@@ -9,6 +9,7 @@ using Metas.Infrastructure.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -85,6 +86,24 @@ namespace Metas.API
                               .AllowAnyHeader());
             });
 
+            // via cookie / distribuido em servidor
+            services.AddDistributedMemoryCache();
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => false;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+
+            services.AddSession(options =>
+            {
+                //options.Cookie.Name = "ephr";
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
 
         }
 
@@ -159,8 +178,8 @@ namespace Metas.API
 
             //app.UseRouting();
 
-
-
+            //via cookie
+            app.UseSession();
 
 
         }
