@@ -12,5 +12,6 @@ namespace Metas.Application.DTO
         public string DESCRICAO { get; set; }
         public string RESULTADOCLICLO { get; set; }
         public int MESINICIO { get; set; }
+        public int IDRESULTADOCICLO { get; set; }
     }
 }

@@ -52,7 +52,7 @@ namespace Metas.API.Controllers
         [Route("GoalsReport")]
         public async Task<ActionResult> GetGoalsReport([FromQuery] int CICLO)
         {
-            var result = await _applicationServiceRepresentante.OnGetGoalsReport(CICLO, new pkxd(1,1,1,1));
+            var result = await _applicationServiceRepresentante.OnGetGoalsReport(CICLO, new pkxd(0,1,1,1));
             if (result == null)
             {
                 return NotFound();

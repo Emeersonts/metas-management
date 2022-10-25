@@ -120,9 +120,9 @@ namespace Metas.Application.Service
                 if (result.Rows[i]["APURADO"] != DBNull.Value) { ulMetasResulDTO.APURADO = (decimal)result.Rows[i]["APURADO"]; }
                 if (result.Rows[i]["MESINICIO"] != DBNull.Value) { ulMetasResulDTO.APURADO = (int)result.Rows[i]["MESINICIO"]; }
                 ulMetasResulDTO.DATAAPURACAO = (DateTime)result.Rows[i]["DATAAPURACAO"];
+                ulMetasResulDTO.IDRESULTADOCICLO = (int)result.Rows[i]["IDRESULTADOCICLO"];
                 lMetasResultDTO.Add(ulMetasResulDTO);
             }
-
 
             lFormularioMetasResultDTO.ListMetaResult = lMetasResultDTO;
             return lFormularioMetasResultDTO;
