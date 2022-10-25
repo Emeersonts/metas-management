@@ -1,5 +1,6 @@
 ﻿using Metas.Application.DTO;
 using Metas.Application.Interface;
+using Metas.Profile;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ namespace Metas.API.Controllers
         [Route("ListIndicatorAdd")]
         public async Task<ActionResult> GetListIndicatorAdd([FromQuery] EIndicadorAddDTO dto)
         {
-            var result = await _applicationServiceRepresentante.OnGetListIndicatorAdd(dto);
+            var result = await _applicationServiceRepresentante.OnGetListIndicatorAdd(dto, new pkxd(1,1,1,1));
             if (result == null)
             {
                 return NotFound();
@@ -51,8 +52,7 @@ namespace Metas.API.Controllers
         [Route("GoalsReport")]
         public async Task<ActionResult> GetGoalsReport([FromQuery] int CICLO)
         {
-            Metas.Profile.pkxd.type = 1;
-            var result = await _applicationServiceRepresentante.OnGetGoalsReport(CICLO);
+            var result = await _applicationServiceRepresentante.OnGetGoalsReport(CICLO, new pkxd(1,1,1,1));
             if (result == null)
             {
                 return NotFound();
@@ -67,7 +67,7 @@ namespace Metas.API.Controllers
         public async Task<ActionResult> GetAddSIndicator([FromQuery] int CICLO)
         {
             Metas.Profile.pkxd.type = 1;
-            var result = await _applicationServiceRepresentante.OnGetAddSIndicator(CICLO);
+            var result = await _applicationServiceRepresentante.OnGetAddSIndicator(CICLO, new pkxd(1,1,1,1));
             if (result == null)
             {
                 return NotFound();
@@ -80,7 +80,6 @@ namespace Metas.API.Controllers
         [Route("Listsolicitation")]
         public async Task<ActionResult> GetListsolicitation([FromQuery] ESolicitacaoDTO dto)
         {
-            Metas.Profile.pkxd.type = 1;
             var result = await _applicationServiceRepresentante.OnGetListsolicitation(dto);
             if (result == null)
             {
@@ -94,7 +93,7 @@ namespace Metas.API.Controllers
         [Route("ListTeam")]
         public async Task<ActionResult> GetListTeam([FromQuery] ColaboradorDTO dto)
         {
-            var result = await _applicationServiceRepresentante.OnGetFindColaborador(dto);
+            var result = await _applicationServiceRepresentante.OnGetFindColaborador(dto, new pkxd(0,1,1,1));
             if (result == null)
             {
                 return NotFound();

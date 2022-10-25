@@ -1,6 +1,7 @@
 ﻿using Metas.Domain;
 using Metas.Infrastructure.DTO;
 using Metas.Infrastructure.Interface;
+using Metas.Profile;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System;
@@ -54,7 +55,7 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async Task<DataTable> IRepositoryColaborador.RGetFindMeta(SearchcColaborador dto)
+        async Task<DataTable> IRepositoryColaborador.RGetFindMeta(SearchcColaborador dto, pkxd pkx)
         {
             int cont = 0;
 
@@ -62,13 +63,12 @@ namespace Metas.Infrastructure.Repository
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.type;
+            parametro[cont].Value = pkxd.type;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
-            //parametro[cont].Value = Metas.Profile.pkxd.user;
             parametro[cont].Value = 1;
 
             cont++;

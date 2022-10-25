@@ -1,4 +1,5 @@
 ﻿using Metas.Application.DTO;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,11 +10,11 @@ namespace Metas.Application.Interface
     public interface IAplicationServiceRepresetante
     {
         Task<ForIndicadorSAP> OnGetFindIndicatorSAP(IndicadorDTO dto);
-        Task<FormIndicadorDTO> OnGetListIndicatorAdd(EIndicadorAddDTO dto);
-        Task<ForMetaRelatorioDTO> OnGetGoalsReport(int CICLO);
-        Task<ForSIndicadorDTO> OnGetAddSIndicator(int CICLO);
+        Task<FormIndicadorDTO> OnGetListIndicatorAdd(EIndicadorAddDTO dto, pkxd pkx);
+        Task<ForMetaRelatorioDTO> OnGetGoalsReport(int CICLO, pkxd pkx);
+        Task<ForSIndicadorDTO> OnGetAddSIndicator(int CICLO, pkxd pkx);
         Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto);
-        Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto);
+        Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto, pkxd pkx);
         Task<ForCronogramaDTO> OnTimeline();
         Task<int> OnSaveForm(GIndicadorDTTO dto);
         Task<int> OnSendForApprovalIndicador(int anociclo);

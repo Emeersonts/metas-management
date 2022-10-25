@@ -1,9 +1,12 @@
 ﻿using Metas.Application.DTO;
 using Metas.Application.Interface;
+using Metas.Profile;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Metas.API.Controllers
@@ -24,9 +27,9 @@ namespace Metas.API.Controllers
         // Lista a meta do colaborador
         [HttpGet]
         [Route("ListMeta")]
-        public async Task<ActionResult> GetMetasByUsuarioCiclo([FromQuery] CicloUsuarioDTO dto  ) 
+        public async Task<ActionResult> GetMetasByUsuarioCiclo([FromQuery] CicloUsuarioDTO dto) 
         {
-            var result = await _applicationServiceColaborador.OnGetFindMeta(dto); 
+            var result = await _applicationServiceColaborador.OnGetFindMeta(dto, new pkxd(0,1,1,1)); 
             if (result == null)
             {
                 return NotFound();
@@ -39,8 +42,7 @@ namespace Metas.API.Controllers
         [Route("ListMetaPrevius")]
         public async Task<ActionResult> GetMetasPreviusByUsuarioCiclo([FromQuery] CicloUsuarioDTO dto)
         {
-            Metas.Profile.pkxd.type = 1;
-            var result = await _applicationServiceColaborador.OnGetFindMeta(dto);
+            var result = await _applicationServiceColaborador.OnGetFindMeta(dto, new pkxd(1, 1, 1, 1));
             if (result == null)
             {
                 return NotFound();
@@ -53,7 +55,7 @@ namespace Metas.API.Controllers
         [Route("ListMetaResultado")]
         public async Task<ActionResult> GetMetasByUsuarioCicloResult([FromQuery] int ANOCICLO)
         {
-            var result = await _applicationServiceColaborador.OnGetFindMetaResult(ANOCICLO);
+            var result = await _applicationServiceColaborador.OnGetFindMetaResult(ANOCICLO, new pkxd(0, 1, 1, 1));
             if (result == null)
             {
                 return NotFound();
@@ -66,8 +68,7 @@ namespace Metas.API.Controllers
         [Route("ListMetaResultadoPrevius")]
         public async Task<ActionResult> GetMetasPreviusByUsuarioCicloResult([FromQuery] int anociclo)
         {
-            Metas.Profile.pkxd.type = 1;
-            var result = await _applicationServiceColaborador.OnGetFindMetaResult(anociclo);
+            var result = await _applicationServiceColaborador.OnGetFindMetaResult(anociclo, new pkxd(1,1,1,1));
             if (result == null)
             {
                 return NotFound();

@@ -2,6 +2,7 @@
 using Metas.DomainCore.Interface;
 using Metas.Infrastructure.DTO;
 using Metas.Infrastructure.Interface;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,20 +19,20 @@ namespace Metas.DomainCore.Service
             this._repository = repository;
         }
 
-        public async Task<DataTable> GetAddSIndicator(int ciclo)
+        public async Task<DataTable> GetAddSIndicator(int ciclo, pkxd pkx)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetAddSIndicator(ciclo);
+            var result = await _repository.RGetAddSIndicator(ciclo, pkx);
 
             return result;
         }
 
-        public async Task<DataTable> GetFindColaborador(SearchcRepresentanteDTO parameters)
+        public async Task<DataTable> GetFindColaborador(SearchcRepresentanteDTO parameters, pkxd pkx)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetFindColaborador(parameters);
+            var result = await _repository.RGetFindColaborador(parameters, pkx);
 
             return result;
 
@@ -46,20 +47,20 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<DataTable> GetGoalsReport(int ciclo)
+        public async Task<DataTable> GetGoalsReport(int ciclo, pkxd pkx)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetGoalsReport(ciclo);
+            var result = await _repository.RGetGoalsReport(ciclo, pkx);
 
             return result;
         }
 
-        public async Task<DataTable> GetListIndicatorAdd(SearchcIndicadorDTO parameters)
+        public async Task<DataTable> GetListIndicatorAdd(SearchcIndicadorDTO parameters, pkxd pkx)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetListIndicatorAdd(parameters);
+            var result = await _repository.RGetListIndicatorAdd(parameters, pkx);
 
             return result;
         }

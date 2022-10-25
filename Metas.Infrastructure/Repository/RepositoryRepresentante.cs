@@ -1,6 +1,7 @@
 ﻿using Metas.Domain;
 using Metas.Infrastructure.DTO;
 using Metas.Infrastructure.Interface;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,7 +13,7 @@ namespace Metas.Infrastructure.Repository
 {
     public class RepositoryRepresentante : IRepositoryRepresentante
     {
-        async public Task<DataTable> RGetAddSIndicator(int ciclo)
+        async public Task<DataTable> RGetAddSIndicator(int ciclo, pkxd pkx)
         {
             int cont = 0;
 
@@ -20,7 +21,7 @@ namespace Metas.Infrastructure.Repository
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 0;
+            parametro[cont].Value = pkxd.type;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
@@ -51,7 +52,7 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async public Task<DataTable> RGetGoalsReport(int ciclo)
+        async public Task<DataTable> RGetGoalsReport(int ciclo, pkxd pkx)
         {
             int cont = 0;
 
@@ -59,7 +60,7 @@ namespace Metas.Infrastructure.Repository
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 0;
+            parametro[cont].Value = pkxd.type;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
@@ -98,7 +99,6 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
-            //parametro[cont].Value = Metas.Profile.pkxd.user;
             parametro[cont].Value = 1;
 
             cont++;
@@ -300,7 +300,7 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async Task<DataTable> IRepositoryRepresentante.RGetFindColaborador(SearchcRepresentanteDTO dto)
+        async Task<DataTable> IRepositoryRepresentante.RGetFindColaborador(SearchcRepresentanteDTO dto, pkxd pkx)
         {
             int cont = 0;
 
@@ -308,7 +308,7 @@ namespace Metas.Infrastructure.Repository
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 0;
+            parametro[cont].Value = pkxd.type;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
@@ -349,9 +349,8 @@ namespace Metas.Infrastructure.Repository
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
-            parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.function;
+            parametro[cont].Value = 0;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
@@ -377,6 +376,7 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@BUSCA", SqlDbType.VarChar);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = dto.BUSCA;
+            if (dto.BUSCA == null) {parametro[cont].Value = "";}
 
             cont++;
             parametro[cont] = new SqlParameter("@INDICADORES", SqlDbType.VarChar);
@@ -390,7 +390,7 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async Task<DataTable> IRepositoryRepresentante.RGetListIndicatorAdd(SearchcIndicadorDTO dto)
+        async Task<DataTable> IRepositoryRepresentante.RGetListIndicatorAdd(SearchcIndicadorDTO dto, pkxd pkx)
         {
             int cont = 0;
 
@@ -398,7 +398,7 @@ namespace Metas.Infrastructure.Repository
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 1;
+            parametro[cont].Value = pkxd.type;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
@@ -436,6 +436,7 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@INDICADORES", SqlDbType.Char);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = dto.INDICADORES;
+            if (dto.INDICADORES == null) { parametro[cont].Value = "";}
 
             ClsData pk = new ClsData();
 
