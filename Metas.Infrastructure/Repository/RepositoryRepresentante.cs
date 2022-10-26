@@ -175,7 +175,7 @@ namespace Metas.Infrastructure.Repository
 
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[14];
+            SqlParameter[] parametro = new SqlParameter[15];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -246,6 +246,11 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = indicador.ANOCICLO;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@MES", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = indicador.MES;
 
             ClsData pk = new ClsData();
             var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_INDICADOR]");
