@@ -18,6 +18,6 @@ namespace Metas.Application.DTO
         public Decimal PLANEJADO { get; set; }
         public Decimal DESAFIO { get; set; }
         public String DESCRICAOINDICADOR { get; set; }
-
+        public int RESULTADO { get; set; }
     }
 }
