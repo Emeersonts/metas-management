@@ -169,7 +169,7 @@ namespace Metas.Application.Service
                 uLindicador.PESO = (decimal)RsultIndicador.Rows[J]["PESO"];
                 uLindicador.PLANEJADO = (decimal)RsultIndicador.Rows[J]["PLANEJADO"];
                 uLindicador.DESAFIO = (decimal)RsultIndicador.Rows[J]["DESAFIO"];
-
+                uLindicador.RESULTADO = (int)RsultIndicador.Rows[J]["RESULTADO"];
                 lIndicador.Add(uLindicador);
             }
 
