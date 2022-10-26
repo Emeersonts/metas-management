@@ -399,7 +399,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[08];
+            SqlParameter[] parametro = new SqlParameter[09];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -442,6 +442,11 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = dto.INDICADORES;
             if (dto.INDICADORES == null) { parametro[cont].Value = "";}
+
+            cont++;
+            parametro[cont] = new SqlParameter("@MES", SqlDbType.VarChar);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = dto.MES;
 
             ClsData pk = new ClsData();
 

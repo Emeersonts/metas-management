@@ -149,7 +149,7 @@ namespace Metas.Application.Service
         {
             FormIndicadorDTO lForIndicador = new FormIndicadorDTO();
 
-            var RsultIndicador = await _ServiceRepresentante.GetListIndicatorAdd(new SearchcIndicadorDTO(dto.INDICADORES), pkx);
+            var RsultIndicador = await _ServiceRepresentante.GetListIndicatorAdd(new SearchcIndicadorDTO(dto.INDICADORES, dto.MES), pkx);
             //
             List<IndicadorAddDTO> lIndicador = new List<IndicadorAddDTO>();
 
