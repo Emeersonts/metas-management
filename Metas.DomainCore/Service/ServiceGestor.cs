@@ -1,6 +1,8 @@
 ﻿using Metas.Domain;
 using Metas.DomainCore.Interface;
+using Metas.Infrastructure.DTO;
 using Metas.Infrastructure.Interface;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,6 +17,24 @@ namespace Metas.DomainCore.Service
         public ServiceGestor(IRepositoryGestor repository)
         {
             this._repository = repository;
+        }
+
+        public async Task<DataTable> GetFindMeta(SearchcColaborador parameters, pkxd pkx)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetFindMeta(parameters, pkx);
+
+            return result;
+        }
+
+        public async Task<DataTable> GetFindMetaResult(int ANOCICLO, int IDCELULATRABALHO, pkxd pkx)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetFindMetaResult(ANOCICLO, IDCELULATRABALHO);
+
+            return result;
         }
 
         public async Task<DataTable> GetFormTtype(int ciclo)

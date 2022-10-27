@@ -10,13 +10,15 @@ namespace Metas.Profile
         public static int user { get; set; }
         public static int function { get; set; }
         public static int profile { get; set; }
+        public static int celula { get; set; }
 
-        public pkxd(int te, int ur, int fn, int pe)
+        public pkxd(int te, int ur, int fn, int pe, int uo)
         {
             type = te;
             user = ur;
             function = fn;
             profile = pe;
+            celula = uo;
         }
     }
 }

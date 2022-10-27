@@ -1,4 +1,6 @@
 ﻿using Metas.Domain;
+using Metas.Infrastructure.DTO;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,5 +15,7 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RVializeTeam(int CICLO);
         Task<DataTable> RGetFormTtype(int CICLO);
         Task<int> RSaveFormEditType(TipoEdicaoFormulario tipoedicaoformularo);
+        Task<DataTable> RGetFindMeta(SearchcColaborador dto, pkxd pkx);
+        Task<DataTable> RGetFindMetaResult(int ANOCICLO, int IDCELULATRABALHO);
     }
 }
