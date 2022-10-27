@@ -59,7 +59,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[06];
+            SqlParameter[] parametro = new SqlParameter[07];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -91,6 +91,11 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@MES", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = dto.MES;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
 
             ClsData pk = new ClsData();
 

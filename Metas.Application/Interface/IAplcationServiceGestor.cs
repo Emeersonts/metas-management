@@ -1,4 +1,5 @@
 ﻿using Metas.Application.DTO;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,5 +12,7 @@ namespace Metas.Application.Interface
         Task<ForEquipeDTO> OnVializeTeam(int ciclo);
         Task<ForTipóEdicaoDTO> OnGetFormTtype(int ciclo);
         Task<int> onSaveFormEditType(TipoEdicaoformularioDTO dto);
+        Task<FormularioMetasDTO> OnGetFindMeta(CicloCelulaDTO dto, pkxd pkx);
+        Task<ForMetasResultDTO> OnGetFindMetaResult(int anociclo, int idcelulatrabalho, pkxd pkx);
     }
 }

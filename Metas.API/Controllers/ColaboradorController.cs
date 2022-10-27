@@ -29,7 +29,7 @@ namespace Metas.API.Controllers
         [Route("ListMeta")]
         public async Task<ActionResult> GetMetasByUsuarioCiclo([FromQuery] CicloUsuarioDTO dto) 
         {
-            var result = await _applicationServiceColaborador.OnGetFindMeta(dto, new pkxd(0,1,1,1)); 
+            var result = await _applicationServiceColaborador.OnGetFindMeta(dto, new pkxd(0,1,1,1,1)); 
             if (result == null)
             {
                 return NotFound();
@@ -42,7 +42,7 @@ namespace Metas.API.Controllers
         [Route("ListMetaPrevius")]
         public async Task<ActionResult> GetMetasPreviusByUsuarioCiclo([FromQuery] CicloUsuarioDTO dto)
         {
-            var result = await _applicationServiceColaborador.OnGetFindMeta(dto, new pkxd(1, 1, 1, 1));
+            var result = await _applicationServiceColaborador.OnGetFindMeta(dto, new pkxd(1, 1, 1, 1,1));
             if (result == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace Metas.API.Controllers
         [Route("ListMetaResultado")]
         public async Task<ActionResult> GetMetasByUsuarioCicloResult([FromQuery] int ANOCICLO)
         {
-            var result = await _applicationServiceColaborador.OnGetFindMetaResult(ANOCICLO, new pkxd(0, 1, 1, 1));
+            var result = await _applicationServiceColaborador.OnGetFindMetaResult(ANOCICLO, new pkxd(0, 1, 1, 1,1));
             if (result == null)
             {
                 return NotFound();
@@ -68,7 +68,7 @@ namespace Metas.API.Controllers
         [Route("ListMetaResultadoPrevius")]
         public async Task<ActionResult> GetMetasPreviusByUsuarioCicloResult([FromQuery] int anociclo)
         {
-            var result = await _applicationServiceColaborador.OnGetFindMetaResult(anociclo, new pkxd(1,1,1,1));
+            var result = await _applicationServiceColaborador.OnGetFindMetaResult(anociclo, new pkxd(1,1,1,1,1));
             if (result == null)
             {
                 return NotFound();

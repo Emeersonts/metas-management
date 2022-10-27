@@ -1,5 +1,6 @@
 ﻿using Metas.Application.DTO;
 using Metas.Application.Interface;
+using Metas.Profile;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -64,5 +65,32 @@ namespace Metas.API.Controllers
                 return Ok(ob.IT(result));
             }
         }
+
+        // lista de metas da celula 
+        [HttpGet]
+        [Route("ListMeta")]
+        public async Task<ActionResult> GetMetasByUsuarioCiclo([FromQuery] CicloCelulaDTO dto)
+        {
+            var result = await _applicationServiceGestor.OnGetFindMeta(dto, new pkxd(0, 1, 1, 1, dto.IDCELULATRABALHO));
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
+        // Lista de resultados por celula de trabalho
+        [HttpGet]
+        [Route("ListMetaResultado")]
+        public async Task<ActionResult> GetMetasByUsuarioCicloResult([FromQuery] int ANOCICLO, int IDCELULATRABALHO)
+        {
+            var result = await _applicationServiceGestor.OnGetFindMetaResult(ANOCICLO, IDCELULATRABALHO, new pkxd(0, 1, 1, 1, 1));
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
     }
 }

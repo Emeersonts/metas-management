@@ -50,7 +50,7 @@ namespace Metas.API.Controllers
         public  Task<int> GetListCiclo()
         {
 
-            var userInfo = new Metas.Profile.pkxd(1, 1, 1, 0);
+            var userInfo = new Metas.Profile.pkxd(1, 1, 1, 0,1);
             {
             };
 
