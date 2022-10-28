@@ -16,7 +16,7 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RGetGoalsReport(int ciclo, pkxd pkx);
         Task<DataTable> RGetAddSIndicator(int ciclo, pkxd pkx);
         Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto);
-        Task<DataTable> RGetFindColaborador(SearchcRepresentanteDTO dto, pkxd pkx);
+        Task<DataTable> RGetFindColaborador(SearchcRepresentanteDTO dto, int QTPAGINA, pkxd pkx);
         Task<DataTable> RTimeline();
         Task<int> RSaveIndicador(Indicador indicador);
         Task<int> RSendForApprovalIndicador(int ANOCICLO);

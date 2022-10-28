@@ -14,7 +14,7 @@ namespace Metas.Application.Interface
         Task<ForMetaRelatorioDTO> OnGetGoalsReport(int CICLO, pkxd pkx);
         Task<ForSIndicadorDTO> OnGetAddSIndicator(int CICLO, pkxd pkx);
         Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto);
-        Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto, pkxd pkx);
+        Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto, int qtpagina, pkxd pkx);
         Task<ForCronogramaDTO> OnTimeline();
         Task<int> OnSaveForm(GIndicadorDTTO dto);
         Task<int> OnSendForApprovalIndicador(int anociclo);

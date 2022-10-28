@@ -305,7 +305,7 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async Task<DataTable> IRepositoryRepresentante.RGetFindColaborador(SearchcRepresentanteDTO dto, pkxd pkx)
+        async Task<DataTable> IRepositoryRepresentante.RGetFindColaborador(SearchcRepresentanteDTO dto, int QTPAGINA, pkxd pkx)
         {
             int cont = 0;
 
@@ -328,7 +328,7 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@NPAGINA", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 10;
+            parametro[cont].Value = QTPAGINA;
 
             cont++;
             parametro[cont] = new SqlParameter("@NPESSOAL", SqlDbType.Int);

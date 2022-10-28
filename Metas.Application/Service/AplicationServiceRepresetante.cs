@@ -55,11 +55,11 @@ namespace Metas.Application.Service
             return lForIndicador;
         }
 
-        public async Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto , pkxd pkx)
+        public async Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto, int QTPAGINA, pkxd pkx)
         {
             FormColaboradorDTO lForIndicadorSAPDTO = new FormColaboradorDTO();
 
-            var resultAfast = await _ServiceRepresentante.GetFindColaborador(new SearchcRepresentanteDTO(dto.PAGINA), pkx);
+            var resultAfast = await _ServiceRepresentante.GetFindColaborador(new SearchcRepresentanteDTO(dto.PAGINA), QTPAGINA, pkx);
             List<RColaboradorDTO> lIndicadorSapDTO = new List<RColaboradorDTO>();
 
             int pgtotal = 0;

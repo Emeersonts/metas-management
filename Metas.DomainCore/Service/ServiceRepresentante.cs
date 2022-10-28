@@ -28,11 +28,11 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<DataTable> GetFindColaborador(SearchcRepresentanteDTO parameters, pkxd pkx)
+        public async Task<DataTable> GetFindColaborador(SearchcRepresentanteDTO parameters, int qtpagina, pkxd pkx)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetFindColaborador(parameters, pkx);
+            var result = await _repository.RGetFindColaborador(parameters,qtpagina, pkx);
 
             return result;
 
