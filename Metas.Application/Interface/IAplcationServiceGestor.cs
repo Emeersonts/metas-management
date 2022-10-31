@@ -13,6 +13,7 @@ namespace Metas.Application.Interface
         Task<ForTipóEdicaoDTO> OnGetFormTtype(int ciclo);
         Task<int> onSaveFormEditType(TipoEdicaoformularioDTO dto);
         Task<FormularioMetasDTO> OnGetFindMeta(CicloCelulaDTO dto, pkxd pkx);
+        Task<FormRevisaoResultadoDTO> OnGetReviewResults(int anociclo, int idcelulatrabalho);
         Task<ForMetasResultDTO> OnGetFindMetaResult(int anociclo, int idcelulatrabalho, pkxd pkx);
     }
 }

@@ -137,6 +137,44 @@ namespace Metas.Infrastructure.Repository
 
             return ui;
         }
+
+        async public Task<DataTable> RGetReviewResults(int anociclo, int idcelulatrabalho)
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[05];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 2;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = anociclo;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = idcelulatrabalho;
+
+            ClsData pk = new ClsData();
+
+            var ui = await pk.ExecReader(parametro, "[SMetas].[C_APROVAINDICADOR]");
+
+            return ui;
+        }
+
         async public Task<int> RSaveFormEditType(TipoEdicaoFormulario tipoedicaoformularo)
         {
             int cont = 0;

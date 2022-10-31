@@ -123,6 +123,39 @@ namespace Metas.Application.Service
             return LForTipoEdicao;
         }
 
+        public async Task<FormRevisaoResultadoDTO> OnGetReviewResults(int anociclo, int idcelulatrabalho)
+        {
+            var result = await _ServiceGestor.GetReviewResults(anociclo, idcelulatrabalho);
+
+            FormRevisaoResultadoDTO lFormularioMetasResultDTO = new FormRevisaoResultadoDTO();
+            List<RevisaoResultadoDTO> lMetasResultDTO = new List<RevisaoResultadoDTO>();
+
+            for (int i = 0; i < result.Rows.Count; i++)
+            {
+                RevisaoResultadoDTO uRevisaoResult = new RevisaoResultadoDTO();
+                uRevisaoResult.JAN = (decimal)result.Rows[i]["JAN"];
+                uRevisaoResult.FEV = (decimal)result.Rows[i]["FEV"];
+                uRevisaoResult.MAR = (decimal)result.Rows[i]["MAR"];
+                uRevisaoResult.MAI = (decimal)result.Rows[i]["MAI"];
+                uRevisaoResult.JUN = (decimal)result.Rows[i]["JUN"];
+                uRevisaoResult.AGO = (decimal)result.Rows[i]["AGO"];
+                uRevisaoResult.SET = (decimal)result.Rows[i]["SET"];
+                uRevisaoResult.OUT = (decimal)result.Rows[i]["OUT"];
+                uRevisaoResult.NOV = (decimal)result.Rows[i]["NOV"];
+                uRevisaoResult.DEZ = (decimal)result.Rows[i]["DEZ"];
+                uRevisaoResult.IDMETA = (int)result.Rows[i]["IDEMETA"];
+                uRevisaoResult.NOMEFREQUENCIA = result.Rows[i]["NOMEFREQUENCIA"].ToString() ;
+                uRevisaoResult.NOMEINDICADOR = result.Rows[i]["NOMEINDICADOR"].ToString();
+                uRevisaoResult.NOMEUNIDADEMEDIDA = result.Rows[i]["NOMEUNIDADEMEDIDA"].ToString();
+                uRevisaoResult.PESO = (int)result.Rows[i]["PESO"];
+
+                lMetasResultDTO.Add(uRevisaoResult);
+            }
+
+            lFormularioMetasResultDTO.ListRevisaoResultado = lMetasResultDTO;
+            return lFormularioMetasResultDTO;
+        }
+
         public async Task<int> onSaveFormEditType(TipoEdicaoformularioDTO dto)
         {
             var tipoedicaoformulario = new TipoEdicaoFormulario(dto.ANOCICLO, dto.IDTIPOEDICAOFORMULARIO, dto.IDREPRESENTANTE,

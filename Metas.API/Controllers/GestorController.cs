@@ -92,5 +92,16 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [Route("ReviewResults")]
+        public async Task<ActionResult> GetReviewResults([FromQuery] int ANOCICLO, int IDCELULATRABALHO)
+        {
+            var result = await _applicationServiceGestor.OnGetReviewResults(ANOCICLO,IDCELULATRABALHO);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
     }
 }

@@ -54,6 +54,16 @@ namespace Metas.DomainCore.Service
 
             return result;
         }
+
+        public async Task<DataTable> GetReviewResults(int ANOCICLO, int IDCELULATRABALHO)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetReviewResults(ANOCICLO, IDCELULATRABALHO);
+
+            return result;
+        }
+
         public async Task<int> PutSaveFormEditType(TipoEdicaoFormulario parametrs)
         {
             var result = await _repository.RSaveFormEditType(parametrs);
