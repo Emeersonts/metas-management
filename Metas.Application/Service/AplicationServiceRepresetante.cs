@@ -55,11 +55,11 @@ namespace Metas.Application.Service
             return lForIndicador;
         }
 
-        public async Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto, int QTPAGINA, pkxd pkx)
+        public async Task<FormColaboradorDTO> OnGetFindColaborador(int PAGINA, int QTPAGINA)
         {
             FormColaboradorDTO lForIndicadorSAPDTO = new FormColaboradorDTO();
 
-            var resultAfast = await _ServiceRepresentante.GetFindColaborador(new SearchcRepresentanteDTO(dto.PAGINA), QTPAGINA, pkx);
+            var resultAfast = await _ServiceRepresentante.GetFindColaborador(PAGINA, QTPAGINA);
             List<RColaboradorDTO> lIndicadorSapDTO = new List<RColaboradorDTO>();
 
             int pgtotal = 0;
@@ -71,6 +71,8 @@ namespace Metas.Application.Service
                 uLindicadorSAPDTO.NOMECOMPLETO = resultAfast.Rows[J]["NOMECOMPLETO"].ToString();
                 uLindicadorSAPDTO.NPESSOAL = (int)resultAfast.Rows[J]["NPESSOAL"];
                 uLindicadorSAPDTO.TITULO = resultAfast.Rows[J]["TITULO"].ToString();
+                uLindicadorSAPDTO.NCOLABORADOR = (int)resultAfast.Rows[J]["NCOLABORADOR"];
+                uLindicadorSAPDTO.QTPAGINA = (int)resultAfast.Rows[J]["PG"];
 
                 pgtotal = (int)resultAfast.Rows[J]["PG"];
 
@@ -179,11 +181,11 @@ namespace Metas.Application.Service
 
         }
 
-        public async Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto)
+        public async Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto, int ANOCICLO)
         {
             ForSolicitacaoDTO lForsolicitacao = new ForSolicitacaoDTO();
 
-            var resultSolicitacao = await _ServiceRepresentante.GetListsolicitation(new SearchcSolicitgacaoDTO(dto.BUSCA,dto.ORIGEM,dto.RESPONSACAL,dto.STATUS));
+            var resultSolicitacao = await _ServiceRepresentante.GetListsolicitation(new SearchcSolicitgacaoDTO(dto.BUSCA,dto.ORIGEM,dto.RESPONSAVEL,dto.STATUS),ANOCICLO);
             List<SolicitacaoDTO> lsoliocitacao = new List<SolicitacaoDTO>();
 
             for (int J = 0; J < resultSolicitacao.Rows.Count; J++)

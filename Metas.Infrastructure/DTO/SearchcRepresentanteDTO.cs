@@ -9,6 +9,7 @@ namespace Metas.Infrastructure.DTO
         public int PAGINA { get; private set; }
         public int IDFREQUENCIA { get; set; }
         public string BUSCA { get; set; }
+        public int IDCELULATRABALHO { get; set; }
 
         public SearchcRepresentanteDTO(int pagina, int frequencia, string busca)
         {
@@ -21,5 +22,19 @@ namespace Metas.Infrastructure.DTO
         {
             PAGINA = pagina;
         }
+
+        public SearchcRepresentanteDTO(int pagina , int idfrequencia)
+        {
+            PAGINA = pagina;
+            IDFREQUENCIA = idfrequencia;
+        }
+
+        public SearchcRepresentanteDTO(int pagina, int idfrequencia, int idcelulatrabalho)
+        {
+            PAGINA = pagina;
+            IDFREQUENCIA = idfrequencia;
+            IDCELULATRABALHO = idcelulatrabalho;
+        }
+
     }
 }

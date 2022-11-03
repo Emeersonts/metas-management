@@ -41,9 +41,10 @@ namespace Metas.DomainCore.Service
 
         public async Task<DataTable> GetFindMetaResult(int anociclo, pkxd pkx)
         {
+           
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetFindMetaResult(anociclo);
+            var result = await _repository.RGetFindMetaResult(anociclo, pkx);
 
             return result;
 

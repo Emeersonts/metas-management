@@ -104,11 +104,11 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async Task<DataTable> IRepositoryColaborador.RGetFindMetaResult(int ANOCICLO)
+        async Task<DataTable> IRepositoryColaborador.RGetFindMetaResult(int ANOCICLO, pkxd pkx)
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[05];
+            SqlParameter[] parametro = new SqlParameter[06];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -135,6 +135,11 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = ANOCICLO;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 2;
 
             ClsData pk = new ClsData();
 

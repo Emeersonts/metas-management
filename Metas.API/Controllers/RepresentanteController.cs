@@ -78,9 +78,9 @@ namespace Metas.API.Controllers
         //Lista de solicitações
         [HttpGet]
         [Route("Listsolicitation")]
-        public async Task<ActionResult> GetListsolicitation([FromQuery] ESolicitacaoDTO dto)
+        public async Task<ActionResult> GetListsolicitation([FromQuery] ESolicitacaoDTO dto, int ANOCICLO)
         {
-            var result = await _applicationServiceRepresentante.OnGetListsolicitation(dto);
+            var result = await _applicationServiceRepresentante.OnGetListsolicitation(dto, ANOCICLO);
             if (result == null)
             {
                 return NotFound();
@@ -93,7 +93,7 @@ namespace Metas.API.Controllers
         [Route("ListTeam")]
         public async Task<ActionResult> GetListTeam([FromQuery] ColaboradorDTO dto, int QTPAGINA)
         {
-            var result = await _applicationServiceRepresentante.OnGetFindColaborador(dto, QTPAGINA,new pkxd(0,1,1,1,1));
+            var result = await _applicationServiceRepresentante.OnGetFindColaborador(dto.PAGINA, QTPAGINA);
             if (result == null)
             {
                 return NotFound();

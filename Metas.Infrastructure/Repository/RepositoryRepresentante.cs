@@ -79,11 +79,11 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async public Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto)
+        async public Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto, int ANOCICLO)
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[08];
+            SqlParameter[] parametro = new SqlParameter[10];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -99,7 +99,7 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 1;
+            parametro[cont].Value = 2;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
@@ -110,21 +110,32 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@BUSCA", SqlDbType.VarChar);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = dto.BUSCA;
+            if (dto.BUSCA == null) { parametro[cont].Value = ""; }
 
             cont++;
-            parametro[cont] = new SqlParameter("ORIGEM", SqlDbType.Bit);
+            parametro[cont] = new SqlParameter("ORIGEM", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = dto.ORIGEM;
 
             cont++;
-            parametro[cont] = new SqlParameter("@RESPONSAVEL", SqlDbType.Bit);
+            parametro[cont] = new SqlParameter("@RESPONSAVEL", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = dto.RESPONSACAL;
+            parametro[cont].Value = dto.RESPONSAVEL;
 
             cont++;
-            parametro[cont] = new SqlParameter("@STATUS", SqlDbType.Bit);
+            parametro[cont] = new SqlParameter("@STATUS", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = dto.STATUS;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = ANOCICLO;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
 
             ClsData pk = new ClsData();
 
@@ -305,15 +316,15 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async Task<DataTable> IRepositoryRepresentante.RGetFindColaborador(SearchcRepresentanteDTO dto, int QTPAGINA, pkxd pkx)
+        async Task<DataTable> IRepositoryRepresentante.RGetFindColaborador(int PAGINA, int QTPAGINA)
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[05];
+            SqlParameter[] parametro = new SqlParameter[06];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = pkxd.type;
+            parametro[cont].Value = 0;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
@@ -323,7 +334,7 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@PAGINA", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = dto.PAGINA;
+            parametro[cont].Value = PAGINA;
             
             cont++;
             parametro[cont] = new SqlParameter("@NPAGINA", SqlDbType.Int);
@@ -331,7 +342,12 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = QTPAGINA;
 
             cont++;
-            parametro[cont] = new SqlParameter("@NPESSOAL", SqlDbType.Int);
+            parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 2;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = 0;
 

@@ -28,11 +28,11 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<DataTable> GetFindColaborador(SearchcRepresentanteDTO parameters, int qtpagina, pkxd pkx)
+        public async Task<DataTable> GetFindColaborador(int PAGINA,int qtpagina)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetFindColaborador(parameters,qtpagina, pkx);
+            var result = await _repository.RGetFindColaborador(PAGINA,qtpagina);
 
             return result;
 
@@ -65,11 +65,11 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters)
+        public async Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters, int anociclo)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetListsolicitation(parameters);
+            var result = await _repository.RGetListsolicitation(parameters, anociclo);
 
             return result;
         }

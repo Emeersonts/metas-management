@@ -2,10 +2,12 @@
 using Metas.Application.Interface;
 using Metas.Domain;
 using Metas.DomainCore.Interface;
+using Metas.DomainCore.Service;
 using Metas.Infrastructure.DTO;
 using Metas.Profile;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +20,39 @@ namespace Metas.Application.Service
         public AplcationServiceGestor(IServiceGestor serviceGestor)
         {
             this._ServiceGestor = serviceGestor;
+        }
+
+        public async Task<FormColaboradorDTO> OnGetFindColaborador(int PAGINA,int QTPAGINA, int IDCELULATRABALHO)
+        {
+
+            FormColaboradorDTO lForIndicadorSAPDTO = new FormColaboradorDTO();
+
+            var resultAfast = await _ServiceGestor.GetFindColaborador(PAGINA,QTPAGINA, IDCELULATRABALHO);
+            List<RColaboradorDTO> lIndicadorSapDTO = new List<RColaboradorDTO>();
+
+            int pgtotal = 0;
+
+            for (int J = 0; J < resultAfast.Rows.Count; J++)
+            {
+                RColaboradorDTO uLindicadorSAPDTO = new RColaboradorDTO();
+                uLindicadorSAPDTO.EMAIL = resultAfast.Rows[J]["EMAIL"].ToString();
+                uLindicadorSAPDTO.NOMECOMPLETO = resultAfast.Rows[J]["NOMECOMPLETO"].ToString();
+                uLindicadorSAPDTO.NPESSOAL = (int)resultAfast.Rows[J]["NPESSOAL"];
+                uLindicadorSAPDTO.TITULO = resultAfast.Rows[J]["TITULO"].ToString();
+                uLindicadorSAPDTO.NCOLABORADOR = (int)resultAfast.Rows[J]["NCOLABORADOR"];
+                uLindicadorSAPDTO.QTPAGINA = (int)resultAfast.Rows[J]["PG"];
+
+                pgtotal = (int)resultAfast.Rows[J]["PG"];
+
+                lIndicadorSapDTO.Add(uLindicadorSAPDTO);
+
+            }
+
+            lForIndicadorSAPDTO.PGTOTAL = pgtotal;
+            lForIndicadorSAPDTO.ListColaborador = lIndicadorSapDTO;
+
+            return lForIndicadorSAPDTO;
+
         }
 
         public async Task<FormularioMetasDTO> OnGetFindMeta(CicloCelulaDTO dto, pkxd pkx)
@@ -121,6 +156,32 @@ namespace Metas.Application.Service
 
             LForTipoEdicao.LisFormEdicao = Itipoedicao;
             return LForTipoEdicao;
+        }
+
+        public async Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto, int anociclo, int idcelulatrabalho)
+        {
+            ForSolicitacaoDTO lForsolicitacao = new ForSolicitacaoDTO();
+
+            var resultSolicitacao = await _ServiceGestor.GetListsolicitation(new SearchcSolicitgacaoDTO(dto.BUSCA, dto.ORIGEM, dto.RESPONSAVEL, dto.STATUS), anociclo,idcelulatrabalho);
+            List<SolicitacaoDTO> lsoliocitacao = new List<SolicitacaoDTO>();
+
+            for (int J = 0; J < resultSolicitacao.Rows.Count; J++)
+            {
+                SolicitacaoDTO uSolicitacao = new SolicitacaoDTO();
+
+                uSolicitacao.DESCRICAO = resultSolicitacao.Rows[J]["DESCRICAO"].ToString();
+                if (resultSolicitacao.Rows[J]["CONCLUSAO"] != DBNull.Value) { uSolicitacao.CONCLUSAO = (DateTime)resultSolicitacao.Rows[J]["CONCLUSAO"]; }
+                uSolicitacao.ABERTURA = (DateTime)resultSolicitacao.Rows[J]["ABERTURA"];
+                uSolicitacao.ORIGEM = resultSolicitacao.Rows[J]["ORIGEM"].ToString();
+                uSolicitacao.RESPONSAVEL = resultSolicitacao.Rows[J]["RESPONSAVEL"].ToString();
+                uSolicitacao.STATUS = resultSolicitacao.Rows[J]["STATUS"].ToString();
+                uSolicitacao.TITULO = resultSolicitacao.Rows[J]["TITULO"].ToString();
+                lsoliocitacao.Add(uSolicitacao);
+            }
+
+            lForsolicitacao.ListSolicitacao = lsoliocitacao;
+
+            return lForsolicitacao;
         }
 
         public async Task<FormRevisaoResultadoDTO> OnGetReviewResults(int anociclo, int idcelulatrabalho)
