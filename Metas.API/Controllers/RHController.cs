@@ -10,7 +10,7 @@ namespace Metas.API.Controllers
     {
         [HttpGet]
         [Route("ListProgressStatus")]
-        public async Task<ActionResult> GetListProgressStatus([FromQuery] int CICLO)
+        public async Task<ActionResult> GetList([FromQuery] int CICLO)
         {
 
             return Ok();
