@@ -8,7 +8,7 @@ namespace Metas.Application.DTO
     {
         public string BUSCA { get; set; }
         public Byte ORIGEM { get; set; }
-        public Byte RESPONSACAL { get; set; }
+        public Byte RESPONSAVEL { get; set; }
         public Byte STATUS { get; set; }
     }
 }

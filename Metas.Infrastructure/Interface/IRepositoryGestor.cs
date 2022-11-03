@@ -17,5 +17,9 @@ namespace Metas.Infrastructure.Interface
         Task<int> RSaveFormEditType(TipoEdicaoFormulario tipoedicaoformularo);
         Task<DataTable> RGetFindMeta(SearchcColaborador dto, pkxd pkx);
         Task<DataTable> RGetFindMetaResult(int ANOCICLO, int IDCELULATRABALHO);
+        Task<DataTable> RGetReviewResults(int anociclo, int idcelulatrabalho);
+        Task<DataTable> RGetFindColaborador(int pagina,int qtpagina, int idcelulatrabalho);
+        Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto, int anociclo, int idcelulatrabalho);
+
     }
 }

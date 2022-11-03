@@ -19,6 +19,15 @@ namespace Metas.DomainCore.Service
             this._repository = repository;
         }
 
+        public async Task<DataTable> GetFindColaborador(int PAGINA,int QTPAGINA, int IDCELULATRABALHO)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetFindColaborador(PAGINA, QTPAGINA, IDCELULATRABALHO);
+
+            return result;
+        }
+
         public async Task<DataTable> GetFindMeta(SearchcColaborador parameters, pkxd pkx)
         {
             DataTable ty = new DataTable();
@@ -54,6 +63,26 @@ namespace Metas.DomainCore.Service
 
             return result;
         }
+
+        public async Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters, int ANOCICLO, int IDCELULATRABALHO)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetListsolicitation(parameters, ANOCICLO, IDCELULATRABALHO);
+
+            return result;
+
+        }
+
+        public async Task<DataTable> GetReviewResults(int ANOCICLO, int IDCELULATRABALHO)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetReviewResults(ANOCICLO, IDCELULATRABALHO);
+
+            return result;
+        }
+
         public async Task<int> PutSaveFormEditType(TipoEdicaoFormulario parametrs)
         {
             var result = await _repository.RSaveFormEditType(parametrs);

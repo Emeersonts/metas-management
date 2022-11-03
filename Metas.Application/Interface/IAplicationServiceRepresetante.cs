@@ -13,8 +13,8 @@ namespace Metas.Application.Interface
         Task<FormIndicadorDTO> OnGetListIndicatorAdd(EIndicadorAddDTO dto, pkxd pkx);
         Task<ForMetaRelatorioDTO> OnGetGoalsReport(int CICLO, pkxd pkx);
         Task<ForSIndicadorDTO> OnGetAddSIndicator(int CICLO, pkxd pkx);
-        Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto);
-        Task<FormColaboradorDTO> OnGetFindColaborador(ColaboradorDTO dto, pkxd pkx);
+        Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto, int anociclo);
+        Task<FormColaboradorDTO> OnGetFindColaborador(int pagina, int qtpagina);
         Task<ForCronogramaDTO> OnTimeline();
         Task<int> OnSaveForm(GIndicadorDTTO dto);
         Task<int> OnSendForApprovalIndicador(int anociclo);

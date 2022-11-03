@@ -13,6 +13,48 @@ namespace Metas.Infrastructure.Repository
 {
     public class RepositoryGestor : IRepositoryGestor
     {
+        async public Task<DataTable> RGetFindColaborador(int PAGINA, int QTPAGINA, int IDCELULATRABALHO)
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[06];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 2;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PAGINA", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = PAGINA;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@NPAGINA", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = QTPAGINA;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = IDCELULATRABALHO;
+
+            ClsData pk = new ClsData();
+
+            var ui = await pk.ExecReader(parametro, "[SMetas].[C_COLABORADOR]");
+
+            return ui;
+        }
+
         async public Task<DataTable> RGetFindMeta(SearchcColaborador dto, pkxd pkx)
         {
             int cont = 0;
@@ -137,6 +179,110 @@ namespace Metas.Infrastructure.Repository
 
             return ui;
         }
+
+        async public Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto, int anociclo, int idcelulatrabalho)
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[10];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
+            parametro[cont].IsNullable = false;
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
+            parametro[cont].IsNullable = false;
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 2;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@BUSCA", SqlDbType.VarChar);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = dto.BUSCA;
+            if (dto.BUSCA == null) { parametro[cont].Value = ""; }
+
+            cont++;
+            parametro[cont] = new SqlParameter("ORIGEM", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = dto.ORIGEM;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@RESPONSAVEL", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = dto.RESPONSAVEL;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@STATUS", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = dto.STATUS;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = anociclo;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = idcelulatrabalho;
+
+            ClsData pk = new ClsData();
+
+            var ui = await pk.ExecReader(parametro, "[SMetas].[C_SOLICITACAO]");
+
+            return ui;
+        }
+
+        async public Task<DataTable> RGetReviewResults(int anociclo, int idcelulatrabalho)
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[05];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 2;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = anociclo;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = idcelulatrabalho;
+
+
+            ClsData pk = new ClsData();
+
+            var ui = await pk.ExecReader(parametro, "[SMetas].[C_APROVAINDICADOR]");
+
+            return ui;
+        }
+
         async public Task<int> RSaveFormEditType(TipoEdicaoFormulario tipoedicaoformularo)
         {
             int cont = 0;

@@ -92,5 +92,43 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [Route("ReviewResults")]
+        public async Task<ActionResult> GetReviewResults([FromQuery] int ANOCICLO, int IDCELULATRABALHO)
+        {
+            var result = await _applicationServiceGestor.OnGetReviewResults(ANOCICLO,IDCELULATRABALHO);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
+        // Lista de colaboradores da celula escolhida
+        [HttpGet]
+        [Route("ListTeam")]
+        public async Task<ActionResult> GetListTeam([FromQuery] ColaboradorDTO dto, int QTPAGINA, int IDCELULATRABALHO)
+        {
+            var result = await _applicationServiceGestor.OnGetFindColaborador(dto.PAGINA, QTPAGINA, IDCELULATRABALHO);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
+        //Lista de solicitações
+        [HttpGet]
+        [Route("Listsolicitation")]
+        public async Task<ActionResult> GetListsolicitation([FromQuery] ESolicitacaoDTO dto, int ANOCICLO, int IDCELULATRABALHO)
+        {
+            var result = await _applicationServiceGestor.OnGetListsolicitation(dto, ANOCICLO, IDCELULATRABALHO);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
     }
 }

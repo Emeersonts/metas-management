@@ -17,5 +17,8 @@ namespace Metas.DomainCore.Interface
         Task<int> PutSaveFormEditType(TipoEdicaoFormulario parametrs);
         Task<DataTable> GetFindMeta(SearchcColaborador parameters, pkxd pkx);
         Task<DataTable> GetFindMetaResult(int ANOCICLO, int IDCELULATRABALHO, pkxd pkx);
+        Task<DataTable> GetReviewResults(int ANOCICLO, int IDCELULATRABALHO);
+        Task<DataTable> GetFindColaborador(int pagina, int qtpagina, int idcelulatrabalho);
+        Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters, int ANOCICLO, int IDCELULATRABALHO);
     }
 }
