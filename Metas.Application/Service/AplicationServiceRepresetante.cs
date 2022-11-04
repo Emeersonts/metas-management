@@ -18,39 +18,39 @@ namespace Metas.Application.Service
             this._ServiceRepresentante = serviceCiclo;
         }
 
-        public async Task<ForSIndicadorDTO> OnGetAddSIndicator(int CICLO, pkxd pkx)
+        public async Task<FormRevisaoResultadoDTO> OnGetAddSIndicator(int CICLO)
         {
 
-            ForSIndicadorDTO lForIndicador = new ForSIndicadorDTO();
+            FormRevisaoResultadoDTO lForIndicador = new FormRevisaoResultadoDTO();
 
-            var resultIndicador = await _ServiceRepresentante.GetAddSIndicator(CICLO, pkx);
-            List<IndicadorSDTO> lIndicador = new List<IndicadorSDTO>();
+            var resultIndicador = await _ServiceRepresentante.GetAddSIndicator(CICLO);
+            List<RevisaoResultadoDTO> lIndicador = new List<RevisaoResultadoDTO>();
 
             for (int J = 0; J < resultIndicador.Rows.Count; J++)
             {
-                IndicadorSDTO uLindicador = new IndicadorSDTO();
+                RevisaoResultadoDTO uLindicador = new RevisaoResultadoDTO();
 
                 uLindicador.JAN = (decimal)resultIndicador.Rows[J]["JAN"];
                 uLindicador.FEV = (decimal)resultIndicador.Rows[J]["FEV"];
                 uLindicador.MAR = (decimal)resultIndicador.Rows[J]["MAR"];
-                uLindicador.ABR = (decimal)resultIndicador.Rows[J]["ABR"];
-                uLindicador.MAI = (decimal)resultIndicador.Rows[J]["ABR"];
+                uLindicador.MAI = (decimal)resultIndicador.Rows[J]["MAI"];
                 uLindicador.JUN = (decimal)resultIndicador.Rows[J]["JUN"];
-                uLindicador.JUL = (decimal)resultIndicador.Rows[J]["JUL"];
                 uLindicador.AGO = (decimal)resultIndicador.Rows[J]["AGO"];
                 uLindicador.SET = (decimal)resultIndicador.Rows[J]["SET"];
                 uLindicador.OUT = (decimal)resultIndicador.Rows[J]["OUT"];
                 uLindicador.NOV = (decimal)resultIndicador.Rows[J]["NOV"];
                 uLindicador.DEZ = (decimal)resultIndicador.Rows[J]["DEZ"];
-                uLindicador.IDMETA = (int)resultIndicador.Rows[J]["IDMETA"];
-                uLindicador.INDICADOR = resultIndicador.Rows[J]["INDICADOR"].ToString();
-                uLindicador.TITULO = resultIndicador.Rows[J]["TITULO"].ToString();
+                uLindicador.IDMETA = (int)resultIndicador.Rows[J]["IDEMETA"];
+                uLindicador.NOMEFREQUENCIA = resultIndicador.Rows[J]["NOMEFREQUENCIA"].ToString();
+                uLindicador.NOMEINDICADOR = resultIndicador.Rows[J]["NOMEINDICADOR"].ToString();
+                uLindicador.NOMEUNIDADEMEDIDA = resultIndicador.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
                 uLindicador.PESO = (int)resultIndicador.Rows[J]["PESO"];
+
 
                 lIndicador.Add(uLindicador);
             }
 
-            lForIndicador.ListSIndicador = lIndicador;
+            lForIndicador.ListRevisaoResultado = lIndicador;
 
             return lForIndicador;
         }

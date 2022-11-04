@@ -14,7 +14,7 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> GetFindIndicatorSAP(SearchcRepresentanteDTO parameters);
         Task<DataTable> GetListIndicatorAdd(SearchcIndicadorDTO parameters, pkxd pkx);
         Task<DataTable> GetGoalsReport(int ciclo, pkxd pkx);
-        Task<DataTable> GetAddSIndicator(int ciclo, pkxd pkx);
+        Task<DataTable> GetAddSIndicator(int ciclo);
         Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters, int ANOCICLO);
         Task<DataTable> GetFindColaborador(int pagina,  int qtpagina);
         Task<DataTable> Timeline();
