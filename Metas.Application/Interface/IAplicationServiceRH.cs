@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Metas.Application.Interface
 {
-    public interface IAplicationServiceCiclo 
+    public interface IAplicationServiceRH
     {
-        Task<ListStatusAtribuidoDTO> OnGetListProgressStatus(int ciclo);
-        Task<ListCicloDTO> OnGetListCiclo();
+        Task<ForDropGestorDTO> onGetListGestor();
     }
 }

@@ -9,5 +9,6 @@ namespace Metas.Application.DTO
         public int IDFORMULARIOMETA { get; set; }
         public String DESCRICAO { get; set; }
         public int IDCELULATRABALHO { get; set; }
+        public DateTime UACESSO { get; set; }
     }
 }
