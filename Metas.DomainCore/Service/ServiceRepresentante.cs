@@ -19,11 +19,11 @@ namespace Metas.DomainCore.Service
             this._repository = repository;
         }
 
-        public async Task<DataTable> GetAddSIndicator(int ciclo, pkxd pkx)
+        public async Task<DataTable> GetAddSIndicator(int ciclo)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetAddSIndicator(ciclo, pkx);
+            var result = await _repository.RGetAddSIndicator(ciclo);
 
             return result;
         }

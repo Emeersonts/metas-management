@@ -66,8 +66,7 @@ namespace Metas.API.Controllers
         [Route("AddSIndicator")]
         public async Task<ActionResult> GetAddSIndicator([FromQuery] int CICLO)
         {
-            Metas.Profile.pkxd.type = 1;
-            var result = await _applicationServiceRepresentante.OnGetAddSIndicator(CICLO, new pkxd(1,1,1,1,1));
+            var result = await _applicationServiceRepresentante.OnGetAddSIndicator(CICLO);
             if (result == null)
             {
                 return NotFound();

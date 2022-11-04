@@ -13,11 +13,11 @@ namespace Metas.Infrastructure.Repository
 {
     public class RepositoryRepresentante : IRepositoryRepresentante
     {
-        async public Task<DataTable> RGetAddSIndicator(int ciclo, pkxd pkx)
+        async public Task<DataTable> RGetAddSIndicator(int ciclo)
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[05];
+            SqlParameter[] parametro = new SqlParameter[06];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -38,7 +38,13 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 1;
+            parametro[cont].Value = 2;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].IsNullable = false;
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
 
             cont++;
             parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
