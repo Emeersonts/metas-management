@@ -240,6 +240,7 @@ namespace Metas.Application.Service
                 uMeta.DESCRICAO  = resultAfast.Rows[J]["DESCRICAO"].ToString();
                 uMeta.IDCELULATRABALHO = (int)resultAfast.Rows[J]["IDCELULATRABALHO"];
                 uMeta.IDFORMULARIOMETA = (int)resultAfast.Rows[J]["IDFORMULARIOMETA"];
+                uMeta.UACESSO = (DateTime)resultAfast.Rows[J]["UACESSO"];
                 Imeta.Add(uMeta);
             }
 
