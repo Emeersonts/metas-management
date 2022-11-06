@@ -20,5 +20,9 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> GetReviewResults(int ANOCICLO, int IDCELULATRABALHO);
         Task<DataTable> GetFindColaborador(int pagina, int qtpagina, int idcelulatrabalho);
         Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters, int ANOCICLO, int IDCELULATRABALHO);
+        Task<int> RequestAdjustment(int anociclo, int idcelulatrabalho, string menssagem);
+        Task<int> AprovarIndicador(int anociclo, int idcelulatrabalho);
+        Task<int> AprovarResults(int anociclo, int idcelulatrabalho);
+        Task<int> RequestAdjustmentResult(int anociclo, int idcelulatrabalho, string menssagem);
     }
 }

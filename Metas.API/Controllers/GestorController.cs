@@ -130,5 +130,81 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        // Solicitar ajuste apos solicitação de aprovação de indicadores
+        [HttpPost]
+        [Route("RequestAdjustment")]
+        public async Task<ActionResult> RequestAdjustment(int ANOCICLO, int IDCELULATRABALHO, string MENSSAGEM)
+        {
+
+            var result = await _applicationServiceGestor.OnRequestAdjustment(ANOCICLO, IDCELULATRABALHO , MENSSAGEM);
+            var ob = new InterrupcaoDTO();
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok(ob.IT(result));
+            }
+        }
+
+        //solicita ajuste no resultado dos indicadores
+        [HttpPost]
+        [Route("RequestAdjustmentResult")]
+        public async Task<ActionResult> RequestAdjustmentResult(int ANOCICLO, int IDCELULATRABALHO, string MENSSAGEM)
+        {
+
+            var result = await _applicationServiceGestor.OnRequestAdjustmentResult(ANOCICLO, IDCELULATRABALHO, MENSSAGEM);
+            var ob = new InterrupcaoDTO();
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok(ob.IT(result));
+            }
+        }
+
+        // Aprovar indicadores
+        [HttpPost]
+        [Route("AprovarIndicador")]
+        public async Task<ActionResult> AprovarIndicador(int ANOCICLO, int IDCELULATRABALHO)
+        {
+
+            var result = await _applicationServiceGestor.OnAprovarIndicador(ANOCICLO, IDCELULATRABALHO);
+            var ob = new InterrupcaoDTO();
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok(ob.IT(result));
+            }
+        }
+
+        // Aprovar resukltados
+        [HttpPost]
+        [Route("AprovarResults")]
+        public async Task<ActionResult> AprovarResults(int ANOCICLO, int IDCELULATRABALHO)
+        {
+
+            var result = await _applicationServiceGestor.OnAprovarResults(ANOCICLO, IDCELULATRABALHO);
+            var ob = new InterrupcaoDTO();
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok(ob.IT(result));
+            }
+        }
+
     }
 }

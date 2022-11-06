@@ -65,11 +65,11 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<DataTable> GetUserNotification()
+        public async Task<DataTable> GetUserNotification(int anociclo, int IDCELULATRABALHO)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetUserNotification();
+            var result = await _repository.RGetUserNotification(anociclo, IDCELULATRABALHO);
 
             return result;
         }

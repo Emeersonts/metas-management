@@ -18,6 +18,7 @@ namespace Metas.Application.Interface
         Task<ForCronogramaDTO> OnTimeline();
         Task<int> OnSaveForm(GIndicadorDTTO dto);
         Task<int> OnSendForApprovalIndicador(int anociclo);
+        Task<int> OnSendResultForApproval(int anociclo);
         Task<int> OnRemoveIndicador(int idindicador);
 
     }

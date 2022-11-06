@@ -20,6 +20,7 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RTimeline();
         Task<int> RSaveIndicador(Indicador indicador);
         Task<int> RSendForApprovalIndicador(int ANOCICLO);
+        Task<int> RSendResultForApproval(int ANOCICLO);
         Task<int> RRemoveIndicador(int IDINDICADOR);
     }
 }
