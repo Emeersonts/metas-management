@@ -22,6 +22,34 @@ namespace Metas.Application.Service
             this._ServiceGestor = serviceGestor;
         }
 
+        public async Task<int> OnAprovarIndicador(int anociclo, int idcelulatrabalho)
+        {
+            var resultIndicador = await _ServiceGestor.AprovarIndicador(anociclo, idcelulatrabalho);
+
+            if (resultIndicador == 0)
+            {
+                EmailEnvia env = new EmailEnvia();
+                env.EnviaEmail("a", "a", "a", "a", "a");
+                // CHAMADA DO EMAIL
+            }
+
+            return resultIndicador;
+        }
+
+        public async Task<int> OnAprovarResults(int anociclo, int idcelulatrabalho)
+        {
+            var resultIndicador = await _ServiceGestor.AprovarResults(anociclo, idcelulatrabalho);
+
+            if (resultIndicador == 0)
+            {
+                EmailEnvia env = new EmailEnvia();
+                env.EnviaEmail("a", "a", "a", "a", "a");
+                // CHAMADA DO EMAIL
+            }
+
+            return resultIndicador;
+        }
+
         public async Task<FormColaboradorDTO> OnGetFindColaborador(int PAGINA,int QTPAGINA, int IDCELULATRABALHO)
         {
 
@@ -215,6 +243,35 @@ namespace Metas.Application.Service
 
             lFormularioMetasResultDTO.ListRevisaoResultado = lMetasResultDTO;
             return lFormularioMetasResultDTO;
+        }
+
+        public async Task<int> OnRequestAdjustment(int anociclo, int idcelulatrabalho, string menssagem)
+        {
+            var resultIndicador = await _ServiceGestor.RequestAdjustment(anociclo, idcelulatrabalho, menssagem);
+
+            if (resultIndicador == 0)
+            {
+                EmailEnvia env = new EmailEnvia();
+                env.EnviaEmail("a", "a", "a", "a", "a");
+                // CHAMADA DO EMAIL
+            }
+
+            return resultIndicador;
+        }
+
+        public async Task<int> OnRequestAdjustmentResult(int anociclo, int idcelulatrabalho, string menssagem)
+        {
+            var resultIndicador = await _ServiceGestor.RequestAdjustmentResult(anociclo, idcelulatrabalho, menssagem);
+
+            if (resultIndicador == 0)
+            {
+                EmailEnvia env = new EmailEnvia();
+                env.EnviaEmail("a", "a", "a", "a", "a");
+                // CHAMADA DO EMAIL
+            }
+
+            return resultIndicador;
+
         }
 
         public async Task<int> onSaveFormEditType(TipoEdicaoformularioDTO dto)

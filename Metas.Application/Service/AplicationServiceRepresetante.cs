@@ -241,6 +241,20 @@ namespace Metas.Application.Service
 
         }
 
+        public async Task<int> OnSendResultForApproval(int anociclo)
+        {
+            var resultIndicador = await _ServiceRepresentante.SendResultForApproval(anociclo);
+
+            if (resultIndicador == 0)
+            {
+                EmailEnvia env = new EmailEnvia();
+                env.EnviaEmail("a", "a", "a", "a", "a");
+                // CHAMADA DO EMAIL
+            }
+
+            return resultIndicador;
+        }
+
         async Task<ForCronogramaDTO> IAplicationServiceRepresetante.OnTimeline()
         {
             ForCronogramaDTO lCronogramaDTO = new ForCronogramaDTO();

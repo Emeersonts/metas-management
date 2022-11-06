@@ -202,7 +202,7 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
             parametro[cont].IsNullable = false;
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.function;
+            parametro[cont].Value = 1;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
@@ -279,7 +279,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[7];
+            SqlParameter[] parametro = new SqlParameter[9];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -309,12 +309,79 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@IDPERFIL", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 3;
+            parametro[cont].Value = 3; //Fixo para envio ao gestor
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Output;
             parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@MENSSAGEM", SqlDbType.NVarChar);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = "";
+
+            ClsData pk = new ClsData();
+            var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_NOTIFICACAOPERFIL]");
+
+            return ui;
+        }
+
+        async public Task<int> RSendResultForApproval(int ANOCICLO)
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[9];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 2;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
+            parametro[cont].IsNullable = false;
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 1;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 2;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDNOTIFICACAO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 3;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = ANOCICLO;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDPERFIL", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 3; //Fixo notificação
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@MENSSAGEM", SqlDbType.NVarChar);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = "";
 
             ClsData pk = new ClsData();
             var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_NOTIFICACAOPERFIL]");

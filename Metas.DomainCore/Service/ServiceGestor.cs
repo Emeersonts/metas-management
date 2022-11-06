@@ -6,6 +6,7 @@ using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,20 @@ namespace Metas.DomainCore.Service
         public ServiceGestor(IRepositoryGestor repository)
         {
             this._repository = repository;
+        }
+
+        public async Task<int> AprovarIndicador(int anociclo, int idcelulatrabalho)
+        {
+            var result = await _repository.RAprovarIndicador(anociclo, idcelulatrabalho);
+
+            return result;
+        }
+
+        public async Task<int> AprovarResults(int anociclo, int idcelulatrabalho)
+        {
+            var result = await _repository.RAprovarResults(anociclo, idcelulatrabalho);
+
+            return result;
         }
 
         public async Task<DataTable> GetFindColaborador(int PAGINA,int QTPAGINA, int IDCELULATRABALHO)
@@ -86,6 +101,20 @@ namespace Metas.DomainCore.Service
         public async Task<int> PutSaveFormEditType(TipoEdicaoFormulario parametrs)
         {
             var result = await _repository.RSaveFormEditType(parametrs);
+            return result;
+        }
+
+        public async Task<int> RequestAdjustment(int anociclo, int idcelulatrabalho, string menssagem)
+        {
+            var result = await _repository.RRequestAdjustmentt(anociclo, idcelulatrabalho, menssagem);
+
+            return result;
+        }
+
+        public async Task<int> RequestAdjustmentResult(int anociclo, int idcelulatrabalho, string menssagem)
+        {
+            var result = await _repository.RRequestAdjustmentResult(anociclo, idcelulatrabalho, menssagem);
+
             return result;
         }
 

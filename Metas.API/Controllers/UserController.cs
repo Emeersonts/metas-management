@@ -115,9 +115,9 @@ namespace Metas.API.Controllers
         // Lista notificações do usuário
         [HttpGet]
         [Route("ListNotification")]
-        public async Task<ActionResult> GetUserNotification()
+        public async Task<ActionResult> GetUserNotification(int ANOCICLO, int IDCELULATRABALHO)
         {
-            var result = await _applicationServiceUser.OnGetUserNotification();
+            var result = await _applicationServiceUser.OnGetUserNotification(ANOCICLO, IDCELULATRABALHO);
             if (result == null)
             {
                 return NotFound();

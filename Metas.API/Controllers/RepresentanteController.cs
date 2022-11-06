@@ -152,6 +152,26 @@ namespace Metas.API.Controllers
 
         }
 
+        // Enviar resultados para solicitação de aprovação
+        [HttpPost]
+        [Route("SendResultForApproval")]
+        public async Task<ActionResult> SendResultForApproval(int ANOCICLO)
+        {
+
+            var result = await _applicationServiceRepresentante.OnSendResultForApproval(ANOCICLO);
+            var ob = new InterrupcaoDTO();
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok(ob.IT(result));
+            }
+
+        }
+
         // Remover indicador
         [HttpDelete]
         [Route("RemoveIndicador")]

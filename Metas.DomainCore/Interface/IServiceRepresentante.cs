@@ -20,7 +20,7 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> Timeline();
         Task<int> SaveIndicador(Indicador parameters);
         Task<int> SendForApprovalIndicador(int anociclo);
-
+        Task<int> SendResultForApproval(int anociclo);
         Task<int> RemoveIndicador(int idindicador);
     }
 }

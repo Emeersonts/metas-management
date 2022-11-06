@@ -11,7 +11,7 @@ namespace Metas.Infrastructure.Interface
     {
         Task<DataTable> RGetTutorialByUser();
         Task<DataTable> RGetCulture();
-        Task<DataTable> RGetUserNotification();
+        Task<DataTable> RGetUserNotification(int anociclo, int idcelulatrabalho);
         Task<int> RDeactiveTutorial(TutorialUsuario tutorialusuario);
         Task<DataTable> RGetListFrequency();
         Task<DataTable> RGetListMeasure();
