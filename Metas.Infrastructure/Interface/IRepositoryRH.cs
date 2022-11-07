@@ -9,5 +9,7 @@ namespace Metas.Infrastructure.Interface
     public interface IRepositoryRH
     {
         Task<DataTable> RGetListGestor();
+        Task<DataTable> RGetListCelula(int idrepresentante);
+        Task<DataTable> RGetMetaSimulate(int anocilco, int idcelulatrabalho, int mes);
     }
 }

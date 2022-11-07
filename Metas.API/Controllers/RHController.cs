@@ -31,5 +31,34 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        //LISTA DE CELULAS DE TRABALHO DE DETERMINADO GESTOR
+        [HttpGet]
+        [Route("ListCelula")]
+        public async Task<ActionResult> onGetListCelula(int IDGESTOR)
+        {
+            var result = await _applicationServiceRH.onGetListCelula(IDGESTOR);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+        //LISTA AS METAS DA CELULA ESCOLHIDA PARA SIMULAÇÃO
+        [HttpGet]
+        [Route("MetaSimulate")]
+        public async Task<ActionResult> onGetMetaSimulate(int ANOCICLO, int IDCELULATRABALHO, int MES)
+        {
+            var result = await _applicationServiceRH.onGetMetaSimulate(ANOCICLO,IDCELULATRABALHO,MES);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
     }
 }

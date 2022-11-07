@@ -9,5 +9,7 @@ namespace Metas.Application.Interface
     public interface IAplicationServiceRH
     {
         Task<ForDropGestorDTO> onGetListGestor();
+        Task<FormCelulaTrabalhoDTO> onGetListCelula(int IDREPRESENTANTE);
+        Task<ForMetaRelatorioDTO> onGetMetaSimulate(int anocilco, int idcelulatrabalho, int mes);
     }
 }

@@ -187,7 +187,7 @@ namespace Metas.API.Controllers
             }
         }
 
-        // Aprovar resukltados
+        // Aprovar resultados
         [HttpPost]
         [Route("AprovarResults")]
         public async Task<ActionResult> AprovarResults(int ANOCICLO, int IDCELULATRABALHO)

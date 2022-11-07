@@ -10,8 +10,5 @@ namespace Metas.Application.DTO
         public string NOMECOMPLETO { get; set; }
         public string EMAIL { get; set; }
         public string TITULO { get; set; }
-        public int NCOLABORADOR { get; set; }
-        public int QTPAGINA { get; set; }
-
     }
 }
