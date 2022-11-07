@@ -132,7 +132,7 @@ namespace Metas.Application.Service
                 uLindicador.NOMEINDICADOR = resultIndicador.Rows[J]["NOMEINDICADOR"].ToString();
                 uLindicador.NOMEUNIDADEMEDIDA = resultIndicador.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
                 uLindicador.DESCRICAO = resultIndicador.Rows[J]["DESCRICAO"].ToString();
-                uLindicador.PESO = (decimal)resultIndicador.Rows[J]["PESO"];
+                uLindicador.PESO = (int)resultIndicador.Rows[J]["PESO"];
                 uLindicador.MINIMO = (decimal)resultIndicador.Rows[J]["MINIMO"];
                 uLindicador.PLANEJADO = (decimal)resultIndicador.Rows[J]["PLANEJADO"];
                 uLindicador.DESAFIO = (decimal)resultIndicador.Rows[J]["DESAFIO"];
@@ -168,7 +168,7 @@ namespace Metas.Application.Service
                 uLindicador.NOMEINDICADOR = RsultIndicador.Rows[J]["NOMEINDICADOR"].ToString();
                 uLindicador.NOME = RsultIndicador.Rows[J]["IDINDICADOR"].ToString();
                 uLindicador.MINIMO = (decimal)RsultIndicador.Rows[J]["MINIMO"];
-                uLindicador.PESO = (decimal)RsultIndicador.Rows[J]["PESO"];
+                uLindicador.PESO = (int)RsultIndicador.Rows[J]["PESO"];
                 uLindicador.PLANEJADO = (decimal)RsultIndicador.Rows[J]["PLANEJADO"];
                 uLindicador.DESAFIO = (decimal)RsultIndicador.Rows[J]["DESAFIO"];
                 uLindicador.RESULTADO = (int)RsultIndicador.Rows[J]["RESULTADO"];

@@ -11,7 +11,7 @@ namespace Metas.Domain
         public string NOMEINDICADOR { get; set; }
         public string NOMEUNIDADEMEDIDA { get; set; }
         public string DESCRICAO { get; set; }
-        public decimal PESO { get; set; }
+        public int PESO { get; set; }
         public decimal MINIMO { get; set; }
         public decimal PLANEJADO { get; set; }
         public decimal DESAFIO { get; set; }

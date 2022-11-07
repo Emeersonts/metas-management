@@ -11,7 +11,7 @@ namespace Metas.Domain
         public string DESCRICAOINDICADOR { get; set; }
         public int IDUNIDADEMEDIDA { get; set; }
         public int IDFREQUENCIA { get; set; }
-        public decimal PESO { get; set; }
+        public int PESO { get; set; }
         public decimal MINIMO { get; set; }
         public decimal PLANEJADO { get; set; }
         public decimal DESAFIO { get; set; }
@@ -19,7 +19,7 @@ namespace Metas.Domain
         public int MES { get; set; }
 
         public Indicador(int idindicador, string nome, string descricaoindicador, int idunidademedida,
-            int idfrequencia, decimal peso, decimal minimo, decimal planejado, decimal desafio, int anocilo, int mes
+            int idfrequencia, int peso, decimal minimo, decimal planejado, decimal desafio, int anocilo, int mes
         )
         {
             IDINDICADOR = idindicador;
