@@ -16,7 +16,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[03];
+            SqlParameter[] parametro = new SqlParameter[05];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -26,6 +26,16 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@IDREPRESENTANTE", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = idrepresentante;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCILO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
@@ -114,6 +124,44 @@ namespace Metas.Infrastructure.Repository
             ClsData pk = new ClsData();
 
             var ui = await pk.ExecReader(parametro, "[SMetas].[C_META]");
+
+            return ui;
+
+        }
+
+        public async Task<DataTable> RGetVerifyRepresentantative(int anocilco, int idcelulatrabalho)
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[05];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 1;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDREPRESENTANTE", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0; ;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = idcelulatrabalho;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCILO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = anocilco;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            ClsData pk = new ClsData();
+
+            var ui = await pk.ExecReader(parametro, "[SMetas].[C_CELULATRABALHO]");
 
             return ui;
 

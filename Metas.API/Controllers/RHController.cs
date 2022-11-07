@@ -60,5 +60,21 @@ namespace Metas.API.Controllers
 
             return Ok(result);
         }
+
+        //RETORNA REPRESENTANTE DA CÉLULA DE TRABALHO
+        [HttpGet]
+        [Route("VerifyRepresentantative")]
+        public async Task<ActionResult> onGetVerifyRepresentantative(int ANOCICLO, int IDCELULATRABALHO)
+        {
+            var result = await _applicationServiceRH.onGetVerifyRepresentantative(ANOCICLO, IDCELULATRABALHO);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
     }
 }

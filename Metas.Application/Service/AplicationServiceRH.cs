@@ -95,5 +95,20 @@ namespace Metas.Application.Service
 
             return lForIndicador;
         }
+
+        public async Task<RepresentanteDTO> onGetVerifyRepresentantative(int anocilco, int idcelulatrabalho)
+        {
+            var result = await _ServiceRH.GetVerifyRepresentantative(anocilco, idcelulatrabalho);
+
+            RepresentanteDTO Representante = new RepresentanteDTO();
+
+            for (int i = 0; i < result.Rows.Count; i++)
+            {
+                Representante.Id = (int)result.Rows[i]["IDREPRESENTANTE"];
+                Representante.Nome = result.Rows[i]["NOMECOMPLETO"].ToString();
+            }
+
+            return Representante;
+        }
     }
 }

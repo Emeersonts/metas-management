@@ -11,5 +11,6 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> GetListGestor();
         Task<DataTable> GetListCelula(int idrepresentante);
         Task<DataTable> GetMetaSimulate(int anocilco, int idcelulatrabalho, int mes);
+        Task<DataTable> GetVerifyRepresentantative(int anocilco, int idcelulatrabalho);
     }
 }
