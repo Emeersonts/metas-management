@@ -13,7 +13,7 @@ namespace Metas.Application.DTO
         public string NOME { get; set; }
         public int IDFREQUENCIA { get; set; }
         public string DESCRICAO { get; set; }
-        public Decimal PESO { get; set; }
+        public int PESO { get; set; }
         public Decimal MINIMO { get; set; }
         public Decimal PLANEJADO { get; set; }
         public Decimal DESAFIO { get; set; }
