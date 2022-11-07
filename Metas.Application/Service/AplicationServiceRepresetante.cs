@@ -63,24 +63,32 @@ namespace Metas.Application.Service
             List<RColaboradorDTO> lIndicadorSapDTO = new List<RColaboradorDTO>();
 
             int pgtotal = 0;
+            int ncolaborador = 0;
+            int qtpagina = 0;
+            string descricaocelulatrabalho = "";
+
 
             for (int J = 0; J < resultAfast.Rows.Count; J++)
             {
                 RColaboradorDTO uLindicadorSAPDTO = new RColaboradorDTO();
+                
                 uLindicadorSAPDTO.EMAIL = resultAfast.Rows[J]["EMAIL"].ToString();
                 uLindicadorSAPDTO.NOMECOMPLETO = resultAfast.Rows[J]["NOMECOMPLETO"].ToString();
                 uLindicadorSAPDTO.NPESSOAL = (int)resultAfast.Rows[J]["NPESSOAL"];
                 uLindicadorSAPDTO.TITULO = resultAfast.Rows[J]["TITULO"].ToString();
-                uLindicadorSAPDTO.NCOLABORADOR = (int)resultAfast.Rows[J]["NCOLABORADOR"];
-                uLindicadorSAPDTO.QTPAGINA = (int)resultAfast.Rows[J]["PG"];
 
                 pgtotal = (int)resultAfast.Rows[J]["PG"];
-
+                descricaocelulatrabalho = resultAfast.Rows[J]["DESCRICAOCELULATRABALHO"].ToString();
+                ncolaborador = (int)resultAfast.Rows[J]["NCOLABORADOR"];
+                qtpagina = (int)resultAfast.Rows[J]["PG"];
                 lIndicadorSapDTO.Add(uLindicadorSAPDTO);
 
             }
 
             lForIndicadorSAPDTO.PGTOTAL = pgtotal;
+            lForIndicadorSAPDTO.DESCRICAOCELULATRABALHO = descricaocelulatrabalho;
+            lForIndicadorSAPDTO.NCOLABORADOR = ncolaborador;
+
             lForIndicadorSAPDTO.ListColaborador = lIndicadorSapDTO;
 
             return lForIndicadorSAPDTO;
