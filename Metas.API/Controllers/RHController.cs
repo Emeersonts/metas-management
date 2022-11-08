@@ -29,6 +29,7 @@ namespace Metas.API.Controllers
             }
 
             return Ok(result);
+
         }
 
         //LISTA DE CELULAS DE TRABALHO DE DETERMINADO GESTOR
