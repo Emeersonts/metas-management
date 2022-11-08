@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.97.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Metas.DomainCore\Metas.DomainCore.csproj" />
     <ProjectReference Include="..\Metas.Domain\Metas.Domain.csproj" />
   </ItemGroup>

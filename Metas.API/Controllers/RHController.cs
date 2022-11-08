@@ -76,5 +76,19 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        //LISTA DOS GESTORES COM STATUS DAS SUAS CELULAS DE TRABALHO
+        [HttpGet]
+        [Route("MetaMmanagerStatus")]
+        public async Task<ActionResult> onMetaMmanagerStatus(int ANOCICLO, int IDCELULATRABALHO, int PAGINA, int QTPPAGINA, string BUSCA)
+        {
+            var result = await _applicationServiceRH.onGetMetaSimulate(ANOCICLO, IDCELULATRABALHO, 1);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
     }
 }

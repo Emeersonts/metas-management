@@ -12,5 +12,6 @@ namespace Metas.Application.Interface
         Task<FormCelulaTrabalhoDTO> onGetListCelula(int IDREPRESENTANTE);
         Task<ForMetaRelatorioDTO> onGetMetaSimulate(int anocilco, int idcelulatrabalho, int mes);
         Task<RepresentanteDTO> onGetVerifyRepresentantative(int anocilco, int idcelulatrabalho);
+        Task<FormGestorStatusDTO> onMetaMmanagerStatus(int ANOCICLO, int IDCELULATRABALHO, int PAGINA, int QTPPAGINA, string BUSCA);
     }
 }

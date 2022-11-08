@@ -40,10 +40,14 @@ namespace Metas.Application.Service
         {
             var resultIndicador = await _ServiceGestor.AprovarResults(anociclo, idcelulatrabalho);
 
-            if (resultIndicador == 0)
+            if (resultIndicador == 15)
             {
-                EmailEnvia env = new EmailEnvia();
-                env.EnviaEmail("a", "a", "a", "a", "a");
+                ExcelFileClass excelFileClass = new ExcelFileClass();
+
+                excelFileClass.classAG();
+
+                //EmailEnvia env = new EmailEnvia();
+                //env.EnviaEmail("a", "a", "a", "a", "a");
                 // CHAMADA DO EMAIL
             }
 
@@ -60,7 +64,6 @@ namespace Metas.Application.Service
 
             int pgtotal = 0;
             int ncolaborador = 0;
-            int qtpagina = 0;
 
             for (int J = 0; J < resultAfast.Rows.Count; J++)
             {
