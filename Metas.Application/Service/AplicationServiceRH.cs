@@ -110,5 +110,28 @@ namespace Metas.Application.Service
 
             return Representante;
         }
+
+        public async Task<FormGestorStatusDTO> onMetaMmanagerStatus(int ANOCICLO, int IDCELULATRABALHO, int PAGINA, int QTPPAGINA, string BUSCA)
+        {
+            //var result = await _ServiceRH.GetListCelula(IDREPRESENTANTE);
+
+            FormGestorStatusDTO listMetaStatus = new FormGestorStatusDTO();
+            //List<GestorStatusDTO> lmetagestor = new List<GestorStatusDTO>();
+
+            //for (int i = 0; i < result.Rows.Count; i++)
+            //{
+
+            //    GestorStatusDTO umetaDTO = new GestorStatusDTO();
+            //    umetaDTO.DATASTATUS = (DateTime)result.Rows[i]["IDCELULATRABALHO"];
+            //    ucicloDTO.IDCELULATRABALHO = (int)result.Rows[i]["IDCELULATRABALHO"];
+            //    ucicloDTO.DESCRICAO = result.Rows[i]["DESCRICAO"].ToString();
+
+            //    lmetagestor.Add(ucicloDTO);
+
+            //}
+            //listMetaStatus.Listform = lmetagestor;
+
+            return listMetaStatus;
+        }
     }
 }
