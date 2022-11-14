@@ -79,11 +79,11 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters, int ANOCICLO, int IDCELULATRABALHO)
+        public async Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters, int ANOCICLO, int PAGINA, int NPAGINA, int IDCELULATRABALHO)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetListsolicitation(parameters, ANOCICLO, IDCELULATRABALHO);
+            var result = await _repository.RGetListsolicitation(parameters, ANOCICLO, PAGINA, NPAGINA, IDCELULATRABALHO);
 
             return result;
 

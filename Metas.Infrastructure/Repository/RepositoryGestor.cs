@@ -294,11 +294,11 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async public Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto, int anociclo, int idcelulatrabalho)
+        async public Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto, int anociclo, int pagina, int npagina, int idcelulatrabalho)
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[10];
+            SqlParameter[] parametro = new SqlParameter[12];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -351,6 +351,16 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = idcelulatrabalho;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PAGINA", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = pagina;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@NPAGINA", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = npagina;
 
             ClsData pk = new ClsData();
 

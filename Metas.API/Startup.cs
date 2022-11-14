@@ -46,6 +46,8 @@ namespace Metas.API
             services.AddScoped<IAplicationServiceRepresetante, AplicationServiceRepresetante>();
             services.AddScoped<IAplcationServiceGestor, AplcationServiceGestor>();
             services.AddScoped<IAplicationServiceRH, AplicationServiceRH>();
+            services.AddScoped<IAplicationServiceCOE, AplicationServiceCOE>();
+            services.AddScoped<IAplicationServiceSSG, AplicationServiceSSG>();
             //
 
             //nivel2
@@ -55,6 +57,8 @@ namespace Metas.API
             services.AddScoped<IServiceRepresentante, ServiceRepresentante>();
             services.AddScoped<IServiceGestor, ServiceGestor>();
             services.AddScoped<IServiceRH, ServiceRH>();
+            services.AddScoped<IServiceCOE, ServiceCOE>();
+            services.AddScoped<IServiceSSG, ServiceSSG>();
 
             //* nivek 3
             services.AddScoped<IRepositoryColaborador, RepositoryColaborador>();
@@ -63,6 +67,8 @@ namespace Metas.API
             services.AddScoped<IRepositoryRepresentante, RepositoryRepresentante>();
             services.AddScoped<IRepositoryGestor,RepositoryGestor>();
             services.AddScoped<IRepositoryRH,RepositoryRH>();
+            services.AddScoped<IRepositoryCOE, RepositoryCOE>();
+            services.AddScoped<IRepositorySSG, RepositorySSG>();
 
             services.AddSwaggerGen();
             services.AddSwaggerGen(c =>

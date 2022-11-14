@@ -1,4 +1,5 @@
-﻿using Metas.Application.Interface;
+﻿using DocumentFormat.OpenXml.Packaging;
+using Metas.Application.Interface;
 using Metas.Application.Service;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Metas.API.Controllers
             this._applicationServiceRH = ApplicationServiceRH;
         }
 
-        // lista de gestores
+        // LISTA DE GESTORES
         [HttpGet]
         [Route("ListGestor")]
         public async Task<ActionResult> onGetListGestor()
@@ -35,7 +36,7 @@ namespace Metas.API.Controllers
         //LISTA DE CELULAS DE TRABALHO DE DETERMINADO GESTOR
         [HttpGet]
         [Route("ListCelula")]
-        public async Task<ActionResult> onGetListCelula(int IDGESTOR)
+        public async Task<ActionResult> onGetListCelula([FromQuery] int IDGESTOR)
         {
             var result = await _applicationServiceRH.onGetListCelula(IDGESTOR);
 
@@ -50,7 +51,7 @@ namespace Metas.API.Controllers
         //LISTA AS METAS DA CELULA ESCOLHIDA PARA SIMULAÇÃO
         [HttpGet]
         [Route("MetaSimulate")]
-        public async Task<ActionResult> onGetMetaSimulate(int ANOCICLO, int IDCELULATRABALHO, int MES)
+        public async Task<ActionResult> onGetMetaSimulate([FromQuery] int ANOCICLO, int IDCELULATRABALHO, int MES)
         {
             var result = await _applicationServiceRH.onGetMetaSimulate(ANOCICLO,IDCELULATRABALHO,MES);
 
@@ -65,7 +66,7 @@ namespace Metas.API.Controllers
         //RETORNA REPRESENTANTE DA CÉLULA DE TRABALHO
         [HttpGet]
         [Route("VerifyRepresentantative")]
-        public async Task<ActionResult> onGetVerifyRepresentantative(int ANOCICLO, int IDCELULATRABALHO)
+        public async Task<ActionResult> onGetVerifyRepresentantative([FromQuery] int ANOCICLO, int IDCELULATRABALHO)
         {
             var result = await _applicationServiceRH.onGetVerifyRepresentantative(ANOCICLO, IDCELULATRABALHO);
 
@@ -77,12 +78,12 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
-        //LISTA DOS GESTORES COM STATUS DAS SUAS CELULAS DE TRABALHO
+        //FORMULÁRIO DE METAS RH -LISTA DOS GESTORES COM STATUS DAS SUAS CELULAS DE TRABALHO
         [HttpGet]
         [Route("MetaMmanagerStatus")]
-        public async Task<ActionResult> onMetaMmanagerStatus(int ANOCICLO, int IDCELULATRABALHO, int PAGINA, int QTPPAGINA, string BUSCA)
+        public async Task<ActionResult> onMetaMmanagerStatus([FromQuery] int ANOCICLO,int PAGINA, int QTPAGINA, string BUSCA)
         {
-            var result = await _applicationServiceRH.onGetMetaSimulate(ANOCICLO, IDCELULATRABALHO, 1);
+            var result = await _applicationServiceRH.onGetMetaMmanagerStatus(ANOCICLO, PAGINA, QTPAGINA, BUSCA);
 
             if (result == null)
             {
@@ -91,5 +92,6 @@ namespace Metas.API.Controllers
 
             return Ok(result);
         }
+
     }
 }
