@@ -35,6 +35,16 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
+        public async Task<DataTable> GetMetaMmanagerStatus(int anociclo, int pagina, int qtpagina, string busca)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetMetaMmanagerStatus(anociclo,pagina,qtpagina,busca);
+
+            return result;
+
+        }
+
         public async Task<DataTable> GetMetaSimulate(int anocilco, int idcelulatrabalho, int mes)
         {
             DataTable ty = new DataTable();

@@ -115,7 +115,7 @@ namespace Metas.API.Controllers
         // Lista notificações do usuário
         [HttpGet]
         [Route("ListNotification")]
-        public async Task<ActionResult> GetUserNotification(int ANOCICLO, int IDCELULATRABALHO)
+        public async Task<ActionResult> GetUserNotification([FromQuery] int ANOCICLO, int IDCELULATRABALHO)
         {
             var result = await _applicationServiceUser.OnGetUserNotification(ANOCICLO, IDCELULATRABALHO);
             if (result == null)
@@ -129,7 +129,7 @@ namespace Metas.API.Controllers
         //Desativa tutorial do usuário
         [HttpPost]
         [Route("DeactiveTutorial")]
-        public async Task<ActionResult> DeactiveTutorial(TutorialUsuarioDTO tutorialusuarioDTO)
+        public async Task<ActionResult> DeactiveTutorial([FromQuery] TutorialUsuarioDTO tutorialusuarioDTO)
         {
             try
             {

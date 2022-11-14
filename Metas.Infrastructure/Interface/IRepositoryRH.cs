@@ -12,5 +12,6 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RGetListCelula(int idrepresentante);
         Task<DataTable> RGetMetaSimulate(int anocilco, int idcelulatrabalho, int mes);
         Task<DataTable> RGetVerifyRepresentantative(int anocilco, int idcelulatrabalho);
+        Task<DataTable> RGetMetaMmanagerStatus(int ANOCICLO, int PAGINA, int QTPAGINA, string BUSCA);
     }
 }

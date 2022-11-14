@@ -1,11 +1,15 @@
-﻿using Metas.Application.DTO;
+﻿using DocumentFormat.OpenXml.Office2010.Excel;
+using Metas.Application.DTO;
 using Metas.Application.Interface;
 using Metas.Domain;
 using Metas.DomainCore.Interface;
 using Metas.DomainCore.Service;
 using Metas.Profile;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -111,27 +115,35 @@ namespace Metas.Application.Service
             return Representante;
         }
 
-        public async Task<FormGestorStatusDTO> onMetaMmanagerStatus(int ANOCICLO, int IDCELULATRABALHO, int PAGINA, int QTPPAGINA, string BUSCA)
+
+        public async  Task<FormGestorStatusDTO> onGetMetaMmanagerStatus(int anociclo, int pagina, int qtpagina, string busca)
         {
-            //var result = await _ServiceRH.GetListCelula(IDREPRESENTANTE);
+            FormGestorStatusDTO lForIndicador = new FormGestorStatusDTO();
 
-            FormGestorStatusDTO listMetaStatus = new FormGestorStatusDTO();
-            //List<GestorStatusDTO> lmetagestor = new List<GestorStatusDTO>();
+            var resultIndicador = await _ServiceRH.GetMetaMmanagerStatus(anociclo, pagina, qtpagina, busca);
+            List<GestorStatusDTO> lIndicador = new List<GestorStatusDTO>();
 
-            //for (int i = 0; i < result.Rows.Count; i++)
-            //{
+            for (int J = 0; J < resultIndicador.Rows.Count; J++)
+            {
+                GestorStatusDTO uLindicador = new GestorStatusDTO();
 
-            //    GestorStatusDTO umetaDTO = new GestorStatusDTO();
-            //    umetaDTO.DATASTATUS = (DateTime)result.Rows[i]["IDCELULATRABALHO"];
-            //    ucicloDTO.IDCELULATRABALHO = (int)result.Rows[i]["IDCELULATRABALHO"];
-            //    ucicloDTO.DESCRICAO = result.Rows[i]["DESCRICAO"].ToString();
+                uLindicador.DATASTATUS = Convert.ToDateTime(resultIndicador.Rows[J]["DATASTATUS"]);
 
-            //    lmetagestor.Add(ucicloDTO);
+                uLindicador.NPESSOAL = (int)resultIndicador.Rows[J]["NPESSOAL"];
+                uLindicador.RITMO = (int)resultIndicador.Rows[J]["RITMO"];
+                uLindicador.DESCRICAOSTATUS = resultIndicador.Rows[J]["DESCRICAOSTATUS"].ToString();
+                uLindicador.NOMEFORMULARIO = resultIndicador.Rows[J]["DESCRICAOCELULA"].ToString();
+                uLindicador.NOMECOMPLETO = resultIndicador.Rows[J]["NOMECOMPLETO"].ToString();
+                uLindicador.NPESSOAL = (int)resultIndicador.Rows[J]["NPESSOAL"];
+                uLindicador.PG = (int)resultIndicador.Rows[J]["PG"];
+                uLindicador.ATA = resultIndicador.Rows[J]["ATA"].ToString();
 
-            //}
-            //listMetaStatus.Listform = lmetagestor;
+                lIndicador.Add(uLindicador);
+            }
 
-            return listMetaStatus;
+            lForIndicador.Listform = lIndicador;
+
+            return lForIndicador;
         }
     }
 }

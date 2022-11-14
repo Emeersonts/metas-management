@@ -19,7 +19,7 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RGetFindMetaResult(int ANOCICLO, int IDCELULATRABALHO);
         Task<DataTable> RGetReviewResults(int anociclo, int idcelulatrabalho);
         Task<DataTable> RGetFindColaborador(int pagina,int qtpagina, int idcelulatrabalho);
-        Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto, int anociclo, int idcelulatrabalho);
+        Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto, int anociclo, int pagina, int npagina, int idcelulatrabalho);
         Task<int> RRequestAdjustmentt(int ANOCICLO, int IDCELULATRABALHO, string MENSSAGEM);
         Task<int> RAprovarIndicador(int ANOCICLO, int IDCELULATRABALHO);
         Task<int> RAprovarResults(int ANOCICLO, int IDCELULATRABALHO);

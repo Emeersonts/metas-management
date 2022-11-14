@@ -116,7 +116,7 @@ namespace Metas.API.Controllers
         //Salvar indicadores       
         [HttpPost]
         [Route("SaveForm")]
-        public async Task<ActionResult> SaveForm(GIndicadorDTTO dto)
+        public async Task<ActionResult> SaveForm([FromQuery] GIndicadorDTTO dto)
         {
 
             var result = await _applicationServiceRepresentante.OnSaveForm(dto);
@@ -135,7 +135,7 @@ namespace Metas.API.Controllers
         //Envia indicadores para aprovação
         [HttpPost]
         [Route("SendForApprovalIndicador")]
-        public async Task<ActionResult> SendForApprovalIndicador(int ANOCICLO)
+        public async Task<ActionResult> SendForApprovalIndicador([FromQuery] int ANOCICLO)
         {
 
             var result = await _applicationServiceRepresentante.OnSendForApprovalIndicador(ANOCICLO);
@@ -155,7 +155,7 @@ namespace Metas.API.Controllers
         // Enviar resultados para solicitação de aprovação
         [HttpPost]
         [Route("SendResultForApproval")]
-        public async Task<ActionResult> SendResultForApproval(int ANOCICLO)
+        public async Task<ActionResult> SendResultForApproval([FromQuery] int ANOCICLO)
         {
 
             var result = await _applicationServiceRepresentante.OnSendResultForApproval(ANOCICLO);
@@ -175,7 +175,7 @@ namespace Metas.API.Controllers
         // Remover indicador
         [HttpDelete]
         [Route("RemoveIndicador")]
-        public async Task<ActionResult> RemoveIndicador(int IDINDICADOR)
+        public async Task<ActionResult> RemoveIndicador([FromQuery] int IDINDICADOR)
         {
 
             var result = await _applicationServiceRepresentante.OnRemoveIndicador(IDINDICADOR);
@@ -195,7 +195,7 @@ namespace Metas.API.Controllers
         // Atializa representante
         [HttpPut]
         [Route("RepresentativeUpdate")]
-        public async Task<ActionResult> RepresentativeUpdate(int IDINDICADOR)
+        public async Task<ActionResult> RepresentativeUpdate([FromQuery] int IDINDICADOR)
         {
 
             var result = await _applicationServiceRepresentante.OnRemoveIndicador(IDINDICADOR);

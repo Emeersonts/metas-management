@@ -51,7 +51,7 @@ namespace Metas.API.Controllers
         // Atualiza tipo de formulario
         [HttpPost]
         [Route("SaveFormEditType")]
-        public async Task<ActionResult> SaveFormEditType(TipoEdicaoformularioDTO dto)
+        public async Task<ActionResult> SaveFormEditType([FromQuery] TipoEdicaoformularioDTO dto)
         {
             var result = await _applicationServiceGestor.onSaveFormEditType(dto);
             var ob = new InterrupcaoDTO();
@@ -120,9 +120,9 @@ namespace Metas.API.Controllers
         //Lista de solicitações
         [HttpGet]
         [Route("Listsolicitation")]
-        public async Task<ActionResult> GetListsolicitation([FromQuery] ESolicitacaoDTO dto, int ANOCICLO, int IDCELULATRABALHO)
+        public async Task<ActionResult> GetListsolicitation([FromQuery] ESolicitacaoDTO dto, int ANOCICLO, int PAGINA, int NPAGINA, int IDCELULATRABALHO)
         {
-            var result = await _applicationServiceGestor.OnGetListsolicitation(dto, ANOCICLO, IDCELULATRABALHO);
+            var result = await _applicationServiceGestor.OnGetListsolicitation(dto, ANOCICLO, PAGINA, NPAGINA, IDCELULATRABALHO);
             if (result == null)
             {
                 return NotFound();
@@ -133,7 +133,7 @@ namespace Metas.API.Controllers
         // Solicitar ajuste apos solicitação de aprovação de indicadores
         [HttpPost]
         [Route("RequestAdjustment")]
-        public async Task<ActionResult> RequestAdjustment(int ANOCICLO, int IDCELULATRABALHO, string MENSSAGEM)
+        public async Task<ActionResult> RequestAdjustment([FromQuery] int ANOCICLO, int IDCELULATRABALHO, string MENSSAGEM)
         {
 
             var result = await _applicationServiceGestor.OnRequestAdjustment(ANOCICLO, IDCELULATRABALHO , MENSSAGEM);
@@ -152,7 +152,7 @@ namespace Metas.API.Controllers
         //solicita ajuste no resultado dos indicadores
         [HttpPost]
         [Route("RequestAdjustmentResult")]
-        public async Task<ActionResult> RequestAdjustmentResult(int ANOCICLO, int IDCELULATRABALHO, string MENSSAGEM)
+        public async Task<ActionResult> RequestAdjustmentResult([FromQuery] int ANOCICLO, int IDCELULATRABALHO, string MENSSAGEM)
         {
 
             var result = await _applicationServiceGestor.OnRequestAdjustmentResult(ANOCICLO, IDCELULATRABALHO, MENSSAGEM);
@@ -171,7 +171,7 @@ namespace Metas.API.Controllers
         // Aprovar indicadores
         [HttpPost]
         [Route("AprovarIndicador")]
-        public async Task<ActionResult> AprovarIndicador(int ANOCICLO, int IDCELULATRABALHO)
+        public async Task<ActionResult> AprovarIndicador([FromQuery] int ANOCICLO, int IDCELULATRABALHO)
         {
 
             var result = await _applicationServiceGestor.OnAprovarIndicador(ANOCICLO, IDCELULATRABALHO);
@@ -190,7 +190,7 @@ namespace Metas.API.Controllers
         // Aprovar resultados
         [HttpPost]
         [Route("AprovarResults")]
-        public async Task<ActionResult> AprovarResults(int ANOCICLO, int IDCELULATRABALHO)
+        public async Task<ActionResult> AprovarResults([FromQuery] int ANOCICLO, int IDCELULATRABALHO)
         {
 
             var result = await _applicationServiceGestor.OnAprovarResults(ANOCICLO, IDCELULATRABALHO);

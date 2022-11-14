@@ -18,7 +18,7 @@ namespace Metas.Application.Interface
         Task<FormRevisaoResultadoDTO> OnGetReviewResults(int anociclo, int idcelulatrabalho);
         Task<ForMetasResultDTO> OnGetFindMetaResult(int anociclo, int idcelulatrabalho, pkxd pkx);
         Task<FormColaboradorDTO> OnGetFindColaborador(int pagina, int qtpagina, int idcelulatrabalho);
-        Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto, int anociclo,int idcelulatrabalho);
+        Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto, int anociclo,int pagina, int npagina, int idcelulatrabalho);
         Task<int> OnRequestAdjustment(int anociclo, int idcelulatrabalho, string menssagem);
         Task<int> OnAprovarIndicador(int anociclo, int idcelulatrabalho);
         Task<int> OnAprovarResults(int anociclo, int idcelulatrabalho);

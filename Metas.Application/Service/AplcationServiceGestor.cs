@@ -191,11 +191,11 @@ namespace Metas.Application.Service
             return LForTipoEdicao;
         }
 
-        public async Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto, int anociclo, int idcelulatrabalho)
+        public async Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto, int anociclo, int pagina, int npagina, int idcelulatrabalho)
         {
             ForSolicitacaoDTO lForsolicitacao = new ForSolicitacaoDTO();
 
-            var resultSolicitacao = await _ServiceGestor.GetListsolicitation(new SearchcSolicitgacaoDTO(dto.BUSCA, dto.ORIGEM, dto.RESPONSAVEL, dto.STATUS), anociclo,idcelulatrabalho);
+            var resultSolicitacao = await _ServiceGestor.GetListsolicitation(new SearchcSolicitgacaoDTO(dto.BUSCA, dto.ORIGEM, dto.RESPONSAVEL, dto.STATUS), anociclo, pagina, npagina, idcelulatrabalho);
             List<SolicitacaoDTO> lsoliocitacao = new List<SolicitacaoDTO>();
 
             for (int J = 0; J < resultSolicitacao.Rows.Count; J++)
