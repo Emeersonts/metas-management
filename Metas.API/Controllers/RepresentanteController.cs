@@ -116,7 +116,7 @@ namespace Metas.API.Controllers
         //Salvar indicadores       
         [HttpPost]
         [Route("SaveForm")]
-        public async Task<ActionResult> SaveForm([FromQuery] GIndicadorDTTO dto)
+        public async Task<ActionResult> SaveForm(GIndicadorDTTO dto)
         {
 
             var result = await _applicationServiceRepresentante.OnSaveForm(dto);
