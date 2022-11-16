@@ -54,16 +54,17 @@ namespace Metas.Application.Service
             return resultIndicador;
         }
 
-        public async Task<FormColaboradorDTO> OnGetFindColaborador(int PAGINA,int QTPAGINA, int IDCELULATRABALHO)
+        public async Task<FormColaboradorDTO> OnGetFindColaborador(int PAGINA,int QTPAGINA, int IDCELULATRABALHO, int ANOCICLO)
         {
 
             FormColaboradorDTO lForIndicadorSAPDTO = new FormColaboradorDTO();
 
-            var resultAfast = await _ServiceGestor.GetFindColaborador(PAGINA,QTPAGINA, IDCELULATRABALHO);
+            var resultAfast = await _ServiceGestor.GetFindColaborador(PAGINA,QTPAGINA, IDCELULATRABALHO, ANOCICLO);
             List<RColaboradorDTO> lIndicadorSapDTO = new List<RColaboradorDTO>();
 
             int pgtotal = 0;
             int ncolaborador = 0;
+            string descricaostatus = "";
 
             for (int J = 0; J < resultAfast.Rows.Count; J++)
             {
@@ -75,11 +76,11 @@ namespace Metas.Application.Service
 
                 pgtotal = (int)resultAfast.Rows[J]["PG"];
                 ncolaborador = (int)resultAfast.Rows[J]["NCOLABORADOR"];
-
+                descricaostatus = resultAfast.Rows[J]["DESCRICAOSTATUS"].ToString();
                 lIndicadorSapDTO.Add(uLindicadorSAPDTO);
 
             }
-
+            lForIndicadorSAPDTO.DESCRICAOSTATUS = descricaostatus;
             lForIndicadorSAPDTO.PGTOTAL = pgtotal;
             lForIndicadorSAPDTO.NCOLABORADOR = ncolaborador;
             lForIndicadorSAPDTO.ListColaborador = lIndicadorSapDTO;
@@ -282,7 +283,7 @@ namespace Metas.Application.Service
         public async Task<int> onSaveFormEditType(TipoEdicaoformularioDTO dto)
         {
             var tipoedicaoformulario = new TipoEdicaoFormulario(dto.ANOCICLO, dto.IDTIPOEDICAOFORMULARIO, dto.IDREPRESENTANTE,
-                dto.IDSUPLENTE, dto.IDCELULATRABALHO, dto.MESTRANFERENCIA);
+                dto.IDSUPLENTE, dto.IDCELULATRABALHO, dto.IDSTATUSCICLO);
 
             var resultIndicador = await _ServiceGestor.PutSaveFormEditType(tipoedicaoformulario);
 

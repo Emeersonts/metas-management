@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Packaging;
+using Metas.Application.DTO;
 using Metas.Application.Interface;
 using Metas.Application.Service;
 using Microsoft.AspNetCore.Mvc;
@@ -93,5 +94,19 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        //LISTA DE COLABORADORES (GERAL)
+        [HttpGet]
+        [Route("DropCollaborator")]
+        public async Task<ActionResult> DropCollaborator()
+        {
+            var result = await _applicationServiceRH.onDropCollaborator();
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
     }
 }

@@ -393,7 +393,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[06];
+            SqlParameter[] parametro = new SqlParameter[07];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -421,6 +421,11 @@ namespace Metas.Infrastructure.Repository
 
             cont++;
             parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = 0;
 

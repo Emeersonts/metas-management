@@ -11,10 +11,10 @@ namespace Metas.Domain
         public int IDREPRESENTANTE { get; set; }
         public int IDSUPLENTE { get; set; }
         public int IDCELULATRABALHO { get; set; }
-        public int MESTRANFERENCIA { get; set; }
+        public int IDSTATUSCICLO { get; set; }
 
         public TipoEdicaoFormulario(int anociclo, int idtipoedicaoformulario, int idrepresentante, int idsuplente, 
-            int idcelulatrabalho,  int mestransferencia
+            int idcelulatrabalho, int idstatusciclo
         )
         {
             ANOCICLO = anociclo;
@@ -22,7 +22,7 @@ namespace Metas.Domain
             IDREPRESENTANTE = idrepresentante;
             IDSUPLENTE = idsuplente;
             IDCELULATRABALHO = idcelulatrabalho;
-            MESTRANFERENCIA = mestransferencia;
+            IDSTATUSCICLO = idstatusciclo;
         }
     }
 }
