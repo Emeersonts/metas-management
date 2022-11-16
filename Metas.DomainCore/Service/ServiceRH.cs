@@ -17,6 +17,15 @@ namespace Metas.DomainCore.Service
             this._repository = repository;
         }
 
+        public async Task<DataTable> GetDropCollaborator()
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetDropCollaborator();
+
+            return result;
+        }
+
         public async Task<DataTable> GetListCelula(int idrepresentante)
         {
             DataTable ty = new DataTable();

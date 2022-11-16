@@ -13,8 +13,8 @@ namespace Metas.Application.DTO
         public Decimal RITMO { get; set; }
         public string DESCRICAOSTATUS { get; set; }
         public DateTime DATASTATUS { get; set; }
-        public int PG { get; set; }
         public string ATA { get; set; }
+        public int IDCELULATRABALHO { get; set; }
 
     }
 

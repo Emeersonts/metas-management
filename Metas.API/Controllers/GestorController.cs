@@ -107,9 +107,9 @@ namespace Metas.API.Controllers
         // Lista de colaboradores da celula escolhida
         [HttpGet]
         [Route("ListTeam")]
-        public async Task<ActionResult> GetListTeam([FromQuery] ColaboradorDTO dto, int QTPAGINA, int IDCELULATRABALHO)
+        public async Task<ActionResult> GetListTeam([FromQuery] ColaboradorDTO dto, int QTPAGINA, int IDCELULATRABALHO, int ACNOCICLO)
         {
-            var result = await _applicationServiceGestor.OnGetFindColaborador(dto.PAGINA, QTPAGINA, IDCELULATRABALHO);
+            var result = await _applicationServiceGestor.OnGetFindColaborador(dto.PAGINA, QTPAGINA, IDCELULATRABALHO, ACNOCICLO);
             if (result == null)
             {
                 return NotFound();

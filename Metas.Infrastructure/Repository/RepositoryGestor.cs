@@ -127,11 +127,11 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async public Task<DataTable> RGetFindColaborador(int PAGINA, int QTPAGINA, int IDCELULATRABALHO)
+        async public Task<DataTable> RGetFindColaborador(int PAGINA, int QTPAGINA, int IDCELULATRABALHO, int ANOCICLO)
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[06];
+            SqlParameter[] parametro = new SqlParameter[07];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -161,6 +161,11 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = IDCELULATRABALHO;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = ANOCICLO;
 
             ClsData pk = new ClsData();
 
@@ -572,9 +577,9 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = tipoedicaoformularo.IDCELULATRABALHO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@MESTRANFERENCIA", SqlDbType.Int);
+            parametro[cont] = new SqlParameter("@STATUS", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = tipoedicaoformularo.MESTRANFERENCIA;
+            parametro[cont].Value = tipoedicaoformularo.IDSTATUSCICLO;
 
             ClsData pk = new ClsData();
 

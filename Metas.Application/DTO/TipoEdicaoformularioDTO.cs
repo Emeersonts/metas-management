@@ -11,6 +11,6 @@ namespace Metas.Application.DTO
         public int IDREPRESENTANTE { get; set; }
         public int IDSUPLENTE { get; set; }
         public int IDCELULATRABALHO { get; set; }
-        public int MESTRANFERENCIA { get; set; }
+        public int IDSTATUSCICLO { get; set; }
     }
 }

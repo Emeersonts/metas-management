@@ -18,7 +18,7 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> GetFindMeta(SearchcColaborador parameters, pkxd pkx);
         Task<DataTable> GetFindMetaResult(int ANOCICLO, int IDCELULATRABALHO, pkxd pkx);
         Task<DataTable> GetReviewResults(int ANOCICLO, int IDCELULATRABALHO);
-        Task<DataTable> GetFindColaborador(int pagina, int qtpagina, int idcelulatrabalho);
+        Task<DataTable> GetFindColaborador(int pagina, int qtpagina, int idcelulatrabalho, int anociclo);
         Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters, int ANOCICLO, int PAGINA, int NPAGINA, int IDCELULATRABALHO);
         Task<int> RequestAdjustment(int anociclo, int idcelulatrabalho, string menssagem);
         Task<int> AprovarIndicador(int anociclo, int idcelulatrabalho);

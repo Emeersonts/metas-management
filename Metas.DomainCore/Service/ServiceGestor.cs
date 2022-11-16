@@ -34,11 +34,11 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<DataTable> GetFindColaborador(int PAGINA,int QTPAGINA, int IDCELULATRABALHO)
+        public async Task<DataTable> GetFindColaborador(int PAGINA,int QTPAGINA, int IDCELULATRABALHO, int ANOCICLO)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetFindColaborador(PAGINA, QTPAGINA, IDCELULATRABALHO);
+            var result = await _repository.RGetFindColaborador(PAGINA, QTPAGINA, IDCELULATRABALHO, ANOCICLO);
 
             return result;
         }

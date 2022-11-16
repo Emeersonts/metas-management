@@ -123,6 +123,9 @@ namespace Metas.Application.Service
             var resultIndicador = await _ServiceRH.GetMetaMmanagerStatus(anociclo, pagina, qtpagina, busca);
             List<GestorStatusDTO> lIndicador = new List<GestorStatusDTO>();
 
+            int qtp = 0;
+            int totregistro = 0;
+            
             for (int J = 0; J < resultIndicador.Rows.Count; J++)
             {
                 GestorStatusDTO uLindicador = new GestorStatusDTO();
@@ -135,15 +138,42 @@ namespace Metas.Application.Service
                 uLindicador.NOMEFORMULARIO = resultIndicador.Rows[J]["DESCRICAOCELULA"].ToString();
                 uLindicador.NOMECOMPLETO = resultIndicador.Rows[J]["NOMECOMPLETO"].ToString();
                 uLindicador.NPESSOAL = (int)resultIndicador.Rows[J]["NPESSOAL"];
-                uLindicador.PG = (int)resultIndicador.Rows[J]["PG"];
+                uLindicador.IDCELULATRABALHO = (int)resultIndicador.Rows[J]["IDCELULATRABALHO"];
+                totregistro = (int)resultIndicador.Rows[J]["TOTALREGISTRO"];
+                qtp = (int)resultIndicador.Rows[J]["PG"];
                 uLindicador.ATA = resultIndicador.Rows[J]["ATA"].ToString();
 
                 lIndicador.Add(uLindicador);
             }
 
+            lForIndicador.QTPAGINA = qtp;
+            lForIndicador.TOTALREGISTRO = totregistro;
             lForIndicador.Listform = lIndicador;
 
             return lForIndicador;
+        }
+
+        public async Task<FormDropColaboradorDTO> onDropCollaborator()
+        {
+            FormDropColaboradorDTO lcolaborador = new FormDropColaboradorDTO();
+            List<DropColaboradorDTO> lcol = new List<DropColaboradorDTO>();
+
+            var resultIndicador = await _ServiceRH.GetDropCollaborator();
+
+
+            for (int J = 0; J < resultIndicador.Rows.Count; J++)
+            {
+                DropColaboradorDTO uLindicador = new DropColaboradorDTO();
+
+                uLindicador.NPESSOAL = (int)resultIndicador.Rows[J]["NPESSOAL"];
+                uLindicador.NOMECOMPLETO = resultIndicador.Rows[J]["NOME"].ToString();
+
+                lcol.Add(uLindicador);
+            }
+
+            lcolaborador.Listform = lcol;
+
+            return lcolaborador;
         }
     }
 }

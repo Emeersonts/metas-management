@@ -9,6 +9,7 @@ namespace Metas.Application.DTO
         public int PGTOTAL { get; set; }
         public int NCOLABORADOR { get; set; }
         public String DESCRICAOCELULATRABALHO { get; set; }
+        public String DESCRICAOSTATUS { get; set; }
         public IEnumerable<RColaboradorDTO> ListColaborador { get; set; }
     }
 }
