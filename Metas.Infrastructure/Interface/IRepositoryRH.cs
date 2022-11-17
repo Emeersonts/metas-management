@@ -14,5 +14,6 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RGetVerifyRepresentantative(int anocilco, int idcelulatrabalho);
         Task<DataTable> RGetMetaMmanagerStatus(int ANOCICLO, int PAGINA, int QTPAGINA, string BUSCA);
         Task<DataTable> RGetDropCollaborator();
+        Task<DataTable> RGetDropEqipCollaborator(int idcelulatrabalho);
     }
 }

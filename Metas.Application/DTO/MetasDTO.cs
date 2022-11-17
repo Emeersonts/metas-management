@@ -21,9 +21,10 @@ namespace Metas.Application.DTO
         public Decimal SIMULADOAPURADO { get; set; }
         public DateTime DATAAPURACAO { get; set; }
         public int RESULTADO { get; set; }
-        
-        public MetasDTO(int idcelulatrabalho, string nomeformulario, int idindicador,string nomeindicador, string nomeunidademedida, string descricao,int peso, decimal minimo,
-            decimal planejado,decimal desafio, decimal resultadoapurado, decimal simuladoaapurado, DateTime dataapuracao)
+        public string DESCRICAOSTATUS { get; set; }
+
+        public MetasDTO(int idcelulatrabalho, string nomeformulario, int idindicador,string nomeindicador, string nomeunidademedida, string descricao, int peso, decimal minimo,
+            decimal planejado, decimal desafio, decimal resultadoapurado, decimal simuladoaapurado, DateTime dataapuracao, string descricaostatus)
         {
             IDCELULATRABALHO = idcelulatrabalho;
             NOMEFORMULARIO = nomeformulario;
@@ -38,6 +39,7 @@ namespace Metas.Application.DTO
             RESULTADOAPURADO = RESULTADOAPURADO;
             SIMULADOAPURADO = simuladoaapurado;
             DATAAPURACAO = dataapuracao;
+            DESCRICAOSTATUS = descricaostatus;
         }
 
         public MetasDTO()

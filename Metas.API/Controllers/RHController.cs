@@ -108,5 +108,20 @@ namespace Metas.API.Controllers
 
             return Ok(result);
         }
+
+        //LISTA DE COLABORADORES POR REPRESENTANTE
+        [HttpGet]
+        [Route("DropEqipCollaborator")]
+        public async Task<ActionResult> DropEqipCollaborator(int IDCELULATRABALHO)
+        {
+            var result = await _applicationServiceRH.onDropEqipCollaborator(IDCELULATRABALHO);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
     }
 }

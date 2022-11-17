@@ -14,5 +14,6 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> GetVerifyRepresentantative(int anocilco, int idcelulatrabalho);
         Task<DataTable> GetMetaMmanagerStatus(int anociclo, int pagina, int qtpagina, string busca);
         Task<DataTable> GetDropCollaborator();
+        Task<DataTable> GetDropEqipCollaborator(int IDCELULATRABALHO);
     }
 }
