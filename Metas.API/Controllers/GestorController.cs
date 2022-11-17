@@ -51,7 +51,7 @@ namespace Metas.API.Controllers
         // Atualiza tipo de formulario
         [HttpPost]
         [Route("SaveFormEditType")]
-        public async Task<ActionResult> SaveFormEditType([FromQuery] TipoEdicaoformularioDTO dto)
+        public async Task<ActionResult> SaveFormEditType(TipoEdicaoformularioDTO dto)
         {
             var result = await _applicationServiceGestor.onSaveFormEditType(dto);
             var ob = new InterrupcaoDTO();
