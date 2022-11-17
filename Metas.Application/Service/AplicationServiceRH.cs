@@ -78,6 +78,8 @@ namespace Metas.Application.Service
             var resultIndicador = await _ServiceRH.GetMetaSimulate(anocilco,idcelulatrabalho,mes);
             List<MetasDTO> lIndicador = new List<MetasDTO>();
 
+            String descricaostatus = "";
+            
             for (int J = 0; J < resultIndicador.Rows.Count; J++)
             {
                 MetasDTO uLindicador = new MetasDTO();
@@ -91,11 +93,13 @@ namespace Metas.Application.Service
                 uLindicador.DESAFIO = (decimal)resultIndicador.Rows[J]["DESAFIO"];
                 uLindicador.RESULTADOAPURADO = (decimal)resultIndicador.Rows[J]["RESULTADOAPURADO"];
                 uLindicador.IDINDICADOR = (int)resultIndicador.Rows[J]["IDINDICADOR"];
+                descricaostatus = resultIndicador.Rows[J]["DESCRICAOSTATUS"].ToString();
 
                 lIndicador.Add(uLindicador);
             }
 
             lForIndicador.ListMeta = lIndicador;
+            lForIndicador.DESCRICAOSTATUS = descricaostatus;
 
             return lForIndicador;
         }
@@ -159,6 +163,29 @@ namespace Metas.Application.Service
             List<DropColaboradorDTO> lcol = new List<DropColaboradorDTO>();
 
             var resultIndicador = await _ServiceRH.GetDropCollaborator();
+
+
+            for (int J = 0; J < resultIndicador.Rows.Count; J++)
+            {
+                DropColaboradorDTO uLindicador = new DropColaboradorDTO();
+
+                uLindicador.NPESSOAL = (int)resultIndicador.Rows[J]["NPESSOAL"];
+                uLindicador.NOMECOMPLETO = resultIndicador.Rows[J]["NOME"].ToString();
+
+                lcol.Add(uLindicador);
+            }
+
+            lcolaborador.Listform = lcol;
+
+            return lcolaborador;
+        }
+
+        public async Task<FormDropColaboradorDTO> onDropEqipCollaborator(int idcelulatrabalho)
+        {
+            FormDropColaboradorDTO lcolaborador = new FormDropColaboradorDTO();
+            List<DropColaboradorDTO> lcol = new List<DropColaboradorDTO>();
+
+            var resultIndicador = await _ServiceRH.GetDropEqipCollaborator(idcelulatrabalho);
 
 
             for (int J = 0; J < resultIndicador.Rows.Count; J++)
