@@ -79,6 +79,7 @@ namespace Metas.Application.Service
             List<MetasDTO> lIndicador = new List<MetasDTO>();
 
             String descricaostatus = "";
+            int idstatuscilo = 0;
             
             for (int J = 0; J < resultIndicador.Rows.Count; J++)
             {
@@ -94,11 +95,13 @@ namespace Metas.Application.Service
                 uLindicador.RESULTADOAPURADO = (decimal)resultIndicador.Rows[J]["RESULTADOAPURADO"];
                 uLindicador.IDINDICADOR = (int)resultIndicador.Rows[J]["IDINDICADOR"];
                 descricaostatus = resultIndicador.Rows[J]["DESCRICAOSTATUS"].ToString();
+                idstatuscilo = (int)resultIndicador.Rows[J]["IDSTATUSCICLO"];
 
                 lIndicador.Add(uLindicador);
             }
 
             lForIndicador.ListMeta = lIndicador;
+            lForIndicador.IDSTATUSCICLO = idstatuscilo;
             lForIndicador.DESCRICAOSTATUS = descricaostatus;
 
             return lForIndicador;
