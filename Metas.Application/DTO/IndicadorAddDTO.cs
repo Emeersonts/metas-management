@@ -19,5 +19,7 @@ namespace Metas.Application.DTO
         public Decimal DESAFIO { get; set; }
         public String DESCRICAOINDICADOR { get; set; }
         public int RESULTADO { get; set; }
+        public decimal APURADO { get; set; }
+        public int ORDEMINICIO { get; set; }
     }
 }
