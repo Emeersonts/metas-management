@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,5 +18,6 @@ namespace Metas.Application.DTO
         public decimal DESAFIO { get; set; }
         public int ANOCICLO { get; set; }
         public int MES { get; set; }
+        public decimal APURADO { get; set; }
     }
 }
