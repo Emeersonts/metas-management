@@ -182,6 +182,9 @@ namespace Metas.Application.Service
                 uLindicador.RESULTADO = (int)RsultIndicador.Rows[J]["RESULTADO"];
                 uLindicador.APURADO = (decimal)RsultIndicador.Rows[J]["APURADO"];
                 uLindicador.ORDEMINICIO = (int)RsultIndicador.Rows[J]["ORDEMINICIO"];
+                uLindicador.STATUSMETA = (int)RsultIndicador.Rows[J]["STATUSMETA"];
+                uLindicador.STATUSRESULTADO = (int)RsultIndicador.Rows[J]["STATUSRESULTADO"];
+
                 lIndicador.Add(uLindicador);
             }
 

@@ -129,6 +129,7 @@ namespace Metas.Application.Service
                             ulMetasDTO.NOMEUNIDADEMEDIDA = result.Rows[j]["NOMEUNIDADEMEDIDA"].ToString();
                             ulMetasDTO.DESCRICAO = result.Rows[j]["DESCRICAO"].ToString();
                             ulMetasDTO.PESO = (int)result.Rows[j]["PESO"];
+                            ulMetasDTO.ORDEMINICIO = (int)result.Rows[j]["ORDEMINICIO"];
                             ulMetasDTO.MINIMO = (decimal)result.Rows[j]["MINIMO"];
                             ulMetasDTO.PLANEJADO = (decimal)result.Rows[j]["PLANEJADO"];
                             ulMetasDTO.DESAFIO = (decimal)result.Rows[j]["DESAFIO"];

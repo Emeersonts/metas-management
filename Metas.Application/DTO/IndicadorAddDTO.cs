@@ -21,5 +21,7 @@ namespace Metas.Application.DTO
         public int RESULTADO { get; set; }
         public decimal APURADO { get; set; }
         public int ORDEMINICIO { get; set; }
+        public int STATUSMETA { get; set; }
+        public int STATUSRESULTADO { get; set; }
     }
 }
