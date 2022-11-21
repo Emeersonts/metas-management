@@ -15,7 +15,7 @@ namespace Metas.Application.DTO
                 case 2:
                     return "02-A soma geral do peso ultrapassa 100 % <>";
                 case 3:
-                    return "03-São seis metas no máximo cadastras por OU <>";
+                    return "03-São seis metas no máximo cadastras por UO <>";
                 case 4:
                     return "04-O indicador EBTIDA não pode ser removido <>";
                 case 5:
@@ -39,7 +39,11 @@ namespace Metas.Application.DTO
                 case 14:
                     return "14-Não ha registro de resultados com pedido de aprovação <>";
                 case 15:
-                    return "15-Os resultados já foram aprovados <>";
+                    return "15-Os resultados já foram aprovados, não podem ser modificados <>";
+                case 16:
+                    return "16-Os indicadores já foram aprovados <>";
+                case 17:
+                    return "17-ja foi solicitado a aprovação dos resultados <>";
                 case 241:
                     return "241-Conversão de valores inválida<>";
                 case 515:

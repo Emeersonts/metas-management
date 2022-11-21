@@ -17,11 +17,11 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[9];
+            SqlParameter[] parametro = new SqlParameter[8];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 1;
+            parametro[cont].Value = 5;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
@@ -45,11 +45,6 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = ANOCICLO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@IDPERFIL", SqlDbType.Int);
-            parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 3; // (fixo) 
-
-            cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Output;
             parametro[cont].Value = 0;
@@ -60,12 +55,12 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = IDCELULATRABALHO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@MENSSAGEM", SqlDbType.NVarChar);
+            parametro[cont] = new SqlParameter("@MENSSAGEM", SqlDbType.VarChar);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = "";
 
             ClsData pk = new ClsData();
-            var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_NOTIFICACAOPERFIL]");
+            var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_STATUSINDICADOR]");
 
             return ui;
         }
@@ -74,7 +69,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[9];
+            SqlParameter[] parametro = new SqlParameter[7];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -102,11 +97,6 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = ANOCICLO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@IDPERFIL", SqlDbType.Int);
-            parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 2; // (fixo) 
-
-            cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Output;
             parametro[cont].Value = 0;
@@ -117,12 +107,12 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = IDCELULATRABALHO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@MENSSAGEM", SqlDbType.NVarChar);
+            parametro[cont] = new SqlParameter("@MENSSAGEM", SqlDbType.VarChar);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = "";
 
             ClsData pk = new ClsData();
-            var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_NOTIFICACAOPERFIL]");
+            var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_STATUSINDICADOR]");
 
             return ui;
         }
@@ -421,7 +411,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[9];
+            SqlParameter[] parametro = new SqlParameter[8];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -436,7 +426,7 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 3;
+            parametro[cont].Value = 2;
 
             cont++;
             parametro[cont] = new SqlParameter("@IDNOTIFICACAO", SqlDbType.Int);
@@ -449,11 +439,6 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = ANOCICLO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@IDPERFIL", SqlDbType.Int);
-            parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 3; // (fixo) 
-
-            cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Output;
             parametro[cont].Value = 0;
@@ -464,12 +449,12 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = IDCELULATRABALHO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@MENSSAGEM", SqlDbType.NVarChar);
+            parametro[cont] = new SqlParameter("@MENSSAGEM", SqlDbType.VarChar);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = MENSSAGEM;
 
             ClsData pk = new ClsData();
-            var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_NOTIFICACAOPERFIL]");
+            var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_STATUSINDICADOR]");
 
             return ui;
         }
@@ -478,7 +463,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[9];
+            SqlParameter[] parametro = new SqlParameter[8];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -506,11 +491,6 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = ANOCICLO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@IDPERFIL", SqlDbType.Int);
-            parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 2; // (fixo) 
-
-            cont++;
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Output;
             parametro[cont].Value = 0;
@@ -521,12 +501,12 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = IDCELULATRABALHO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@MENSSAGEM", SqlDbType.NVarChar);
+            parametro[cont] = new SqlParameter("@MENSSAGEM", SqlDbType.VarChar);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = MENSSAGEM;
 
             ClsData pk = new ClsData();
-            var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_NOTIFICACAOPERFIL]");
+            var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_STATUSINDICADOR]");
 
             return ui;
         }
