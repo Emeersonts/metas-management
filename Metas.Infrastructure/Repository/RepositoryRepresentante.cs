@@ -85,6 +85,28 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
+        async public Task<DataTable> RGetListProcess()
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[02];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = pkxd.type;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            ClsData pk = new ClsData();
+
+            var ui = await pk.ExecReader(parametro, "[SMetas].[C_PROCESSOSAP]");
+
+            return ui;
+        }
+
         async public Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto, int ANOCICLO)
         {
             int cont = 0;

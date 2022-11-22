@@ -17,6 +17,7 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> GetAddSIndicator(int ciclo);
         Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters, int ANOCICLO);
         Task<DataTable> GetFindColaborador(int pagina,  int qtpagina);
+        Task<DataTable> GetListProcess();
         Task<DataTable> Timeline();
         Task<int> SaveIndicador(Indicador parameters);
         Task<int> SendForApprovalIndicador(int anociclo);

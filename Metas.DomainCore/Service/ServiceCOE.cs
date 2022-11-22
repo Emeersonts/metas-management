@@ -3,6 +3,7 @@ using Metas.Infrastructure.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,6 +23,24 @@ namespace Metas.DomainCore.Service
             DataTable ty = new DataTable();
 
             var result = await _repository.RGetListForm(idcelulatrabalho);
+
+            return result;
+        }
+
+        public async Task<DataTable> GetListGestor(int idunidadeoperacional)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetListGestor(idunidadeoperacional);
+
+            return result;
+        }
+
+        public async Task<DataTable> ListOperatingUnit()
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RListOperatingUnit();
 
             return result;
         }

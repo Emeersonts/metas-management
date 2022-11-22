@@ -65,6 +65,15 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
+        public async Task<DataTable> GetListProcess()
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetListProcess();
+
+            return result;
+        }
+
         public async Task<DataTable> GetListsolicitation(SearchcSolicitgacaoDTO parameters, int anociclo)
         {
             DataTable ty = new DataTable();

@@ -5,6 +5,7 @@ using Metas.Infrastructure.DTO;
 using Metas.Profile;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -194,6 +195,27 @@ namespace Metas.Application.Service
 
             return lForIndicador;
 
+        }
+
+        public async Task<ForProcessoDTO> OnGetListProcess()
+        {
+            ForProcessoDTO ListProcesso = new ForProcessoDTO();
+
+            var resultProcesso = await _ServiceRepresentante.GetListProcess();
+            List<DropProcessoDTO> lprocesso = new List<DropProcessoDTO>();
+
+            for (int J = 0; J < resultProcesso.Rows.Count; J++)
+            {
+                DropProcessoDTO uProcesso = new DropProcessoDTO();
+
+                uProcesso.DESCRICAO = resultProcesso.Rows[J]["DESCRICAO"].ToString();
+                uProcesso.IDPROCESSOSAP = (int)resultProcesso.Rows[J]["IDPROCESSOSAP"];
+                lprocesso.Add(uProcesso);
+            }
+            
+            ListProcesso.ListProcesso = lprocesso;
+
+            return ListProcesso;
         }
 
         public async Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto, int ANOCICLO)

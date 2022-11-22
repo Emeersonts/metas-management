@@ -12,7 +12,7 @@ namespace Metas.Application.Interface
     public interface IAplcationServiceGestor
     {
         Task<ForEquipeDTO> OnVializeTeam(int ciclo);
-        Task<ForTipóEdicaoDTO> OnGetFormTtype(int ciclo);
+        Task<ForTipoEdicaoDTO> OnGetFormTtype(int ciclo);
         Task<int> onSaveFormEditType(TipoEdicaoformularioDTO dto);
         Task<FormularioMetasDTO> OnGetFindMeta(CicloCelulaDTO dto, pkxd pkx);
         Task<FormRevisaoResultadoDTO> OnGetReviewResults(int anociclo, int idcelulatrabalho);

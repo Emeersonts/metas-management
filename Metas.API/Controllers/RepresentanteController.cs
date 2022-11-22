@@ -128,7 +128,7 @@ namespace Metas.API.Controllers
             }
             else
             {
-                return Ok(ob.IT(result));
+                return Ok(ob.IT(result) );
             }
         }
 
@@ -208,6 +208,21 @@ namespace Metas.API.Controllers
             {
                 return Ok("Erro ao Remover idicador. Está em uso, não pode ser removido <>");
             }
+
+        }
+
+        // lsita de pocessos(SAP)
+        [HttpGet]
+        [Route("GetListProcess")]
+        public async Task<ActionResult> GetListProcess()
+        {
+
+            var result = await _applicationServiceRepresentante.OnGetListProcess();
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
 
         }
 

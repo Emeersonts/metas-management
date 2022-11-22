@@ -174,9 +174,9 @@ namespace Metas.Application.Service
             return lFormularioMetasResultDTO;
         }
 
-        public async Task<ForTipóEdicaoDTO> OnGetFormTtype(int ciclo)
+        public async Task<ForTipoEdicaoDTO> OnGetFormTtype(int ciclo)
         {
-            ForTipóEdicaoDTO LForTipoEdicao = new ForTipóEdicaoDTO();
+            ForTipoEdicaoDTO LForTipoEdicao = new ForTipoEdicaoDTO();
 
             var resultAfast = await _ServiceGestor.GetFormTtype(ciclo);
             List<TipoEdicaoFormDTO> Itipoedicao = new List<TipoEdicaoFormDTO>();

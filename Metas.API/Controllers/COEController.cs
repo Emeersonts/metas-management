@@ -28,5 +28,36 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        // LISTA UNIDADE OPERACIONAL
+        [HttpGet]
+        [Route("ListOperatingUnit")]
+        public async Task<ActionResult> onListOperatingUnit()
+        {
+            var result = await _applicationServiceCOE.onListOperatingUnit();
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+        // LISTA DE GESTORES POR UNIDADE OPERACIONAL
+        [HttpGet]
+        [Route("ListGestor")]
+        public async Task<ActionResult> onGetListGestor(int IDUNIDADEOPERACIONAL)
+        {
+            var result = await _applicationServiceCOE.onGetListGestor(IDUNIDADEOPERACIONAL);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+
+        }
+
     }
 }

@@ -9,5 +9,7 @@ namespace Metas.Infrastructure.Interface
     public interface IRepositoryCOE
     {
         Task<DataTable> RGetListForm(int IDCELULATRABALHO);
+        Task<DataTable> RListOperatingUnit();
+        Task<DataTable> RGetListGestor(int IDUNIDADEOPERACIONAL);
     }
 }
