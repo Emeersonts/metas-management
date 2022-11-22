@@ -9,5 +9,7 @@ namespace Metas.Application.Interface
     public interface IAplicationServiceCOE
     {
         Task<FormFormDTO> onGetListForm(int IDCELULATRABALHO);
+        Task<ForUnidOperacionalDTO> onListOperatingUnit();
+        Task<ForDropGestorDTO> onGetListGestor(int idunidadeoperacional);
     }
 }

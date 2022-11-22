@@ -9,5 +9,7 @@ namespace Metas.DomainCore.Interface
     public interface IServiceCOE
     {
         Task<DataTable> GetListForm(int idcelulatrabalho);
+        Task<DataTable> ListOperatingUnit();
+        Task<DataTable> GetListGestor(int idunidadeoperacional);
     }
 }

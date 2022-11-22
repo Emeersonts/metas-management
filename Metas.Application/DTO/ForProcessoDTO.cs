@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Metas.Application.DTO
 {
-    public class ForTipóEdicaoDTO
+    public class ForProcessoDTO
     {
-        public IEnumerable<TipoEdicaoFormDTO> LisFormEdicao { get; set; }
+        public IEnumerable<DropProcessoDTO> ListProcesso { get; set; }
     }
 }

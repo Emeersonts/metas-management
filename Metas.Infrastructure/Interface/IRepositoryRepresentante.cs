@@ -18,6 +18,7 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto, int anociclo);
         Task<DataTable> RGetFindColaborador(int PAGINA, int QTPAGINA);
         Task<DataTable> RTimeline();
+        Task<DataTable> RGetListProcess();
         Task<int> RSaveIndicador(Indicador indicador);
         Task<int> RSendForApprovalIndicador(int ANOCICLO);
         Task<int> RSendResultForApproval(int ANOCICLO);

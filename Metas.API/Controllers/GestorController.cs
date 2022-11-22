@@ -92,6 +92,7 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        //PEDIDO DE REVISÃOD E RESUTADOS
         [HttpGet]
         [Route("ReviewResults")]
         public async Task<ActionResult> GetReviewResults([FromQuery] int ANOCICLO, int IDCELULATRABALHO)

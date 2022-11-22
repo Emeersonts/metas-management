@@ -51,7 +51,7 @@ namespace Metas.Application.DTO
                 case 547:
                     return "547-Violação de Constraint<>";
                 default:
-                    return "Erro não previsto <>";
+                    return MSG.ToString() +  " Erro não previsto <>";
             }
         }
 
