@@ -113,12 +113,13 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
+        int log = 0;
         //Salvar indicadores       
         [HttpPost]
         [Route("SaveForm")]
         public async Task<ActionResult> SaveForm(GIndicadorDTTO dto)
         {
-
+            
             var result = await _applicationServiceRepresentante.OnSaveForm(dto);
             var ob = new InterrupcaoDTO();
 
@@ -130,6 +131,8 @@ namespace Metas.API.Controllers
             {
                 return Ok(ob.IT(result) );
             }
+
+
         }
 
         //Envia indicadores para aprovação
