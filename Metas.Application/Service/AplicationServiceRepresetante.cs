@@ -257,7 +257,7 @@ namespace Metas.Application.Service
                 dto.IDFREQUENCIA, dto.PESO, dto.MINIMO, dto.PLANEJADO, dto.DESAFIO, dto.ANOCICLO, dto.MES, dto.APURADO
             );
 
-            var resultIndicador = await _ServiceRepresentante.SaveIndicador(Indicador);
+            var resultIndicador = await  _ServiceRepresentante.SaveIndicador(Indicador);
 
             return resultIndicador;
 
