@@ -211,6 +211,7 @@ namespace Metas.Application.Service
                 uSolicitacao.RESPONSAVEL = resultSolicitacao.Rows[J]["RESPONSAVEL"].ToString();
                 uSolicitacao.STATUS = resultSolicitacao.Rows[J]["STATUS"].ToString();
                 uSolicitacao.TITULO = resultSolicitacao.Rows[J]["TITULO"].ToString();
+                uSolicitacao.OBS = resultSolicitacao.Rows[J]["OBS"].ToString();
                 lsoliocitacao.Add(uSolicitacao);
             }
 
