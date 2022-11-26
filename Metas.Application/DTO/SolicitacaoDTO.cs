@@ -13,5 +13,6 @@ namespace Metas.Application.DTO
         public DateTime CONCLUSAO { get; set; }
         public String STATUS { get; set; }
         public String DESCRICAO { get; set; }
+        public String OBS { get; set; }
     }
 }
