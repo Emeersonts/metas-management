@@ -11,5 +11,7 @@ namespace Metas.Application.Interface
         Task<FormFormDTO> onGetListForm(int IDCELULATRABALHO);
         Task<ForUnidOperacionalDTO> onListOperatingUnit();
         Task<ForDropGestorDTO> onGetListGestor(int idunidadeoperacional);
+        Task<ForCronogramaAplicadoDTO> onListSchedule();
+        Task<int> onSaveSchedule(ForCronogramaAplicadoDTO dto);
     }
 }

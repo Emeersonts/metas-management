@@ -11,5 +11,6 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> GetListForm(int idcelulatrabalho);
         Task<DataTable> ListOperatingUnit();
         Task<DataTable> GetListGestor(int idunidadeoperacional);
+        Task<DataTable> GetListSchedule();
     }
 }

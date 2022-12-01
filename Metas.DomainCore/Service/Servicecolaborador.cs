@@ -30,11 +30,11 @@ namespace Metas.DomainCore.Service
 
         }
 
-        public async Task<DataTable> GetFindMeta(SearchcColaborador parameters, pkxd pkx)
+        public async Task<DataTable> GetFindMeta(SearchcColaborador parameters, int prtipo)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetFindMeta(parameters, pkx);
+            var result = await _repository.RGetFindMeta(parameters, prtipo);
 
             return result;
         }

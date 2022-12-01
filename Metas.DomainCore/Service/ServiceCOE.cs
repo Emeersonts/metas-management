@@ -36,6 +36,15 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
+        public async Task<DataTable> GetListSchedule()
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetListSchedule();
+
+            return result;
+        }
+
         public async Task<DataTable> ListOperatingUnit()
         {
             DataTable ty = new DataTable();

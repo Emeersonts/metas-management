@@ -11,5 +11,6 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RGetListForm(int IDCELULATRABALHO);
         Task<DataTable> RListOperatingUnit();
         Task<DataTable> RGetListGestor(int IDUNIDADEOPERACIONAL);
+        Task<DataTable> RGetListSchedule();
     }
 }

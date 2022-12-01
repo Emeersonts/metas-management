@@ -1,4 +1,5 @@
-﻿using Metas.Application.Interface;
+﻿using Metas.Application.DTO;
+using Metas.Application.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -58,6 +59,42 @@ namespace Metas.API.Controllers
             return Ok(result);
 
         }
+
+        //LISTA DO CRONOGRAMA APLICADO
+        [HttpGet]
+        [Route("ListSchedule")]
+        public async Task<ActionResult> ListSchedule()
+        {
+            var result = await _applicationServiceCOE.onListSchedule();
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+
+        }
+
+        // ATUALIZA CRONOGRAMA APLICADO
+        [HttpPost]
+        [Route("SaveSchedule")]
+        public async Task<ActionResult> SaveSchedule(ForCronogramaAplicadoDTO dto)
+        {
+            var result = await _applicationServiceCOE.onSaveSchedule(dto);
+            var ob = new InterrupcaoDTO();
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok(ob.IT(result));
+            }
+        }
+
+
 
     }
 }

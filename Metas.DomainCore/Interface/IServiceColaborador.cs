@@ -11,7 +11,7 @@ namespace Metas.DomainCore.Interface
 {
     public interface IServiceColaborador
     {
-        Task<DataTable> GetFindMeta(SearchcColaborador parameters, pkxd pkx);
+        Task<DataTable> GetFindMeta(SearchcColaborador parameters, int prtipo);
         Task<DataTable> GetFindMetaResult(int ANOCICLO, pkxd pkx);
         Task<DataTable> GetFindAfastamento(int ciclo);
     }

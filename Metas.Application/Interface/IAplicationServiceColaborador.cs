@@ -9,7 +9,7 @@ namespace Metas.Application.Interface
 {
     public interface IAplicationServiceColaborador
     {
-        Task<FormularioMetasDTO> OnGetFindMeta(CicloUsuarioDTO dto, pkxd pkx);
+        Task<FormularioMetasDTO> OnGetFindMeta(CicloUsuarioDTO dto, int prtipo);
         Task<ForMetasResultDTO> OnGetFindMetaResult(int anociclo, pkxd pkx);
         Task<FormularioResultadoMeta> OnGetFindAfastamento(int ciclo);
     }
