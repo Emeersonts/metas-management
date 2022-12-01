@@ -158,7 +158,7 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 0;
+            parametro[cont].Value = anociclo;
 
             cont++;
             parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
@@ -168,12 +168,12 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@PAGINA", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 0;
+            parametro[cont].Value = pagina;
 
             cont++;
             parametro[cont] = new SqlParameter("@NPAGINA", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 0;
+            parametro[cont].Value = npagina;
 
             ClsData pk = new ClsData();
 
