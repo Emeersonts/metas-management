@@ -13,7 +13,7 @@ namespace Metas.Application.DTO
                 case 1:
                     return "01-Este indicador já foi aprovado. Não pode ser removido <>";
                 case 2:
-                    return "02-A soma geral do peso ultrapassa 100 % <>";
+                    return "02-A soma geral do peso dever ser igual a 100 % <>";
                 case 3:
                     return "03-São seis metas no máximo cadastras por UO <>";
                 case 4:

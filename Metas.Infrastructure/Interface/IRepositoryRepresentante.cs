@@ -15,7 +15,7 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RGetListIndicatorAdd(SearchcIndicadorDTO dto, pkxd pkx);
         Task<DataTable> RGetGoalsReport(int ciclo, pkxd pkx);
         Task<DataTable> RGetAddSIndicator(int ciclo);
-        Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto, int anociclo);
+        Task<DataTable> RGetListsolicitation(SearchcSolicitgacaoDTO dto, int anociclo, int pagina, int npagina);
         Task<DataTable> RGetFindColaborador(int PAGINA, int QTPAGINA);
         Task<DataTable> RTimeline();
         Task<DataTable> RGetListProcess();

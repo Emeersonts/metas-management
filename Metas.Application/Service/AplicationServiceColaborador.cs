@@ -43,10 +43,10 @@ namespace Metas.Application.Service
 
         }
 
-        public async Task<FormularioMetasDTO> OnGetFindMeta(CicloUsuarioDTO dto, pkxd pkx)
+        public async Task<FormularioMetasDTO> OnGetFindMeta(CicloUsuarioDTO dto, int PRTIPO)
         {
 
-            var result = await _ServiceColaborador.GetFindMeta(new SearchcColaborador(dto.ANOCICLO, dto.MES), pkx);
+            var result = await _ServiceColaborador.GetFindMeta(new SearchcColaborador(dto.ANOCICLO, dto.MES), PRTIPO);
 
             FormularioMetasDTO lFormularioMetasDTO = new FormularioMetasDTO();
 

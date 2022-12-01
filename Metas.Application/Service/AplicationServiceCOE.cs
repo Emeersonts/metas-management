@@ -1,5 +1,6 @@
 ﻿using Metas.Application.DTO;
 using Metas.Application.Interface;
+using Metas.Domain;
 using Metas.DomainCore.Interface;
 using Metas.DomainCore.Service;
 using System;
@@ -88,6 +89,63 @@ namespace Metas.Application.Service
             listUOperacional.LisUnidOperacional = luoperacional;
 
             return listUOperacional;
+        }
+
+        public async Task<ForCronogramaAplicadoDTO> onListSchedule()
+        {
+            var result = await _ServiceCOE.GetListSchedule();
+
+            ForCronogramaAplicadoDTO listCronogAplicado = new ForCronogramaAplicadoDTO();
+
+            List<CronogramaAplicadoDTO> Lcraplicado = new List<CronogramaAplicadoDTO>();
+
+            for (int i = 0; i < result.Rows.Count; i++)
+            {
+
+                CronogramaAplicadoDTO Ucraplicado = new CronogramaAplicadoDTO();
+                Ucraplicado.IDCRONOGRAMA = (int)result.Rows[i]["IDCRONOGRAMA"];
+                Ucraplicado.DESCRICAO = result.Rows[i]["DESCRICAO"].ToString();
+                Ucraplicado.ATIVO = (int)result.Rows[i]["ATIVO"];
+                if (result.Rows[i]["DATAPROGRAMADA"] != DBNull.Value) { Ucraplicado.DATAPROGRAMADA = (DateTime)result.Rows[i]["DATAPROGRAMADA"]; }
+
+                Lcraplicado.Add(Ucraplicado);
+
+            }
+
+            listCronogAplicado.ListCrAplicado = Lcraplicado;
+
+            return listCronogAplicado;
+
+        }
+
+        public async Task<int> onSaveSchedule(ForCronogramaAplicadoDTO dto)
+        {
+            // rceber o focmulario e enviar um a um para gravar deletar (se de erro em algum , para a operação
+
+            var thh = dto;
+            thh.ListCrAplicado.GetEnumerator();
+
+            var gg = new ForCronogramaAplicadoDTO();
+            
+            
+            
+            ForCronogramaAplicadoDTO hh = new ForCronogramaAplicadoDTO();
+            hh = dto;
+
+
+            CronogramaAplicadoDTO Registro = new CronogramaAplicadoDTO();
+            
+
+
+
+               //-- var tipoedicaoformulario = new ForCronogramaAplicadoDTO(dto.ANOCICLO, dto.IDTIPOEDICAOFORMULARIO, dto.IDREPRESENTANTE,
+               // --dto.IDSUPLENTE, dto.IDCELULATRABALHO, dto.IDSTATUSCICLO);
+
+            //--var resultIndicador = await _ServiceGestor.PutSaveFormEditType(tipoedicaoformulario);
+
+            
+            return 0;
+
         }
     }
 }

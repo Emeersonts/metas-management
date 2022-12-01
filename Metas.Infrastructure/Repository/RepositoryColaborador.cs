@@ -55,7 +55,7 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async Task<DataTable> IRepositoryColaborador.RGetFindMeta(SearchcColaborador dto, pkxd pkx)
+        async Task<DataTable> IRepositoryColaborador.RGetFindMeta(SearchcColaborador dto, int prtipo)
         {
             int cont = 0;
 
@@ -63,7 +63,7 @@ namespace Metas.Infrastructure.Repository
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = pkxd.type;
+            parametro[cont].Value = prtipo;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);

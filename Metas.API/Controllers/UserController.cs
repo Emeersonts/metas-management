@@ -90,13 +90,13 @@ namespace Metas.API.Controllers
         [Route("ListTutorial")]
         public async Task<ActionResult> GetTutorialByUser()
         {
+
             var result = await _applicationServiceUser.OnGetTutorialByUser();
             if (result == null)
             {
                 return NotFound();
             }
             return Ok(result);
-
         }
 
         //Cultura

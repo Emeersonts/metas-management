@@ -77,9 +77,9 @@ namespace Metas.API.Controllers
         //Lista de solicitações
         [HttpGet]
         [Route("Listsolicitation")]
-        public async Task<ActionResult> GetListsolicitation([FromQuery] ESolicitacaoDTO dto, int ANOCICLO)
+        public async Task<ActionResult> GetListsolicitation([FromQuery] ESolicitacaoDTO dto, int ANOCICLO, int PAGINA, int NPAGINA)
         {
-            var result = await _applicationServiceRepresentante.OnGetListsolicitation(dto, ANOCICLO);
+            var result = await _applicationServiceRepresentante.OnGetListsolicitation(dto, ANOCICLO, PAGINA, NPAGINA);
             if (result == null)
             {
                 return NotFound();

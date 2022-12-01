@@ -218,11 +218,11 @@ namespace Metas.Application.Service
             return ListProcesso;
         }
 
-        public async Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto, int ANOCICLO)
+        public async Task<ForSolicitacaoDTO> OnGetListsolicitation(ESolicitacaoDTO dto, int anociclo, int pagina, int npagina)
         {
             ForSolicitacaoDTO lForsolicitacao = new ForSolicitacaoDTO();
 
-            var resultSolicitacao = await _ServiceRepresentante.GetListsolicitation(new SearchcSolicitgacaoDTO(dto.BUSCA,dto.ORIGEM,dto.RESPONSAVEL,dto.STATUS),ANOCICLO);
+            var resultSolicitacao = await _ServiceRepresentante.GetListsolicitation(new SearchcSolicitgacaoDTO(dto.BUSCA, dto.ORIGEM, dto.RESPONSAVEL, dto.STATUS), anociclo, pagina, npagina);
             List<SolicitacaoDTO> lsoliocitacao = new List<SolicitacaoDTO>();
 
             for (int J = 0; J < resultSolicitacao.Rows.Count; J++)
@@ -244,6 +244,7 @@ namespace Metas.Application.Service
 
             return lForsolicitacao;
         }
+
 
         public async Task<int> OnRemoveIndicador(int idindicador)
         {
