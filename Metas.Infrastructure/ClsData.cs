@@ -22,6 +22,7 @@ namespace Metas.Infrastructure
             builder.InitialCatalog = "bMetas";
 
 
+
             //QA
             //builder.DataSource = "qa-metas-system-management-database.c0sg0xec7a5x.us-east-1.rds.amazonaws.com";
             //builder.UserID = "admin";
