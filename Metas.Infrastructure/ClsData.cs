@@ -16,17 +16,18 @@ namespace Metas.Infrastructure
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
             //DEV
-            //builder.DataSource = "dev-metas-system-management-database.c3vcojkjp9yx.us-east-1.rds.amazonaws.com";
-            //builder.UserID = "admin";
-            //builder.Password = "GHWFV8HB0oViP1FbEPhl";
-            //builder.InitialCatalog = "bMetas";
+            builder.DataSource = "dev-metas-system-management-database.c3vcojkjp9yx.us-east-1.rds.amazonaws.com";
+            builder.UserID = "admin";
+            builder.Password = "GHWFV8HB0oViP1FbEPhl";
+            builder.InitialCatalog = "bMetas";
+
 
 
             //QA
-            builder.DataSource = "qa-metas-system-management-database.c0sg0xec7a5x.us-east-1.rds.amazonaws.com";
-            builder.UserID = "admin";
-            builder.Password = "lUMy7zVyXjkFMPbKVMh6";
-            builder.InitialCatalog = "bMetas";
+            //builder.DataSource = "qa-metas-system-management-database.c0sg0xec7a5x.us-east-1.rds.amazonaws.com";
+            //builder.UserID = "admin";
+            //builder.Password = "lUMy7zVyXjkFMPbKVMh6";
+            //builder.InitialCatalog = "bMetas";
 
             //builder.DataSource = "STFSAOC045548-L\\SQLEXPRESS";
             //builder.UserID = "LMetas";
@@ -68,16 +69,16 @@ namespace Metas.Infrastructure
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
-            //builder.DataSource = "dev-metas-system-management-database.c3vcojkjp9yx.us-east-1.rds.amazonaws.com";
-            //builder.UserID = "admin";
-            //builder.Password = "GHWFV8HB0oViP1FbEPhl";
-            //builder.InitialCatalog = "bMetas";
+            builder.DataSource = "dev-metas-system-management-database.c3vcojkjp9yx.us-east-1.rds.amazonaws.com";
+            builder.UserID = "admin";
+            builder.Password = "GHWFV8HB0oViP1FbEPhl";
+            builder.InitialCatalog = "bMetas";
 
             //QA
-            builder.DataSource = "qa-metas-system-management-database.c0sg0xec7a5x.us-east-1.rds.amazonaws.com";
-            builder.UserID = "admin";
-            builder.Password = "lUMy7zVyXjkFMPbKVMh6";
-            builder.InitialCatalog = "bMetas";
+            //builder.DataSource = "qa-metas-system-management-database.c0sg0xec7a5x.us-east-1.rds.amazonaws.com";
+            //builder.UserID = "admin";
+            //builder.Password = "lUMy7zVyXjkFMPbKVMh6";
+            //builder.InitialCatalog = "bMetas";
 
             //builder.DataSource = "STFSAOC045548-L\\SQLEXPRESS";
             //builder.UserID = "LMetas";
