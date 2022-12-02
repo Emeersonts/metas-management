@@ -112,7 +112,6 @@ namespace Metas.Application.Service
                 uLindicadorSAPDTO.FREQUENCIADESCRICAO = resultAfast.Rows[J]["FREQUENCIADESCRICAO"].ToString();
                 uLindicadorSAPDTO.DESCRICAO = resultAfast.Rows[J]["DESCRICAO"].ToString();
                 uLindicadorSAPDTO.NOME = resultAfast.Rows[J]["NOME"].ToString();
-                uLindicadorSAPDTO.PROCESSODESCRICAO = resultAfast.Rows[J]["PROCESSODESCRICAO"].ToString();
                 uLindicadorSAPDTO.UNIDAQDEMEDIDADESCRICAO = resultAfast.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
                 pgtotal = (int)resultAfast.Rows[J]["PG"];
                 
