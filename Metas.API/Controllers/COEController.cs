@@ -86,9 +86,6 @@ namespace Metas.API.Controllers
         public async Task<ActionResult> SaveSchedule([FromQuery] CronogramaAplicadoDTO[] dto)
         {
 
-            //
-            //public  ActionResult GetPowerPlants ([FromQuery(Name ="ids"]int [] ids)
-          
             var result = await _applicationServiceCOE.onSaveSchedule(dto);
             var ob = new InterrupcaoDTO();
 

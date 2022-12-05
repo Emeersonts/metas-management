@@ -181,6 +181,7 @@ namespace Metas.Application.Service
         public async Task<int> onSaveSchedule(CronogramaAplicadoDTO[] dto)
         {
 
+            var ggg = new CronogramaAplicadoDTO[1];
             int gg = 0;
 
             foreach (var item in dto)
