@@ -200,6 +200,8 @@ namespace Metas.Application.Service
             var resultSolicitacao = await _ServiceGestor.GetListsolicitation(new SearchcSolicitgacaoDTO(dto.BUSCA, dto.ORIGEM, dto.RESPONSAVEL, dto.STATUS), anociclo, pagina, npagina, idcelulatrabalho);
             List<SolicitacaoDTO> lsoliocitacao = new List<SolicitacaoDTO>();
 
+            int pgtotal = 0;
+            
             for (int J = 0; J < resultSolicitacao.Rows.Count; J++)
             {
                 SolicitacaoDTO uSolicitacao = new SolicitacaoDTO();
@@ -212,9 +214,12 @@ namespace Metas.Application.Service
                 uSolicitacao.STATUS = resultSolicitacao.Rows[J]["STATUS"].ToString();
                 uSolicitacao.TITULO = resultSolicitacao.Rows[J]["TITULO"].ToString();
                 uSolicitacao.OBS = resultSolicitacao.Rows[J]["OBS"].ToString();
+                uSolicitacao.FORMULARIOMETA = resultSolicitacao.Rows[J]["FORMULARIOMETA"].ToString();
+                uSolicitacao.UNIDADE = resultSolicitacao.Rows[J]["UNIDADE"].ToString();
+                pgtotal = (int)resultSolicitacao.Rows[J]["PG"];
                 lsoliocitacao.Add(uSolicitacao);
             }
-
+            lForsolicitacao.PGTOTAL = pgtotal;
             lForsolicitacao.ListSolicitacao = lsoliocitacao;
 
             return lForsolicitacao;
