@@ -1,5 +1,7 @@
-﻿using Metas.DomainCore.Interface;
+﻿using Metas.Domain;
+using Metas.DomainCore.Interface;
 using Metas.Infrastructure.Interface;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,6 +38,15 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
+        public async Task<DataTable> GetListIndicatorAdd(int IDCELULATRABALHO)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetListIndicatorAdd(IDCELULATRABALHO);
+
+            return result;
+        }
+
         public async Task<DataTable> GetListSchedule()
         {
             DataTable ty = new DataTable();
@@ -50,6 +61,13 @@ namespace Metas.DomainCore.Service
             DataTable ty = new DataTable();
 
             var result = await _repository.RListOperatingUnit();
+
+            return result;
+        }
+
+        public async Task<int> SaveIndicador(int idcelulatrabalho, Indicador parameters, int operacao)
+        {
+            var result = await _repository.RSaveIndicador(idcelulatrabalho, parameters, operacao);
 
             return result;
         }

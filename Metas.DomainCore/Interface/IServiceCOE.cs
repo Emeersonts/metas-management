@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Metas.Domain;
+using Metas.Infrastructure.DTO;
+using Metas.Profile;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
@@ -12,5 +15,7 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> ListOperatingUnit();
         Task<DataTable> GetListGestor(int idunidadeoperacional);
         Task<DataTable> GetListSchedule();
+        Task<int> SaveIndicador(int IDCELULATRABALHO, Indicador parameters, int OPERACAO);
+        Task<DataTable> GetListIndicatorAdd(int IDCELULATRABALHO);
     }
 }
