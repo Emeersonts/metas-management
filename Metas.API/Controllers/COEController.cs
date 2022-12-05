@@ -1,6 +1,10 @@
-﻿using Metas.Application.DTO;
+﻿using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Office2019.Excel.RichData2;
+using Metas.Application.DTO;
 using Metas.Application.Interface;
+using Metas.Profile;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Metas.API.Controllers
@@ -79,8 +83,9 @@ namespace Metas.API.Controllers
         // ATUALIZA CRONOGRAMA APLICADO
         [HttpPost]
         [Route("SaveSchedule")]
-        public async Task<ActionResult> SaveSchedule(ForCronogramaAplicadoDTO dto)
+        public async Task<ActionResult> SaveSchedule([FromQuery] CronogramaAplicadoDTO[] dto)
         {
+
             var result = await _applicationServiceCOE.onSaveSchedule(dto);
             var ob = new InterrupcaoDTO();
 
@@ -94,6 +99,37 @@ namespace Metas.API.Controllers
             }
         }
 
+        //SALVAR INDICADOR DE NEGOCIO
+        [HttpPost]
+        [Route("SaveForm")]
+        public async Task<ActionResult> SaveForm(int IDCELULATRABALHO, GIndicadorDTTO dto, int OPERACAO)
+        {
+
+            var result = await _applicationServiceCOE.OnSaveForm(IDCELULATRABALHO, dto, OPERACAO);
+            var ob = new InterrupcaoDTO();
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok(ob.IT(result));
+            }
+        }
+
+        // LISTA DE INDICADORES DE NEGOCIO CADASTRADOS P/CÉLULA
+        [HttpGet]
+        [Route("ListIndicatorAdd")]
+        public async Task<ActionResult> GetListIndicatorAdd([FromQuery] int IDCELULATRABALHO)
+        {
+            var result = await _applicationServiceCOE.OnGetListIndicatorAdd(IDCELULATRABALHO);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
 
 
     }

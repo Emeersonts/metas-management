@@ -1,4 +1,5 @@
 ﻿using Metas.Application.DTO;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,6 +13,8 @@ namespace Metas.Application.Interface
         Task<ForUnidOperacionalDTO> onListOperatingUnit();
         Task<ForDropGestorDTO> onGetListGestor(int idunidadeoperacional);
         Task<ForCronogramaAplicadoDTO> onListSchedule();
-        Task<int> onSaveSchedule(ForCronogramaAplicadoDTO dto);
+        Task<int> onSaveSchedule(CronogramaAplicadoDTO[] dto);
+        Task<int> OnSaveForm(int idcelulatrabalho, GIndicadorDTTO dto, int operacao);
+        Task<FormIndicadorDTO> OnGetListIndicatorAdd(int idcelulatrabalho);
     }
 }

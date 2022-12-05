@@ -1,10 +1,18 @@
-﻿using Metas.Application.DTO;
+﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using Metas.Application.DTO;
 using Metas.Application.Interface;
 using Metas.Domain;
 using Metas.DomainCore.Interface;
 using Metas.DomainCore.Service;
+using Metas.Infrastructure.DTO;
+using Metas.Profile;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.IO;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -67,6 +75,46 @@ namespace Metas.Application.Service
 
         }
 
+        public async Task<FormIndicadorDTO> OnGetListIndicatorAdd(int idcelulatrabalho)
+        {
+            FormIndicadorDTO lForIndicador = new FormIndicadorDTO();
+
+            var RsultIndicador = await _ServiceCOE.GetListIndicatorAdd(idcelulatrabalho);
+            List<IndicadorAddDTO> lIndicador = new List<IndicadorAddDTO>();
+
+            for (int J = 0; J < RsultIndicador.Rows.Count; J++)
+            {
+                IndicadorAddDTO uLindicador = new IndicadorAddDTO();
+
+                uLindicador.DESCRICAO = RsultIndicador.Rows[J]["DESCRICAO"].ToString();
+                uLindicador.DESCRICAOINDICADOR = RsultIndicador.Rows[J]["DESCRICAOINDICADOR"].ToString();
+                uLindicador.IDFREQUENCIA = (int)RsultIndicador.Rows[J]["IDFREQUENCIA"];
+                uLindicador.IDINDICADOR = (int)RsultIndicador.Rows[J]["IDINDICADOR"];
+                uLindicador.IDUNIDADEMEDIDA = (int)RsultIndicador.Rows[J]["IDUNIDADEMEDIDA"];
+                uLindicador.NOMEUNIDADEMEDIDA = RsultIndicador.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
+                uLindicador.NOMEINDICADOR = RsultIndicador.Rows[J]["NOMEINDICADOR"].ToString();
+                uLindicador.NOME = RsultIndicador.Rows[J]["IDINDICADOR"].ToString();
+                uLindicador.MINIMO = (decimal)RsultIndicador.Rows[J]["MINIMO"];
+                uLindicador.PESO = (int)RsultIndicador.Rows[J]["PESO"];
+                uLindicador.PLANEJADO = (decimal)RsultIndicador.Rows[J]["PLANEJADO"];
+                uLindicador.DESAFIO = (decimal)RsultIndicador.Rows[J]["DESAFIO"];
+                uLindicador.APURADO = (decimal)RsultIndicador.Rows[J]["APURADO"];
+                uLindicador.ORDEMINICIO = (int)RsultIndicador.Rows[J]["ORDEMINICIO"];
+                uLindicador.STATUSMETA = (int)RsultIndicador.Rows[J]["STATUSMETA"];
+                uLindicador.STATUSRESULTADO = (int)RsultIndicador.Rows[J]["STATUSRESULTADO"];
+                uLindicador.STATUSINDICADOR = (int)RsultIndicador.Rows[J]["STATUSINDICADOR"];
+                uLindicador.OPNEG = (int)RsultIndicador.Rows[J]["OPNEG"];
+                if (RsultIndicador.Rows[J]["DTAAPURACAO"] != DBNull.Value) { uLindicador.DATAAPURACAO = (DateTime)RsultIndicador.Rows[J]["DTAAPURACAO"]; }
+                if (RsultIndicador.Rows[J]["SIMULADOAPURADO"] != DBNull.Value) { uLindicador.SIMULADOAPURADO = (decimal)RsultIndicador.Rows[J]["SIMULADOAPURADO"]; }
+                lIndicador.Add(uLindicador);
+            }
+
+            lForIndicador.ListIndicador = lIndicador;
+
+            return lForIndicador;
+
+        }
+
         public async Task<ForUnidOperacionalDTO> onListOperatingUnit()
         {
             var result = await _ServiceCOE.ListOperatingUnit();
@@ -118,32 +166,30 @@ namespace Metas.Application.Service
 
         }
 
-        public async Task<int> onSaveSchedule(ForCronogramaAplicadoDTO dto)
+        public async Task<int> OnSaveForm(int IDCELULATRABALHO, GIndicadorDTTO dto, int OPERACAO)
         {
-            // rceber o focmulario e enviar um a um para gravar deletar (se de erro em algum , para a operação
+            var Indicador = new Metas.Domain.Indicador(dto.IDINDICADOR, dto.NOME, dto.DESCRICAOINDICADOR, dto.IDUNIDADEMEDIDA,
+                dto.IDFREQUENCIA, dto.PESO, dto.MINIMO, dto.PLANEJADO, dto.DESAFIO, dto.ANOCICLO, dto.MES, dto.APURADO
+            );
 
-            var thh = dto;
-            thh.ListCrAplicado.GetEnumerator();
+            var resultIndicador = await _ServiceCOE.SaveIndicador(IDCELULATRABALHO, Indicador,OPERACAO);
 
-            var gg = new ForCronogramaAplicadoDTO();
-            
-            
-            
-            ForCronogramaAplicadoDTO hh = new ForCronogramaAplicadoDTO();
-            hh = dto;
+            return resultIndicador;
+
+        }
+
+        public async Task<int> onSaveSchedule(CronogramaAplicadoDTO[] dto)
+        {
+
+            var ggg = new CronogramaAplicadoDTO[1];
+            int gg = 0;
+
+            foreach (var item in dto)
+            {
+                gg = item.ATIVO;
+            }
 
 
-            CronogramaAplicadoDTO Registro = new CronogramaAplicadoDTO();
-            
-
-
-
-               //-- var tipoedicaoformulario = new ForCronogramaAplicadoDTO(dto.ANOCICLO, dto.IDTIPOEDICAOFORMULARIO, dto.IDREPRESENTANTE,
-               // --dto.IDSUPLENTE, dto.IDCELULATRABALHO, dto.IDSTATUSCICLO);
-
-            //--var resultIndicador = await _ServiceGestor.PutSaveFormEditType(tipoedicaoformulario);
-
-            
             return 0;
 
         }

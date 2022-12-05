@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Metas.Domain;
+using Metas.Infrastructure.DTO;
+using Metas.Profile;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
@@ -12,5 +15,7 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RListOperatingUnit();
         Task<DataTable> RGetListGestor(int IDUNIDADEOPERACIONAL);
         Task<DataTable> RGetListSchedule();
+        Task<int> RSaveIndicador(int IDCELULATRABALHO, Indicador indicador, int OPERACAO);
+        Task<DataTable> RGetListIndicatorAdd(int IDCELULATRABALHO);
     }
 }
