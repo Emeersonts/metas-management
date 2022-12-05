@@ -14,5 +14,7 @@ namespace Metas.Application.DTO
         public String STATUS { get; set; }
         public String DESCRICAO { get; set; }
         public String OBS { get; set; }
+        public String FORMULARIOMETA { get; set; }
+        public String UNIDADE { get; set; }
     }
 }
