@@ -44,6 +44,8 @@ namespace Metas.Application.DTO
                     return "16-Os indicadores já foram aprovados <>";
                 case 17:
                     return "17-ja foi solicitado a aprovação dos resultados <>";
+                case 99:
+                    return "99-Usuário não autorizado <>";
                 case 241:
                     return "241-Conversão de valores inválida<>";
                 case 515:

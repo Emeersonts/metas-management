@@ -255,7 +255,7 @@ namespace Metas.Application.Service
         public async Task<int> OnSaveForm(GIndicadorDTTO dto)
         {
             var Indicador = new Metas.Domain.Indicador(dto.IDINDICADOR, dto.NOME, dto.DESCRICAOINDICADOR, dto.IDUNIDADEMEDIDA,
-                dto.IDFREQUENCIA, dto.PESO, dto.MINIMO, dto.PLANEJADO, dto.DESAFIO, dto.ANOCICLO, dto.MES, dto.APURADO
+                dto.IDFREQUENCIA, dto.PESO, dto.MINIMO, dto.PLANEJADO, dto.DESAFIO, dto.ANOCICLO, dto.MES, dto.APURADO,0
             );
 
             var resultIndicador = await  _ServiceRepresentante.SaveIndicador(Indicador);

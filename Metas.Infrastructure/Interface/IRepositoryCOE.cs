@@ -15,7 +15,9 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RListOperatingUnit();
         Task<DataTable> RGetListGestor(int IDUNIDADEOPERACIONAL);
         Task<DataTable> RGetListSchedule();
-        Task<int> RSaveIndicador(int IDCELULATRABALHO, Indicador indicador, int OPERACAO);
+        Task<int> RSaveIndicador(Indicador indicador);
         Task<DataTable> RGetListIndicatorAdd(int IDCELULATRABALHO);
+        Task<DataTable> RGetIndicatorLibrary(int PAGINA, int NPAGINA, int ATIVO, string BUSCA);
+        Task<int> RSaveFormLibrary(IndicadorSAP indicador);
     }
 }

@@ -4,16 +4,14 @@ using System.Text;
 
 namespace Metas.Application.DTO
 {
-    public class IndicadorSAPDTO
+    public class EIndicadorSAPDTO
     {
         public int IDINDICADOR { get; set; }
         public string NOME { get; set; }
-        public string UNIDAQDEMEDIDADESCRICAO { get; set; }
-        public string FREQUENCIADESCRICAO { get; set; }
         public string DESCRICAO { get; set; }
-        public DateTime DATAINI { get; set; }
-        public DateTime DATAFIM { get; set; }
         public int IDUNIDADEMEDIDA { get; set; }
         public int IDFREQUENCIA { get; set; }
+        public DateTime DATAINI { get; set; }
+        public DateTime DATAFIM { get; set; }
     }
 }
