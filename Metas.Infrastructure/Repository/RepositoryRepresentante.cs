@@ -467,14 +467,9 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
             
-            SqlParameter[] parametro = new SqlParameter[09];
+            SqlParameter[] parametro = new SqlParameter[08];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
-            parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 0;
-
-            cont++;
-            parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = 0;
 
@@ -525,18 +520,12 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[09];
+            SqlParameter[] parametro = new SqlParameter[08];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = 1;
 
-            cont++;
-            parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
-            parametro[cont].IsNullable = false;
-            parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = Metas.Profile.pkxd.function;
-            
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].IsNullable = false;

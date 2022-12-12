@@ -20,6 +20,15 @@ namespace Metas.DomainCore.Service
             this._repository = repository;
         }
 
+        async public Task<DataTable> GetIndicatorLibrary(int PAGINA, int NPAGINA, int ATIVO, string BUSCA)
+        {
+            DataTable ty = new DataTable();
+
+            var result = await _repository.RGetIndicatorLibrary(PAGINA, NPAGINA, ATIVO, BUSCA);
+
+            return result;
+        }
+
         public async Task<DataTable> GetListForm(int idcelulatrabalho)
         {
             DataTable ty = new DataTable();
@@ -38,11 +47,11 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<DataTable> GetListIndicatorAdd(int IDCELULATRABALHO)
+        public async Task<DataTable> GetListIndicatorAdd(int IDANOCICLO)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetListIndicatorAdd(IDCELULATRABALHO);
+            var result = await _repository.RGetListIndicatorAdd(IDANOCICLO);
 
             return result;
         }
@@ -65,9 +74,16 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<int> SaveIndicador(int idcelulatrabalho, Indicador parameters, int operacao)
+        public async Task<int> SaveFormLibrary(IndicadorSAP parameters)
         {
-            var result = await _repository.RSaveIndicador(idcelulatrabalho, parameters, operacao);
+            var result = await _repository.RSaveFormLibrary(parameters);
+
+            return result;
+        }
+
+        public async Task<int> SaveIndicador(Indicador parameters)
+        {
+            var result = await _repository.RSaveIndicador(parameters);
 
             return result;
         }

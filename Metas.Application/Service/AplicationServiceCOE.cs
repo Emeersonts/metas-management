@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Metas.Application.DTO;
 using Metas.Application.Interface;
 using Metas.Domain;
@@ -25,6 +26,42 @@ namespace Metas.Application.Service
         public AplicationServiceCOE(IServiceCOE serviceCOE)
         {
             this._ServiceCOE = serviceCOE;
+        }
+
+        public async Task<ForIndicadorSAP> OnGetIndicatorLibrary(EIndicatorLibraryDTO DTO)
+        {
+            ForIndicadorSAP lForIndicadorSAPDTO = new ForIndicadorSAP();
+
+            var resultLibrary = await _ServiceCOE.GetIndicatorLibrary(DTO.PAGINA,DTO.NPAGINA, DTO.ATIVO,DTO.BUSCA);
+            List<IndicadorSAPDTO> lIndicadorSapDTO = new List<IndicadorSAPDTO>();
+
+            int pgtotal = 0;
+
+            for (int J = 0; J < resultLibrary.Rows.Count; J++)
+            {
+                IndicadorSAPDTO uLindicadorSAPDTO = new IndicadorSAPDTO();
+                uLindicadorSAPDTO.IDINDICADOR = (int)resultLibrary.Rows[J]["IDINDICADOR"];
+                uLindicadorSAPDTO.FREQUENCIADESCRICAO = resultLibrary.Rows[J]["FREQUENCIADESCRICAO"].ToString();
+                uLindicadorSAPDTO.DESCRICAO = resultLibrary.Rows[J]["DESCRICAO"].ToString();
+                uLindicadorSAPDTO.NOME = resultLibrary.Rows[J]["NOME"].ToString();
+                uLindicadorSAPDTO.UNIDAQDEMEDIDADESCRICAO = resultLibrary.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
+                uLindicadorSAPDTO.IDFREQUENCIA = (int)resultLibrary.Rows[J]["IDFREQUENCIA"];
+                uLindicadorSAPDTO.IDUNIDADEMEDIDA = (int)resultLibrary.Rows[J]["IDUNIDADEMEDIDA"];
+                if (resultLibrary.Rows[J]["DATAINI"] != DBNull.Value) { uLindicadorSAPDTO.DATAINI = (DateTime)resultLibrary.Rows[J]["DATAINI"]; }
+                if (resultLibrary.Rows[J]["DATAFIM"] != DBNull.Value) { uLindicadorSAPDTO.DATAFIM = (DateTime)resultLibrary.Rows[J]["DATAFIM"]; }
+
+                pgtotal = (int)resultLibrary.Rows[J]["PG"];
+
+                lIndicadorSapDTO.Add(uLindicadorSAPDTO);
+
+            }
+
+            lForIndicadorSAPDTO.PGTOTAL = pgtotal;
+            lForIndicadorSAPDTO.ListIndicadorSAP = lIndicadorSapDTO;
+
+            return lForIndicadorSAPDTO;
+
+
         }
 
         public async Task<FormFormDTO> onGetListForm(int IDCELULATRABALHO)
@@ -75,11 +112,11 @@ namespace Metas.Application.Service
 
         }
 
-        public async Task<FormIndicadorDTO> OnGetListIndicatorAdd(int idcelulatrabalho)
+        public async Task<FormIndicadorDTO> OnGetListIndicatorAdd(int IDANOCICLO)
         {
             FormIndicadorDTO lForIndicador = new FormIndicadorDTO();
 
-            var RsultIndicador = await _ServiceCOE.GetListIndicatorAdd(idcelulatrabalho);
+            var RsultIndicador = await _ServiceCOE.GetListIndicatorAdd(IDANOCICLO);
             List<IndicadorAddDTO> lIndicador = new List<IndicadorAddDTO>();
 
             for (int J = 0; J < RsultIndicador.Rows.Count; J++)
@@ -103,7 +140,7 @@ namespace Metas.Application.Service
                 uLindicador.STATUSMETA = (int)RsultIndicador.Rows[J]["STATUSMETA"];
                 uLindicador.STATUSRESULTADO = (int)RsultIndicador.Rows[J]["STATUSRESULTADO"];
                 uLindicador.STATUSINDICADOR = (int)RsultIndicador.Rows[J]["STATUSINDICADOR"];
-                uLindicador.OPNEG = (int)RsultIndicador.Rows[J]["OPNEG"];
+                uLindicador.OPNEG = (int)RsultIndicador.Rows[J]["ONN"];
                 if (RsultIndicador.Rows[J]["DTAAPURACAO"] != DBNull.Value) { uLindicador.DATAAPURACAO = (DateTime)RsultIndicador.Rows[J]["DTAAPURACAO"]; }
                 if (RsultIndicador.Rows[J]["SIMULADOAPURADO"] != DBNull.Value) { uLindicador.SIMULADOAPURADO = (decimal)RsultIndicador.Rows[J]["SIMULADOAPURADO"]; }
                 lIndicador.Add(uLindicador);
@@ -166,28 +203,36 @@ namespace Metas.Application.Service
 
         }
 
-        public async Task<int> OnSaveForm(int IDCELULATRABALHO, GIndicadorDTTO dto, int OPERACAO)
+        public async Task<int> OnSaveForm(IndicadorNegocioDTO dto)
         {
-            var Indicador = new Metas.Domain.Indicador(dto.IDINDICADOR, dto.NOME, dto.DESCRICAOINDICADOR, dto.IDUNIDADEMEDIDA,
-                dto.IDFREQUENCIA, dto.PESO, dto.MINIMO, dto.PLANEJADO, dto.DESAFIO, dto.ANOCICLO, dto.MES, dto.APURADO
+            var Indicador = new Metas.Domain.Indicador(dto.IDINDICADOR,dto.NOME, dto.NOME, dto.IDUNIDADEMEDIDA,
+                dto.IDFREQUENCIA, dto.PESO, dto.MINIMO, dto.PLANEJADO, dto.DESAFIO,dto.ANOCICLO,0,dto.APURADO, dto.ON
             );
 
-            var resultIndicador = await _ServiceCOE.SaveIndicador(IDCELULATRABALHO, Indicador,OPERACAO);
+            var resultIndicador = await _ServiceCOE.SaveIndicador(Indicador);
 
             return resultIndicador;
 
         }
 
-        public async Task<int> onSaveSchedule(CronogramaAplicadoDTO[] dto)
+        public async Task<int> OnSaveFormLibrary(EIndicadorSAPDTO dto)
+        {
+            var Indicador = new IndicadorSAP(0, dto.NOME, dto.DESCRICAO, dto.IDUNIDADEMEDIDA, dto.IDFREQUENCIA, dto.DATAINI, dto.DATAINI);
+
+            var resultIndicador = await _ServiceCOE.SaveFormLibrary(Indicador);
+
+            return resultIndicador;
+        }
+
+        public async Task<int> onSaveSchedule(CronogramaAplicadoDTO dtoT)
         {
 
-            var ggg = new CronogramaAplicadoDTO[1];
-            int gg = 0;
 
-            foreach (var item in dto)
-            {
-                gg = item.ATIVO;
-            }
+            var hh = new List<CronogramaAplicadoDTO>();
+            
+
+            var ind = new CronogramaAplicadoDTO[10];
+
 
 
             return 0;

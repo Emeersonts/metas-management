@@ -15,7 +15,9 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> ListOperatingUnit();
         Task<DataTable> GetListGestor(int idunidadeoperacional);
         Task<DataTable> GetListSchedule();
-        Task<int> SaveIndicador(int IDCELULATRABALHO, Indicador parameters, int OPERACAO);
-        Task<DataTable> GetListIndicatorAdd(int IDCELULATRABALHO);
+        Task<int> SaveIndicador(Indicador parameters);
+        Task<DataTable> GetListIndicatorAdd(int IDANOCICLO);
+        Task<DataTable> GetIndicatorLibrary(int PAGINA,int NPAGINA, int ATIVO, string BUSCA);
+        Task<int> SaveFormLibrary(IndicadorSAP parameters);
     }
 }
