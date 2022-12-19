@@ -19,5 +19,6 @@ namespace Metas.Application.DTO
         public int ANOCICLO { get; set; }
         public int MES { get; set; }
         public decimal APURADO { get; set; }
+        public string ON { get; set; }
     }
 }
