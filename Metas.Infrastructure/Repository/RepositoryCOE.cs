@@ -83,7 +83,7 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 0;
+            parametro[cont].Value = IDCELULATRABALHO;
 
             ClsData pk = new ClsData();
 
@@ -387,7 +387,7 @@ namespace Metas.Infrastructure.Repository
             parametro[cont].Value = indicador.APURADO;
 
             cont++;
-            parametro[cont] = new SqlParameter("@OPNEG", SqlDbType.Int);
+            parametro[cont] = new SqlParameter("@OPNEG", SqlDbType.VarChar);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = indicador.ON;
 

@@ -26,6 +26,6 @@ namespace Metas.Application.DTO
         public decimal SIMULADOAPURADO { get; set; }
         public DateTime DATAAPURACAO { get; set; }
         public int STATUSINDICADOR { get; set; }
-        public int OPNEG { get; set; }
+        public string OPNEG { get; set; }
     }
 }
