@@ -27,6 +27,7 @@ namespace Metas.Infrastructure
             builder.Password = "lUMy7zVyXjkFMPbKVMh6";
             builder.InitialCatalog = "bMetas";
 
+
             //builder.DataSource = "STFSAOC045548-L\\SQLEXPRESS";
             //builder.UserID = "LMetas";
             //builder.Password = "Pzero#12";
