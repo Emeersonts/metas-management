@@ -140,6 +140,7 @@ namespace Metas.Application.Service
                 uLindicador.STATUSMETA = (int)RsultIndicador.Rows[J]["STATUSMETA"];
                 uLindicador.STATUSRESULTADO = (int)RsultIndicador.Rows[J]["STATUSRESULTADO"];
                 uLindicador.STATUSINDICADOR = (int)RsultIndicador.Rows[J]["STATUSINDICADOR"];
+                uLindicador.OPNEG = RsultIndicador.Rows[J]["OPNEG"].ToString();
                 if (RsultIndicador.Rows[J]["DTAAPURACAO"] != DBNull.Value) { uLindicador.DATAAPURACAO = (DateTime)RsultIndicador.Rows[J]["DTAAPURACAO"]; }
                 if (RsultIndicador.Rows[J]["SIMULADOAPURADO"] != DBNull.Value) { uLindicador.SIMULADOAPURADO = (decimal)RsultIndicador.Rows[J]["SIMULADOAPURADO"]; }
                 lIndicador.Add(uLindicador);
