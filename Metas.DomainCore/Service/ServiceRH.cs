@@ -73,11 +73,11 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
-        public async Task<DataTable> GetVerifyRepresentantative(int anocilco, int idcelulatrabalho)
+        public async Task<DataTable> GetVerifyRepresentantative(int idcelulatrabalho)
         {
             DataTable ty = new DataTable();
 
-            var result = await _repository.RGetVerifyRepresentantative(anocilco, idcelulatrabalho);
+            var result = await _repository.RGetVerifyRepresentantative(idcelulatrabalho);
 
             return result;
 

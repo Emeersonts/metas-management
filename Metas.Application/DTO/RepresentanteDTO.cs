@@ -6,7 +6,11 @@ namespace Metas.Application.DTO
 {
     public class RepresentanteDTO
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
+        public int IDREPRESENTANTE { get; set; }
+        public string NOMEREPRESENTANTE { get; set; }
+        public int IDSUPLENTE { get; set; }
+        public string NOMESUPLENTE { get; set; }
+        public int IDGESTOR { get; set; }
+        public string NOMEGESTOR { get; set; }
     }
 }

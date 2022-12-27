@@ -90,7 +90,7 @@ namespace Metas.API.Controllers
         // ATUALIZA CRONOGRAMA APLICADO
         [HttpPost]
         [Route("SaveSchedule")]
-        public async Task<ActionResult> SaveSchedule(CronogramaAplicadoDTO DTO)
+        public async Task<ActionResult> SaveSchedule( CronogramaAplicadoDTO DTO)
         {
             var rng = new Random();
             var forecasts = Enumerable.Range(1, 5).Select(index => new CronogramaAplicadoDTO

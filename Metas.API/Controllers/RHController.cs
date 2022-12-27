@@ -67,9 +67,9 @@ namespace Metas.API.Controllers
         //RETORNA REPRESENTANTE DA CÉLULA DE TRABALHO
         [HttpGet]
         [Route("VerifyRepresentantative")]
-        public async Task<ActionResult> onGetVerifyRepresentantative([FromQuery] int ANOCICLO, int IDCELULATRABALHO)
+        public async Task<ActionResult> onGetVerifyRepresentantative([FromQuery] int IDCELULATRABALHO)
         {
-            var result = await _applicationServiceRH.onGetVerifyRepresentantative(ANOCICLO, IDCELULATRABALHO);
+            var result = await _applicationServiceRH.onGetVerifyRepresentantative(IDCELULATRABALHO);
 
             if (result == null)
             {
