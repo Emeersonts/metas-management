@@ -217,7 +217,7 @@ namespace Metas.Application.Service
 
         public async Task<int> OnSaveFormLibrary(EIndicadorSAPDTO dto)
         {
-            var Indicador = new IndicadorSAP(0, dto.NOME, dto.DESCRICAO, dto.IDUNIDADEMEDIDA, dto.IDFREQUENCIA, dto.DATAINI, dto.DATAINI);
+            var Indicador = new IndicadorSAP(dto.IDINDICADOR, dto.NOME, dto.DESCRICAO, dto.IDUNIDADEMEDIDA, dto.IDFREQUENCIA, dto.DATAINI, dto.DATAINI);
 
             var resultIndicador = await _ServiceCOE.SaveFormLibrary(Indicador);
 
