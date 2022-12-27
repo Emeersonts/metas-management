@@ -108,16 +108,23 @@ namespace Metas.Application.Service
             return lForIndicador;
         }
 
-        public async Task<RepresentanteDTO> onGetVerifyRepresentantative(int anocilco, int idcelulatrabalho)
+        public async Task<RepresentanteDTO> onGetVerifyRepresentantative(int idcelulatrabalho)
         {
-            var result = await _ServiceRH.GetVerifyRepresentantative(anocilco, idcelulatrabalho);
+            var result = await _ServiceRH.GetVerifyRepresentantative(idcelulatrabalho);
 
             RepresentanteDTO Representante = new RepresentanteDTO();
 
             for (int i = 0; i < result.Rows.Count; i++)
             {
-                Representante.Id = (int)result.Rows[i]["IDREPRESENTANTE"];
-                Representante.Nome = result.Rows[i]["NOMECOMPLETO"].ToString();
+                Representante.IDREPRESENTANTE = (int)result.Rows[i]["IDREPRESENTANTE"];
+                Representante.NOMEREPRESENTANTE = result.Rows[i]["NOMEREPRESENTANTE"].ToString();
+
+                Representante.IDSUPLENTE = (int)result.Rows[i]["IDSUPLENTE"];
+                Representante.NOMESUPLENTE = result.Rows[i]["NOMESUPLENTE"].ToString();
+
+                Representante.IDGESTOR = (int)result.Rows[i]["IDGESTOR"];
+                Representante.NOMEGESTOR = result.Rows[i]["NOMEGESTOR"].ToString();
+
             }
 
             return Representante;
