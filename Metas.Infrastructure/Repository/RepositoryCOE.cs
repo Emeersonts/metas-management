@@ -253,7 +253,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[09];
+            SqlParameter[] parametro = new SqlParameter[10];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -268,6 +268,11 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Output;
             parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDINDICADOR", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = indicador.IDINDICADOR;
 
             cont++;
             parametro[cont] = new SqlParameter("@NOME", SqlDbType.VarChar);
