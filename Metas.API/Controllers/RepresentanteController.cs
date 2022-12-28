@@ -135,7 +135,7 @@ namespace Metas.API.Controllers
 
         }
 
-        //Envia indicadores para aprovação
+        //Envia indicadores para aprovação nova 
         [HttpPost]
         [Route("SendForApprovalIndicador")]
         public async Task<ActionResult> SendForApprovalIndicador([FromQuery] int ANOCICLO)

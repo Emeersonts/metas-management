@@ -14,17 +14,17 @@ namespace Metas.Application.DTO
         public String NOMEUNIDADEMEDIDA { get; set; }
         public String DESCRICAO { get; set; }
         public int PESO { get; set; }
-        public Decimal MINIMO { get; set; }
-        public Decimal PLANEJADO { get; set; }
-        public Decimal DESAFIO { get; set; }
+        public string MINIMO { get; set; }
+        public string PLANEJADO { get; set; }
+        public string DESAFIO { get; set; }
         public Decimal RESULTADOAPURADO { get; set; } 
         public Decimal SIMULADOAPURADO { get; set; }
         public DateTime DATAAPURACAO { get; set; }
         public int RESULTADO { get; set; }
         public int ORDEMINICIO { get; set; }
 
-        public MetasDTO(int idcelulatrabalho, string nomeformulario, int idindicador,string nomeindicador, string nomeunidademedida, string descricao, int peso, decimal minimo,
-            decimal planejado, decimal desafio, decimal resultadoapurado, decimal simuladoaapurado, DateTime dataapuracao, int ordeminicio)
+        public MetasDTO(int idcelulatrabalho, string nomeformulario, int idindicador,string nomeindicador, string nomeunidademedida, string descricao, int peso, string minimo,
+            string planejado, string desafio, decimal resultadoapurado, decimal simuladoaapurado, DateTime dataapuracao, int ordeminicio)
         {
             IDCELULATRABALHO = idcelulatrabalho;
             NOMEFORMULARIO = nomeformulario;

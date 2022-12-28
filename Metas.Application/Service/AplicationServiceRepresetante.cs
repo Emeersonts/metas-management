@@ -141,9 +141,11 @@ namespace Metas.Application.Service
                 uLindicador.NOMEUNIDADEMEDIDA = resultIndicador.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
                 uLindicador.DESCRICAO = resultIndicador.Rows[J]["DESCRICAO"].ToString();
                 uLindicador.PESO = (int)resultIndicador.Rows[J]["PESO"];
-                uLindicador.MINIMO = (decimal)resultIndicador.Rows[J]["MINIMO"];
-                uLindicador.PLANEJADO = (decimal)resultIndicador.Rows[J]["PLANEJADO"];
-                uLindicador.DESAFIO = (decimal)resultIndicador.Rows[J]["DESAFIO"];
+
+                uLindicador.MINIMO = resultIndicador.Rows[J]["MINIMO"].ToString();
+                uLindicador.PLANEJADO = resultIndicador.Rows[J]["PLANEJADO"].ToString();
+                uLindicador.DESAFIO = resultIndicador.Rows[J]["DESAFIO"].ToString();
+
                 uLindicador.RESULTADOAPURADO = (decimal)resultIndicador.Rows[J]["RESULTADOAPURADO"];
                 uLindicador.MESINICIO = (int)resultIndicador.Rows[J]["MES"];
                 

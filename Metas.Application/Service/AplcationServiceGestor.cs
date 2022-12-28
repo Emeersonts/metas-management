@@ -130,9 +130,12 @@ namespace Metas.Application.Service
                             ulMetasDTO.DESCRICAO = result.Rows[j]["DESCRICAO"].ToString();
                             ulMetasDTO.PESO = (int)result.Rows[j]["PESO"];
                             ulMetasDTO.ORDEMINICIO = (int)result.Rows[j]["ORDEMINICIO"];
-                            ulMetasDTO.MINIMO = (decimal)result.Rows[j]["MINIMO"];
-                            ulMetasDTO.PLANEJADO = (decimal)result.Rows[j]["PLANEJADO"];
-                            ulMetasDTO.DESAFIO = (decimal)result.Rows[j]["DESAFIO"];
+
+                            ulMetasDTO.MINIMO = result.Rows[j]["MINIMO"].ToString();
+                            ulMetasDTO.PLANEJADO = result.Rows[j]["PLANEJADO"].ToString();
+                            ulMetasDTO.DESAFIO = result.Rows[j]["DESAFIO"].ToString();
+
+
                             ulMetasDTO.RESULTADO = (int)result.Rows[j]["RESULTADO"];
                             if (result.Rows[j]["RESULTADOAPURADO"] != DBNull.Value) { ulMetasDTO.RESULTADOAPURADO = (decimal)result.Rows[j]["RESULTADOAPURADO"]; }
                             if (result.Rows[j]["SIMULADOAPURADO"] != DBNull.Value) { ulMetasDTO.SIMULADOAPURADO = (decimal)result.Rows[j]["SIMULADOAPURADO"]; }
