@@ -172,5 +172,14 @@ namespace Metas.API.Controllers
             }
         }
 
+
+        [HttpGet]
+        [Route("ListAtiv")]
+        public async Task<ActionResult> GetListAtiv([FromQuery] EIndicatorLibraryDTO DTO)
+        {
+           
+
+            return Ok();
+        }
     }
 }
