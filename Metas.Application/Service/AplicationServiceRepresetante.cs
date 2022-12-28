@@ -175,11 +175,11 @@ namespace Metas.Application.Service
                 uLindicador.NOMEUNIDADEMEDIDA = RsultIndicador.Rows[J]["NOMEUNIDADEMEDIDA"].ToString();
                 uLindicador.NOMEINDICADOR = RsultIndicador.Rows[J]["NOMEINDICADOR"].ToString();
                 uLindicador.NOME = RsultIndicador.Rows[J]["IDINDICADOR"].ToString();
-                uLindicador.MINIMO = (decimal)RsultIndicador.Rows[J]["MINIMO"];
+                if (RsultIndicador.Rows[J]["MINIMO"] != DBNull.Value) { uLindicador.MINIMO = (decimal)RsultIndicador.Rows[J]["MINIMO"]; }
+                if (RsultIndicador.Rows[J]["PLANEJADO"] != DBNull.Value) { uLindicador.PLANEJADO = (decimal)RsultIndicador.Rows[J]["PLANEJADO"]; }
+                if (RsultIndicador.Rows[J]["DESAFIO"] != DBNull.Value) { uLindicador.DESAFIO = (decimal)RsultIndicador.Rows[J]["DESAFIO"]; }
+                if (RsultIndicador.Rows[J]["RESULTADO"] != DBNull.Value) { uLindicador.RESULTADO = (int)RsultIndicador.Rows[J]["RESULTADO"]; }
                 uLindicador.PESO = (int)RsultIndicador.Rows[J]["PESO"];
-                uLindicador.PLANEJADO = (decimal)RsultIndicador.Rows[J]["PLANEJADO"];
-                uLindicador.DESAFIO = (decimal)RsultIndicador.Rows[J]["DESAFIO"];
-                uLindicador.RESULTADO = (int)RsultIndicador.Rows[J]["RESULTADO"];
                 uLindicador.APURADO = (decimal)RsultIndicador.Rows[J]["APURADO"];
                 uLindicador.ORDEMINICIO = (int)RsultIndicador.Rows[J]["ORDEMINICIO"];
                 uLindicador.STATUSMETA = (int)RsultIndicador.Rows[J]["STATUSMETA"];
