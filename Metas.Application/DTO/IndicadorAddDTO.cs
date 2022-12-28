@@ -14,9 +14,9 @@ namespace Metas.Application.DTO
         public int IDFREQUENCIA { get; set; }
         public string DESCRICAO { get; set; }
         public int PESO { get; set; }
-        public Decimal MINIMO { get; set; }
-        public Decimal PLANEJADO { get; set; }
-        public Decimal DESAFIO { get; set; }
+        public string MINIMO { get; set; }
+        public string PLANEJADO { get; set; }
+        public string DESAFIO { get; set; }
         public String DESCRICAOINDICADOR { get; set; }
         public int RESULTADO { get; set; }
         public decimal APURADO { get; set; }
