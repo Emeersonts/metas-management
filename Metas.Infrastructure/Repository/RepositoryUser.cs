@@ -71,11 +71,11 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async public Task<DataTable> RGetUserNotification( int ANOCICLO, int IDCELULATRABALHO)
+        async public Task<DataTable> RGetUserNotification( int ANOCICLO, int IDCELULATRABALHO, int IDNOTIFICACAO)
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[05];
+            SqlParameter[] parametro = new SqlParameter[06];
 
             parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
             parametro[cont].IsNullable = false;
@@ -101,6 +101,11 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = IDCELULATRABALHO;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDNOTIFICACAO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = IDNOTIFICACAO;
 
             ClsData pk = new ClsData();
 
