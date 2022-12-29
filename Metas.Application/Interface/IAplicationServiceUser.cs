@@ -10,7 +10,7 @@ namespace Metas.Application.Interface
     {
         Task<LisTutorialDTO> OnGetTutorialByUser();
         Task<LisTutorialDTO> OnGetGetCulture();
-        Task<ListNotificacaoDTO> OnGetUserNotification(int ANOCICLO, int IDCELULATRABALHO);
+        Task<ListNotificacaoDTO> OnGetUserNotification(int ANOCICLO, int IDCELULATRABALHO, int idnotificacao);
         Task OnDeactiveTutorial(TutorialUsuarioDTO dto);
         Task<ListFrequenciaDTO> OnGetListFrequency();
         Task<ListUnidadeMedidaDTO> OnGetListMeasure();

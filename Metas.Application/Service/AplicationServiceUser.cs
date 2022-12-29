@@ -96,9 +96,9 @@ namespace Metas.Application.Service
 
         }
 
-        public async Task<ListNotificacaoDTO> OnGetUserNotification(int anociclo, int idcelulatrabalho)
+        public async Task<ListNotificacaoDTO> OnGetUserNotification(int anociclo, int idcelulatrabalho, int IDNOTIFICACAO)
         {
-            var result = await _ServiceUser.GetUserNotification(anociclo, idcelulatrabalho);
+            var result = await _ServiceUser.GetUserNotification(anociclo, idcelulatrabalho, IDNOTIFICACAO);
 
             ListNotificacaoDTO listnotificacao = new ListNotificacaoDTO();
             List<Notificacao> lnotificacao = new List<Notificacao>();

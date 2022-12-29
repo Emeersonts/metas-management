@@ -11,7 +11,7 @@ namespace Metas.DomainCore.Interface
     {
         Task<DataTable> GetTutorialByUser();
         Task<DataTable> GetGetCulture();
-        Task<DataTable> GetUserNotification(int ANOCICLO, int IDCELULATRABALHO);
+        Task<DataTable> GetUserNotification(int ANOCICLO, int IDCELULATRABALHO, int IDNOTIFICACAO);
         Task DeactiveTutorial(TutorialUsuario tutotialusuairo);
         Task<DataTable> GetListFrequency();
         Task<DataTable> GetListMeasure();
