@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>1</MES>
+    <MINIMO>1,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>1</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>2</MES>
+    <MINIMO>2,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>2</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>3</MES>
+    <MINIMO>3,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>3</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>4</MES>
+    <MINIMO>4,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>4</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>5</MES>
+    <MINIMO>5,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>5</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>6</MES>
+    <MINIMO>5,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>6</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>7</MES>
+    <MINIMO>5,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>7</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>8</MES>
+    <MINIMO>5,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>8</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>9</MES>
+    <MINIMO>5,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>9</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>10</MES>
+    <MINIMO>5,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>10</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>11</MES>
+    <MINIMO>5,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>11</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+  <SimplesUnidadeMetas>
+    <CODFORM>06d5b5db-8603-1eeb-9892-8723b96adb60</CODFORM>
+    <DESCRICAO>Primeiro formuário</DESCRICAO>
+    <ATA>OK</ATA>
+    <REPRESENTANTE>Nome representante</REPRESENTANTE>
+    <NPrepresentante>NPrepresentante</NPrepresentante>
+    <SUPLENTE>Suplente</SUPLENTE>
+    <NPsuplente>NPsuplente</NPsuplente>
+    <GESTOR>Nome tres</GESTOR>
+    <NPGestor>NPGestor</NPGestor>
+    <STATUS>OK</STATUS>
+    <IDINDICADOR>2022</IDINDICADOR>
+    <NOME>AA5</NOME>
+    <PESO>1</PESO>
+    <IDFREQUENCIA>1</IDFREQUENCIA>
+    <NOMEFREQUENCIA>Mensal</NOMEFREQUENCIA>
+    <IDUNIDADEMEDIDA>1</IDUNIDADEMEDIDA>
+    <DESCUNIDADEMEDIDA>percentual</DESCUNIDADEMEDIDA>
+    <MES>12</MES>
+    <MINIMO>5,0000</MINIMO>
+    <DESAFIO>5,0000</DESAFIO>
+    <PLANEJADO>4,0000</PLANEJADO>
+    <RESULTADO>0,0000</RESULTADO>
+    <IDRESULTADOCICLO>6</IDRESULTADOCICLO>
+    <MES1>12</MES1>
+    <DESCRICAO1>Total 1º semestre</DESCRICAO1>
+    <APURADO>-0,9996</APURADO>
+  </SimplesUnidadeMetas>
+</SimplesUnidadeMetas>
