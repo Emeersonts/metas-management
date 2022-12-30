@@ -30,8 +30,8 @@ namespace Metas.API.Controllers
             this._applicationServiceUser = ApplicationServiceUser;
         }
 
-        private readonly IMemoryCache _memorychache;
-        private const string COUNTRYES_KEY = "cc";
+        //private readonly IMemoryCache _memorychache;
+        //private const string COUNTRYES_KEY = "cc";
 
         //[Authorize]
         //public ActionResult Usuarios()
@@ -55,7 +55,7 @@ namespace Metas.API.Controllers
             };
 
             var usuario = "Anônimo";
-            var autenticado = true;
+            //var autenticado = true;
 
             usuario = HttpContext.User.Identity.Name;
 
@@ -63,12 +63,12 @@ namespace Metas.API.Controllers
             if (HttpContext.User.Identity.IsAuthenticated)
             {
                 usuario = HttpContext.User.Identity.Name;
-                autenticado = true;
+                //autenticado = true;
             }
             else
             {
                 usuario = "Não Logado";
-                autenticado = false;
+                //autenticado = false;
             }
                         
             int result =1;
