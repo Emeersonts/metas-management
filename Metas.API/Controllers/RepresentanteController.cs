@@ -113,7 +113,6 @@ namespace Metas.API.Controllers
             return Ok(result);
         }
 
-        int log = 0;
         //Salvar indicadores       
         [HttpPost]
         [Route("SaveForm")]
