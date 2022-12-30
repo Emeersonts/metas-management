@@ -52,6 +52,8 @@ namespace Metas.Application.DTO
                     return "515-Parametros inválido<>";
                 case 547:
                     return "547-Violação de Constraint<>";
+                case 2627:
+                    return "2627-Violação de chave no sistema/restore da base de dados<>";
                 default:
                     return MSG.ToString() +  " Erro não previsto <>";
             }
