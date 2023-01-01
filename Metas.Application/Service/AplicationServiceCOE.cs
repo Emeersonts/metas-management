@@ -227,15 +227,13 @@ namespace Metas.Application.Service
         public async Task<int> onSaveSchedule(CronogramaAplicadoDTO dtoT)
         {
 
-
             var hh = new List<CronogramaAplicadoDTO>();
             
 
             var ind = new CronogramaAplicadoDTO[10];
 
 
-
-            return 0;
+            return 1;
 
         }
     }
