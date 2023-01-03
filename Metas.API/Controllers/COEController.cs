@@ -106,7 +106,7 @@ namespace Metas.API.Controllers
         // ATUALIZA CRONOGRAMA APLICADO
         [HttpPost]
         [Route("SaveSchedule")]
-        public async Task<ActionResult> SaveSchedule( CronogramaAplicadoDTO DTO)
+        public async Task<ActionResult> SaveSchedule(CronogramaAplicadoDTO DTO)
         {
             var rng = new Random();
             var forecasts = Enumerable.Range(1, 5).Select(index => new CronogramaAplicadoDTO
@@ -189,40 +189,38 @@ namespace Metas.API.Controllers
         }
         //Gerar Relatorio Metas
         [HttpGet]
-        [Route("Metas")]
-        
+        [Route("ReportMetas")]
         public async Task<ActionResult> GenerateReport(int PR_TIPO, int PR_RETURN, int ANOCICLO, int IDCELULATRABALHO)
-      
         {
             try
             {
-            
-            var MsSqlDataConnection = new MsSqlDataConnection();
 
-            var mssqlDataConnection = new MsSqlDataConnection();
-                        
-            var webReport = new WebReport(); 
+                var MsSqlDataConnection = new MsSqlDataConnection();
 
-            webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "Metas.frx"));
-           
-            mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
-            //definimos os valores para os parâmetros usados         
-            var conn = mssqlDataConnection.ConnectionString;
-            webReport.Report.SetParameterValue("Conn", conn);
-            webReport.Report.SetParameterValue("PR_TIPO", PR_TIPO);
-            webReport.Report.SetParameterValue("PR_RETURN", PR_RETURN);
-            webReport.Report.SetParameterValue("ANOCICLO", ANOCICLO);
-            webReport.Report.SetParameterValue("IDCELULATRABALHO", IDCELULATRABALHO);
-            webReport.Report.Prepare();
+                var mssqlDataConnection = new MsSqlDataConnection();
 
-            using MemoryStream stream = new MemoryStream();
-            webReport.Report.Export(new PDFSimpleExport(), stream);
+                var webReport = new WebReport();
 
-            stream.Flush();
-            byte[] arrayReport = stream.ToArray();
-                          
+                webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "Metas.frx"));
 
-             return File(arrayReport, "application/zip", "MetassReport.pdf");
+                mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
+                //definimos os valores para os parâmetros usados         
+                var conn = mssqlDataConnection.ConnectionString;
+                webReport.Report.SetParameterValue("Conn", conn);
+                webReport.Report.SetParameterValue("PR_TIPO", PR_TIPO);
+                webReport.Report.SetParameterValue("PR_RETURN", PR_RETURN);
+                webReport.Report.SetParameterValue("ANOCICLO", ANOCICLO);
+                webReport.Report.SetParameterValue("IDCELULATRABALHO", IDCELULATRABALHO);
+                webReport.Report.Prepare();
+
+                using MemoryStream stream = new MemoryStream();
+                webReport.Report.Export(new PDFSimpleExport(), stream);
+
+                stream.Flush();
+                byte[] arrayReport = stream.ToArray();
+
+
+                return File(arrayReport, "application/zip", "MetassReport.pdf");
             }
             catch (Exception)
             {
@@ -230,6 +228,131 @@ namespace Metas.API.Controllers
                 throw;
             }
         }
+
+        [HttpGet]
+        [Route("ReportSimularMetas")]
+        public async Task<ActionResult> GenerateReportSimularMetas(int PR_TIPO, int PR_RETURN, int ANOCICLO, int IDCELULATRABALHO)
+        {
+            try
+            {
+
+                var MsSqlDataConnection = new MsSqlDataConnection();
+
+                var mssqlDataConnection = new MsSqlDataConnection();
+
+                var webReport = new WebReport();
+
+                webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "SimularMetas.frx"));
+
+                mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
+                //definimos os valores para os parâmetros usados         
+                var conn = mssqlDataConnection.ConnectionString;
+                webReport.Report.SetParameterValue("Conn", conn);
+                webReport.Report.SetParameterValue("PR_TIPO", PR_TIPO);
+                webReport.Report.SetParameterValue("PR_RETURN", PR_RETURN);
+                webReport.Report.SetParameterValue("ANOCICLO", ANOCICLO);
+                webReport.Report.SetParameterValue("IDCELULATRABALHO", IDCELULATRABALHO);
+                webReport.Report.Prepare();
+
+                using MemoryStream stream = new MemoryStream();
+                webReport.Report.Export(new PDFSimpleExport(), stream);
+
+                stream.Flush();
+                byte[] arrayReport = stream.ToArray();
+
+
+                return File(arrayReport, "application/zip", "SimularMetas.pdf");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet]
+        [Route("ReportSimplesUnidadeMetas")]
+        public async Task<ActionResult> GenerateReportSimplesMetas(int PR_TIPO, int PR_RETURN, int ANOCICLO, int IDCELULATRABALHO)
+        {
+            try
+            {
+
+                var MsSqlDataConnection = new MsSqlDataConnection();
+
+                var mssqlDataConnection = new MsSqlDataConnection();
+
+                var webReport = new WebReport();
+
+                webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "SimplesUnidadeMetas.frx"));
+
+                mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
+                //definimos os valores para os parâmetros usados         
+                var conn = mssqlDataConnection.ConnectionString;
+                webReport.Report.SetParameterValue("Conn", conn);
+                webReport.Report.SetParameterValue("PR_TIPO", PR_TIPO);
+                webReport.Report.SetParameterValue("PR_RETURN", PR_RETURN);
+                webReport.Report.SetParameterValue("ANOCICLO", ANOCICLO);
+                webReport.Report.SetParameterValue("IDCELULATRABALHO", IDCELULATRABALHO);
+                webReport.Report.Prepare();
+
+                using MemoryStream stream = new MemoryStream();
+                webReport.Report.Export(new PDFSimpleExport(), stream);
+
+                stream.Flush();
+                byte[] arrayReport = stream.ToArray();
+
+
+                return File(arrayReport, "application/zip", "SimplesUnidadeMetas.pdf");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [Route("ReportOrientacoesMetas")]
+        [HttpGet]
+        public async Task<ActionResult> GenerateReportOrientacoesMetas(int PR_TIPO, int PR_RETURN, int ANOCICLO, int IDCELULATRABALHO)
+        {
+            try
+            {
+
+                var MsSqlDataConnection = new MsSqlDataConnection();
+
+                var mssqlDataConnection = new MsSqlDataConnection();
+
+                var webReport = new WebReport();
+
+                webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "OrientacaoMetas.frx"));
+
+                mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
+                //definimos os valores para os parâmetros usados         
+                var conn = mssqlDataConnection.ConnectionString;
+                webReport.Report.SetParameterValue("Conn", conn);
+                webReport.Report.SetParameterValue("PR_TIPO", PR_TIPO);
+                webReport.Report.SetParameterValue("PR_RETURN", PR_RETURN);
+                webReport.Report.SetParameterValue("ANOCICLO", ANOCICLO);
+                webReport.Report.SetParameterValue("IDCELULATRABALHO", IDCELULATRABALHO);
+                webReport.Report.Prepare();
+
+                using MemoryStream stream = new MemoryStream();
+                webReport.Report.Export(new PDFSimpleExport(), stream);
+
+                stream.Flush();
+                byte[] arrayReport = stream.ToArray();
+
+
+                return File(arrayReport, "application/zip", "OrientacaoMetas.pdf");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
 
     }
 }
