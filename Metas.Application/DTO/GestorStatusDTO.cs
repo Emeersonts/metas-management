@@ -8,6 +8,7 @@ namespace Metas.Application.DTO
     public class GestorStatusDTO
     {
         public int NPESSOAL { get; set; }
+        public string UNIDADE { get; set; }
         public string NOMECOMPLETO { get; set; }
         public string NOMEFORMULARIO { get; set; }
         public Decimal RITMO { get; set; }
