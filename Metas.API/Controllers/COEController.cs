@@ -193,8 +193,7 @@ namespace Metas.API.Controllers
         [Route("ReportMetas")]
         public async Task<ActionResult> GenerateReport(int PR_TIPO, int PR_RETURN, int ANOCICLO, int IDCELULATRABALHO)
         {
-            try
-            {
+            
                 var result = "Erro na conexao banco de dados";
                 
                 RegisteredObjects.AddConnection(typeof(MsSqlDataConnection));
@@ -244,12 +243,7 @@ namespace Metas.API.Controllers
 
 
                 return File(arrayReport, "application/zip", "MetassReport.pdf");
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+           
         }
 
         [HttpGet]
@@ -258,33 +252,47 @@ namespace Metas.API.Controllers
         {
             try
             {
+                var result = "Erro de Connectionstring";
 
                 var MsSqlDataConnection = new MsSqlDataConnection();
 
                 var mssqlDataConnection = new MsSqlDataConnection();
 
-                var webReport = new WebReport();
-
-                webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "SimularMetas.frx"));
-
-                mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
-                //definimos os valores para os parâmetros usados         
                 var conn = mssqlDataConnection.ConnectionString;
-                webReport.Report.SetParameterValue("Conn", conn);
-                webReport.Report.SetParameterValue("PR_TIPO", PR_TIPO);
-                webReport.Report.SetParameterValue("PR_RETURN", PR_RETURN);
-                webReport.Report.SetParameterValue("ANOCICLO", ANOCICLO);
-                webReport.Report.SetParameterValue("IDCELULATRABALHO", IDCELULATRABALHO);
-                webReport.Report.Prepare();
-
-                using MemoryStream stream = new MemoryStream();
-                webReport.Report.Export(new PDFSimpleExport(), stream);
-
-                stream.Flush();
-                byte[] arrayReport = stream.ToArray();
+                if (conn == null)
+                {
+                   
+                    return Ok(result);
+                }
+                else
+                {
+                    result = "Connectionstring OK";
+                    return Ok(result);
+                }
 
 
-                return File(arrayReport, "application/zip", "SimularMetas.pdf");
+                //var webReport = new WebReport();
+
+                //webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "SimularMetas.frx"));
+
+                //mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
+                ////definimos os valores para os parâmetros usados         
+                //var conn = mssqlDataConnection.ConnectionString;
+                //webReport.Report.SetParameterValue("Conn", conn);
+                //webReport.Report.SetParameterValue("PR_TIPO", PR_TIPO);
+                //webReport.Report.SetParameterValue("PR_RETURN", PR_RETURN);
+                //webReport.Report.SetParameterValue("ANOCICLO", ANOCICLO);
+                //webReport.Report.SetParameterValue("IDCELULATRABALHO", IDCELULATRABALHO);
+                //webReport.Report.Prepare();
+
+                //using MemoryStream stream = new MemoryStream();
+                //webReport.Report.Export(new PDFSimpleExport(), stream);
+
+                //stream.Flush();
+                //byte[] arrayReport = stream.ToArray();
+
+
+                //return File(arrayReport, "application/zip", "SimularMetas.pdf");
             }
             catch (Exception)
             {

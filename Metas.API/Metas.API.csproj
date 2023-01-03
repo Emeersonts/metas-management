@@ -22,5 +22,20 @@
     <ProjectReference Include="..\Metas.Profile\Metas.Profile.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Reports\Metas.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\OrientacaoMetas.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\SimplesUnidadeMetas.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\SimularMetas.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 
 </Project>
