@@ -150,16 +150,16 @@ namespace Metas.Application.Service
                 uLindicador.DATASTATUS = Convert.ToDateTime(resultIndicador.Rows[J]["DATASTATUS"]);
 
                 uLindicador.NPESSOAL = (int)resultIndicador.Rows[J]["NPESSOAL"];
-                uLindicador.UNIDADE = resultIndicador.Rows[J]["UNIDADE"].ToString();
+                uLindicador.UNIDADE = resultIndicador.Rows[J]["UNIDADE"].ToString().Trim();
                 uLindicador.RITMO = (int)resultIndicador.Rows[J]["RITMO"];
-                uLindicador.DESCRICAOSTATUS = resultIndicador.Rows[J]["DESCRICAOSTATUS"].ToString();
-                uLindicador.NOMEFORMULARIO = resultIndicador.Rows[J]["DESCRICAOCELULA"].ToString();
-                uLindicador.NOMECOMPLETO = resultIndicador.Rows[J]["NOMECOMPLETO"].ToString();
+                uLindicador.DESCRICAOSTATUS = resultIndicador.Rows[J]["DESCRICAOSTATUS"].ToString().Trim();
+                uLindicador.NOMEFORMULARIO = resultIndicador.Rows[J]["DESCRICAOCELULA"].ToString().Trim();
+                uLindicador.NOMECOMPLETO = resultIndicador.Rows[J]["NOMECOMPLETO"].ToString().Trim();
                 uLindicador.NPESSOAL = (int)resultIndicador.Rows[J]["NPESSOAL"];
                 uLindicador.IDCELULATRABALHO = (int)resultIndicador.Rows[J]["IDCELULATRABALHO"];
                 totregistro = (int)resultIndicador.Rows[J]["TOTALREGISTRO"];
                 qtp = (int)resultIndicador.Rows[J]["PG"];
-                uLindicador.ATA = resultIndicador.Rows[J]["ATA"].ToString();
+                uLindicador.ATA = resultIndicador.Rows[J]["ATA"].ToString().Trim();
 
                 lIndicador.Add(uLindicador);
             }
