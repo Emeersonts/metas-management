@@ -257,16 +257,18 @@ namespace Metas.API.Controllers
                 var MsSqlDataConnection = new MsSqlDataConnection();
 
                 var mssqlDataConnection = new MsSqlDataConnection();
+                mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
+
 
                 var conn = mssqlDataConnection.ConnectionString;
-                if (conn == null)
+                if (conn == "")
                 {
                    
                     return Ok(result);
                 }
                 else
                 {
-                    result = "Connectionstring OK";
+                    result = _webHostEnvironment.ContentRootPath +"   /   "+ conn; // "Connectionstring OK";
                     return Ok(result);
                 }
 
@@ -307,33 +309,55 @@ namespace Metas.API.Controllers
         {
             try
             {
+                var result = "Erro de Connectionstring";
 
                 var MsSqlDataConnection = new MsSqlDataConnection();
 
                 var mssqlDataConnection = new MsSqlDataConnection();
-
-                var webReport = new WebReport();
-
-                webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "SimplesUnidadeMetas.frx"));
-
                 mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
-                //definimos os valores para os parâmetros usados         
+
+
                 var conn = mssqlDataConnection.ConnectionString;
-                webReport.Report.SetParameterValue("Conn", conn);
-                webReport.Report.SetParameterValue("PR_TIPO", PR_TIPO);
-                webReport.Report.SetParameterValue("PR_RETURN", PR_RETURN);
-                webReport.Report.SetParameterValue("ANOCICLO", ANOCICLO);
-                webReport.Report.SetParameterValue("IDCELULATRABALHO", IDCELULATRABALHO);
-                webReport.Report.Prepare();
+                if (conn == "")
+                {
 
-                using MemoryStream stream = new MemoryStream();
-                webReport.Report.Export(new PDFSimpleExport(), stream);
+                    return Ok(result);
+                }
+                else
+                {
+                    var webReport = new WebReport();
+                    webReport.Report.Prepare();
 
-                stream.Flush();
-                byte[] arrayReport = stream.ToArray();
+                    result = _webHostEnvironment.ContentRootPath + "  /  " + conn; // "Connectionstring OK";
+                    return Ok(result);
+                }
+
+                //var MsSqlDataConnection = new MsSqlDataConnection();
+
+                //var mssqlDataConnection = new MsSqlDataConnection();
+
+                //var webReport = new WebReport();
+
+                //webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "SimplesUnidadeMetas.frx"));
+
+                //mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
+                ////definimos os valores para os parâmetros usados         
+                //var conn = mssqlDataConnection.ConnectionString;
+                //webReport.Report.SetParameterValue("Conn", conn);
+                //webReport.Report.SetParameterValue("PR_TIPO", PR_TIPO);
+                //webReport.Report.SetParameterValue("PR_RETURN", PR_RETURN);
+                //webReport.Report.SetParameterValue("ANOCICLO", ANOCICLO);
+                //webReport.Report.SetParameterValue("IDCELULATRABALHO", IDCELULATRABALHO);
+                //webReport.Report.Prepare();
+
+                //using MemoryStream stream = new MemoryStream();
+                //webReport.Report.Export(new PDFSimpleExport(), stream);
+
+                //stream.Flush();
+                //byte[] arrayReport = stream.ToArray();
 
 
-                return File(arrayReport, "application/zip", "SimplesUnidadeMetas.pdf");
+                //return File(arrayReport, "application/zip", "SimplesUnidadeMetas.pdf");
             }
             catch (Exception)
             {
