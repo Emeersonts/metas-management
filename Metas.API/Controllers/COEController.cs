@@ -201,7 +201,7 @@ namespace Metas.API.Controllers
 
                 var webReport = new WebReport();
 
-                webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "Metas.frx"));
+                //webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "Metas.frx"));
 
                 mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
                 //definimos os valores para os parâmetros usados         
