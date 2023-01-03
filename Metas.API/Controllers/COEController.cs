@@ -23,6 +23,7 @@ using FastReport.Data;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
+using FastReport.Utils;
 
 namespace Metas.API.Controllers
 {
@@ -194,18 +195,39 @@ namespace Metas.API.Controllers
         {
             try
             {
-
-                var MsSqlDataConnection = new MsSqlDataConnection();
+                var result = "Erro na conexao banco de dados";
+                
+                RegisteredObjects.AddConnection(typeof(MsSqlDataConnection));
 
                 var mssqlDataConnection = new MsSqlDataConnection();
 
+                if (mssqlDataConnection == null)
+                {
+                    return Ok(result);
+                }
+
+                result = "Erro de leitura WebReport";
+
                 var webReport = new WebReport();
+                
+                if (webReport == null)
+                {
+                    return Ok(result);
+                }
 
                 webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "Metas.frx"));
 
                 mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
                 //definimos os valores para os parâmetros usados         
                 var conn = mssqlDataConnection.ConnectionString;
+
+                if (conn == null)
+                {
+                    result = "Erro de Connectionstring";
+                    return Ok(result);
+                }
+
+
                 webReport.Report.SetParameterValue("Conn", conn);
                 webReport.Report.SetParameterValue("PR_TIPO", PR_TIPO);
                 webReport.Report.SetParameterValue("PR_RETURN", PR_RETURN);
