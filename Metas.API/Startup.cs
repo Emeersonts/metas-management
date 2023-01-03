@@ -21,6 +21,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using FastReport.Data;
+using FastReport.Utils;
 
 namespace Metas.API
 {
@@ -38,7 +40,8 @@ namespace Metas.API
         {
             services.AddControllers();
             
-            
+            RegisteredObjects.AddConnection(typeof(MsSqlDataConnection));
+
             //nivekl1
             services.AddScoped<IAplicationServiceColaborador, AplicationServiceColaborador>();
             services.AddScoped<IAplicationServiceCiclo, AplicationServiceCilo>();
