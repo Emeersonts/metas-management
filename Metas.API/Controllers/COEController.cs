@@ -1,6 +1,7 @@
 ﻿using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Office2019.Excel.RichData2;
 using DocumentFormat.OpenXml.Wordprocessing;
+using FastReport.Web;
 using Metas.Application.DTO;
 using Metas.Application.Interface;
 using Metas.Profile;
@@ -14,15 +15,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+using System.IO;
+using Path = System.IO.Path;
+using FastReport.Export.PdfSimple;
+using FastReport.Data;
+
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Hosting;
+
 namespace Metas.API.Controllers
 {
     public class COEController : Controller
     {
 
         private readonly IAplicationServiceCOE _applicationServiceCOE;
-        public COEController(IAplicationServiceCOE ApplicationServiceCOE)
+
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly IConfiguration _config;
+
+        public COEController(IAplicationServiceCOE ApplicationServiceCOE, IWebHostEnvironment webHostEnvironment, IConfiguration config)
         {
             this._applicationServiceCOE = ApplicationServiceCOE;
+            this._webHostEnvironment = webHostEnvironment;
+            this._config = config;
         }
 
         // LISTA DE FORMULÁRIO
@@ -169,6 +185,49 @@ namespace Metas.API.Controllers
             else
             {
                 return Ok(ob.IT(result));
+            }
+        }
+        //Gerar Relatorio Metas
+        [HttpGet]
+        [Route("Metas")]
+        
+        public async Task<ActionResult> GenerateReport(int PR_TIPO, int PR_RETURN, int ANOCICLO, int IDCELULATRABALHO)
+      
+        {
+            try
+            {
+            
+            var MsSqlDataConnection = new MsSqlDataConnection();
+
+            var mssqlDataConnection = new MsSqlDataConnection();
+                        
+            var webReport = new WebReport(); 
+
+            webReport.Report.Load(Path.Combine(_webHostEnvironment.ContentRootPath, "Reports", "Metas.frx"));
+           
+            mssqlDataConnection.ConnectionString = _config.GetConnectionString("DefaultConnection");
+            //definimos os valores para os parâmetros usados         
+            var conn = mssqlDataConnection.ConnectionString;
+            webReport.Report.SetParameterValue("Conn", conn);
+            webReport.Report.SetParameterValue("PR_TIPO", PR_TIPO);
+            webReport.Report.SetParameterValue("PR_RETURN", PR_RETURN);
+            webReport.Report.SetParameterValue("ANOCICLO", ANOCICLO);
+            webReport.Report.SetParameterValue("IDCELULATRABALHO", IDCELULATRABALHO);
+            webReport.Report.Prepare();
+
+            using MemoryStream stream = new MemoryStream();
+            webReport.Report.Export(new PDFSimpleExport(), stream);
+
+            stream.Flush();
+            byte[] arrayReport = stream.ToArray();
+                          
+
+             return File(arrayReport, "application/zip", "MetassReport.pdf");
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
