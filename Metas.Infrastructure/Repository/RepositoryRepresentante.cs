@@ -182,7 +182,7 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
-        async public Task<int> RRemoveIndicador(int IDINDICADOR)
+        async public Task<int> RRemoveIndicador(int IDINDICADOR, int TIPO = 0)
         {
             int cont = 0;
 
@@ -190,7 +190,7 @@ namespace Metas.Infrastructure.Repository
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = 0;
+            parametro[cont].Value = TIPO;
 
             cont++;
             parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);

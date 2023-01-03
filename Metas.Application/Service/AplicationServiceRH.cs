@@ -150,6 +150,7 @@ namespace Metas.Application.Service
                 uLindicador.DATASTATUS = Convert.ToDateTime(resultIndicador.Rows[J]["DATASTATUS"]);
 
                 uLindicador.NPESSOAL = (int)resultIndicador.Rows[J]["NPESSOAL"];
+                uLindicador.UNIDADE = resultIndicador.Rows[J]["UNIDADE"].ToString();
                 uLindicador.RITMO = (int)resultIndicador.Rows[J]["RITMO"];
                 uLindicador.DESCRICAOSTATUS = resultIndicador.Rows[J]["DESCRICAOSTATUS"].ToString();
                 uLindicador.NOMEFORMULARIO = resultIndicador.Rows[J]["DESCRICAOCELULA"].ToString();
