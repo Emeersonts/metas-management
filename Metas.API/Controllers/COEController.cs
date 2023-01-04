@@ -10,13 +10,13 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 
-using System.IO;
 using Path = System.IO.Path;
 using FastReport.Export.PdfSimple;
 using FastReport.Data;
@@ -268,7 +268,11 @@ namespace Metas.API.Controllers
                 }
                 else
                 {
-                    result = _webHostEnvironment.ContentRootPath +"   /   "+ conn; // "Connectionstring OK";
+                    string path = _webHostEnvironment.ContentRootPath + "\\Reports\\Metas.frx";
+                    bool existe = System.IO.File.Exists(path);
+                                      
+
+                    result = _webHostEnvironment.ContentRootPath +"   /   "+ conn + "   /   " + existe ; // "Connectionstring OK";
                     return Ok(result);
                 }
 
@@ -326,7 +330,7 @@ namespace Metas.API.Controllers
                 else
                 {
                     var webReport = new WebReport();
-                    webReport.Report.Prepare();
+                   // webReport.Report.Prepare();
 
                     result = _webHostEnvironment.ContentRootPath + "  /  " + conn; // "Connectionstring OK";
                     return Ok(result);
