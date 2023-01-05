@@ -18,7 +18,7 @@ namespace Metas.Application.DTO
         public decimal DESAFIO { get; set; }
         public int ANOCICLO { get; set; }
         public int MES { get; set; }
-        public decimal APURADO { get; set; }
+        public decimal? APURADO { get; set; }
         public string ON { get; set; }
     }
 }

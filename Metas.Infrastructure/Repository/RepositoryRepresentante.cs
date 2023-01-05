@@ -304,7 +304,7 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@APURADO", SqlDbType.Decimal);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = indicador.APURADO;
+            parametro[cont].Value = indicador.APURADO.Value;
 
             ClsData pk = new ClsData();
             var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_INDICADOR]");
