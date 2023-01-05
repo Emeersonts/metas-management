@@ -189,8 +189,8 @@ namespace Metas.Application.Service
 
                 CronogramaAplicadoDTO Ucraplicado = new CronogramaAplicadoDTO();
                 Ucraplicado.IDCRONOGRAMA = (int)result.Rows[i]["IDCRONOGRAMA"];
-                Ucraplicado.DESCRICAO = result.Rows[i]["DESCRICAO"].ToString();
-                Ucraplicado.ATIVO = (int)result.Rows[i]["ATIVO"];
+                //Ucraplicado.DESCRICAO = result.Rows[i]["DESCRICAO"].ToString();
+                //Ucraplicado.ATIVO = (int)result.Rows[i]["ATIVO"];
                 if (result.Rows[i]["DATAPROGRAMADA"] != DBNull.Value) { Ucraplicado.DATAPROGRAMADA = (DateTime)result.Rows[i]["DATAPROGRAMADA"]; }
 
                 Lcraplicado.Add(Ucraplicado);
@@ -232,8 +232,11 @@ namespace Metas.Application.Service
 
             var ind = new CronogramaAplicadoDTO[10];
 
+            var cronograma = new CronogramaAplicado(dtoT.IDTIPO, dtoT.IDCRONOGRAMA, dtoT.IDCELULATRABALHO, dtoT.DATAPROGRAMADA, dtoT.DATAREAL);
 
-            return 1;
+            var resultIndicador = await _ServiceCOE.SaveSchedule(cronograma);
+
+            return resultIndicador;
 
         }
     }

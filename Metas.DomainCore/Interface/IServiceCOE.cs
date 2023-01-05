@@ -19,5 +19,6 @@ namespace Metas.DomainCore.Interface
         Task<DataTable> GetListIndicatorAdd(int IDANOCICLO);
         Task<DataTable> GetIndicatorLibrary(int PAGINA,int NPAGINA, int ATIVO, string BUSCA);
         Task<int> SaveFormLibrary(IndicadorSAP parameters);
+        Task<int> SaveSchedule(CronogramaAplicado parameters);
     }
 }

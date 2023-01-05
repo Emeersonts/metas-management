@@ -87,5 +87,12 @@ namespace Metas.DomainCore.Service
 
             return result;
         }
+
+        public async Task<int> SaveSchedule(CronogramaAplicado parameters)
+        {
+            var result = await _repository.RSaveSchedule(parameters);
+
+            return result;
+        }
     }
 }
