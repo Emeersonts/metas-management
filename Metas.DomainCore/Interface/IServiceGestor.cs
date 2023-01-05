@@ -23,6 +23,7 @@ namespace Metas.DomainCore.Interface
         Task<int> RequestAdjustment(int anociclo, int idcelulatrabalho, string menssagem);
         Task<int> AprovarIndicador(int anociclo, int idcelulatrabalho);
         Task<int> AprovarResults(int anociclo, int idcelulatrabalho);
+        Task<int> AprovarResultsJul(int anociclo, int idcelulatrabalho);
         Task<int> RequestAdjustmentResult(int anociclo, int idcelulatrabalho, string menssagem);
     }
 }

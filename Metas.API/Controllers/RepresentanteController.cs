@@ -174,6 +174,26 @@ namespace Metas.API.Controllers
 
         }
 
+
+        [HttpPost]
+        [Route("SendResultForApprovaljUL")]
+        public async Task<ActionResult> SendResultForApprovaljUL([FromQuery] int ANOCICLO)
+        {
+
+            var result = await _applicationServiceRepresentante.OnSendResultForApprovaljul(ANOCICLO);
+            var ob = new InterrupcaoDTO();
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok(ob.IT(result));
+            }
+
+        }
+
         // Remover indicador
         [HttpDelete]
         [Route("RemoveIndicador")]

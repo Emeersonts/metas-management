@@ -117,6 +117,58 @@ namespace Metas.Infrastructure.Repository
             return ui;
         }
 
+        async public Task<int> RAprovarResultsJul(int ANOCICLO, int IDCELULATRABALHO)
+        {
+            int cont = 0;
+
+            SqlParameter[] parametro = new SqlParameter[8];
+
+            parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 10;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDFUNCIONALIDADE", SqlDbType.Int);
+            parametro[cont].IsNullable = false;
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 1;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_IDUSUARIO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 3;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDNOTIFICACAO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = 6; //fixo na notificação
+
+            cont++;
+            parametro[cont] = new SqlParameter("@ANOCICLO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = ANOCICLO;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@PR_RETURN", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Output;
+            parametro[cont].Value = 0;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@IDCELULATRABALHO", SqlDbType.Int);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = IDCELULATRABALHO;
+
+            cont++;
+            parametro[cont] = new SqlParameter("@MENSSAGEM", SqlDbType.VarChar);
+            parametro[cont].Direction = ParameterDirection.Input;
+            parametro[cont].Value = "";
+
+            ClsData pk = new ClsData();
+            var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_STATUSINDICADOR]");
+
+            return ui;
+        }
+
         async public Task<DataTable> RGetFindColaborador(int PAGINA, int QTPAGINA, int IDCELULATRABALHO, int ANOCICLO)
         {
             int cont = 0;
