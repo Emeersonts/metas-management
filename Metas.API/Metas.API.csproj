@@ -14,12 +14,30 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+    
+    
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Metas.Application\Metas.Application.csproj" />
     <ProjectReference Include="..\Metas.Infrastructure\Metas.Infrastructure.csproj" />
     <ProjectReference Include="..\Metas.Profile\Metas.Profile.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Reports\Metas.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\OrientacaoMetas.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\SimplesUnidadeMetas.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\SimularMetas.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    
   </ItemGroup>
 
 
