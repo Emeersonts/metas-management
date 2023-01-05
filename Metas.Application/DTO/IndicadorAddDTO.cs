@@ -27,5 +27,6 @@ namespace Metas.Application.DTO
         public DateTime DATAAPURACAO { get; set; }
         public int STATUSINDICADOR { get; set; }
         public string OPNEG { get; set; }
+        public string CELULATRABALHO { get; set; }
     }
 }

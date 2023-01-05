@@ -65,6 +65,7 @@ namespace Metas.Application.Service
             int pgtotal = 0;
             int ncolaborador = 0;
             string descricaostatus = "";
+            string descricaocelulatrabalho = "";
 
             for (int J = 0; J < resultAfast.Rows.Count; J++)
             {
@@ -73,10 +74,11 @@ namespace Metas.Application.Service
                 uLindicadorSAPDTO.NOMECOMPLETO = resultAfast.Rows[J]["NOMECOMPLETO"].ToString();
                 uLindicadorSAPDTO.NPESSOAL = (int)resultAfast.Rows[J]["NPESSOAL"];
                 uLindicadorSAPDTO.TITULO = resultAfast.Rows[J]["TITULO"].ToString();
-
+                
                 pgtotal = (int)resultAfast.Rows[J]["PG"];
                 ncolaborador = (int)resultAfast.Rows[J]["NCOLABORADOR"];
                 descricaostatus = resultAfast.Rows[J]["DESCRICAOSTATUS"].ToString();
+                descricaocelulatrabalho = resultAfast.Rows[J]["DESCRICAOCELULATRABALHO"].ToString();
                 lIndicadorSapDTO.Add(uLindicadorSAPDTO);
 
             }
@@ -84,6 +86,7 @@ namespace Metas.Application.Service
             lForIndicadorSAPDTO.PGTOTAL = pgtotal;
             lForIndicadorSAPDTO.NCOLABORADOR = ncolaborador;
             lForIndicadorSAPDTO.ListColaborador = lIndicadorSapDTO;
+            lForIndicadorSAPDTO.DESCRICAOCELULATRABALHO = descricaocelulatrabalho;
 
             return lForIndicadorSAPDTO;
 
