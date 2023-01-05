@@ -54,6 +54,24 @@ namespace Metas.Application.Service
             return resultIndicador;
         }
 
+        public async Task<int> OnAprovarResultsJul(int anociclo, int idcelulatrabalho)
+        {
+            var resultIndicador = await _ServiceGestor.AprovarResultsJul(anociclo, idcelulatrabalho);
+
+            if (resultIndicador == 15)
+            {
+                ExcelFileClass excelFileClass = new ExcelFileClass();
+
+                excelFileClass.classAG();
+
+                //EmailEnvia env = new EmailEnvia();
+                //env.EnviaEmail("a", "a", "a", "a", "a");
+                // CHAMADA DO EMAIL
+            }
+
+            return resultIndicador;
+        }
+
         public async Task<FormColaboradorDTO> OnGetFindColaborador(int PAGINA,int QTPAGINA, int IDCELULATRABALHO, int ANOCICLO)
         {
 

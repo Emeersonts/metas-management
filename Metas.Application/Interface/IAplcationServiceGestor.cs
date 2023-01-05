@@ -22,6 +22,7 @@ namespace Metas.Application.Interface
         Task<int> OnRequestAdjustment(int anociclo, int idcelulatrabalho, string menssagem);
         Task<int> OnAprovarIndicador(int anociclo, int idcelulatrabalho);
         Task<int> OnAprovarResults(int anociclo, int idcelulatrabalho);
+        Task<int> OnAprovarResultsJul(int anociclo, int idcelulatrabalho);
         Task<int> OnRequestAdjustmentResult(int anociclo, int idcelulatrabalho, string menssagem);
     }
 }

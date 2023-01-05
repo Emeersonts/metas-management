@@ -206,6 +206,23 @@ namespace Metas.API.Controllers
                 return Ok(ob.IT(result));
             }
         }
+        // aprovar resultados jul
+        [HttpPost]
+        [Route("AprovarResultsJul")]
+        public async Task<ActionResult> AprovarResultsJul([FromQuery] int ANOCICLO, int IDCELULATRABALHO)
+        {
 
+            var result = await _applicationServiceGestor.OnAprovarResultsJul(ANOCICLO, IDCELULATRABALHO);
+            var ob = new InterrupcaoDTO();
+
+            if (result == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok(ob.IT(result));
+            }
+        }
     }
 }

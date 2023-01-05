@@ -19,6 +19,7 @@ namespace Metas.Application.Interface
         Task<int> OnSaveForm(GIndicadorDTTO dto);
         Task<int> OnSendForApprovalIndicador(int anociclo);
         Task<int> OnSendResultForApproval(int anociclo);
+        Task<int> OnSendResultForApprovaljul(int anociclo);
         Task<int> OnRemoveIndicador(int idindicador);
         Task<ForProcessoDTO> OnGetListProcess();
     }
