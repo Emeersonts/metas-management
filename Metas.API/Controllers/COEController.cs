@@ -110,13 +110,13 @@ namespace Metas.API.Controllers
         public async Task<ActionResult> SaveSchedule(CronogramaAplicadoDTO DTO)
         {
             var rng = new Random();
-            var forecasts = Enumerable.Range(1, 5).Select(index => new CronogramaAplicadoDTO
+            /*var forecasts = Enumerable.Range(1, 5).Select(index => new CronogramaAplicadoDTO
             {
-                ATIVO = 1,
-                DESCRICAO = "saaa",
+                //ATIVO = 1,
+                //DESCRICAO = "saaa",
                 IDCRONOGRAMA = 1,
                 DATAPROGRAMADA = DateTime.Now.AddDays(index),
-            });
+            });*/
 
             var result = await _applicationServiceCOE.onSaveSchedule(DTO);
             CronogramaAplicadoDTO hh = new CronogramaAplicadoDTO();

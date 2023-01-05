@@ -232,8 +232,11 @@ namespace Metas.Application.Service
 
             var ind = new CronogramaAplicadoDTO[10];
 
+            var cronograma = new CronogramaAplicado(dtoT.IDTIPO, dtoT.IDCRONOGRAMA, dtoT.IDCELULATRABALHO, dtoT.DATAPROGRAMADA, dtoT.DATAREAL);
 
-            return 1;
+            var resultIndicador = await _ServiceCOE.SaveSchedule(cronograma);
+
+            return resultIndicador;
 
         }
     }

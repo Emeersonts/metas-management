@@ -23,6 +23,7 @@ namespace Metas.Infrastructure.Interface
         Task<int> RRequestAdjustmentt(int ANOCICLO, int IDCELULATRABALHO, string MENSSAGEM);
         Task<int> RAprovarIndicador(int ANOCICLO, int IDCELULATRABALHO);
         Task<int> RAprovarResults(int ANOCICLO, int IDCELULATRABALHO);
+        Task<int> RAprovarResultsJul(int ANOCICLO, int IDCELULATRABALHO);
         Task<int> RRequestAdjustmentResult(int ANOCICLO, int IDCELULATRABALHO, string MENSSAGEM);
     }
 }

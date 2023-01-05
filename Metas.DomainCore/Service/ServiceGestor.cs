@@ -34,6 +34,14 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
+        public async Task<int> AprovarResultsJul(int anociclo, int idcelulatrabalho)
+        {
+            var result = await _repository.RAprovarResultsJul(anociclo, idcelulatrabalho);
+
+            return result;
+
+        }
+
         public async Task<DataTable> GetFindColaborador(int PAGINA,int QTPAGINA, int IDCELULATRABALHO, int ANOCICLO)
         {
             DataTable ty = new DataTable();

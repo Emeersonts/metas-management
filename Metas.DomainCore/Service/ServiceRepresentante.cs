@@ -107,6 +107,12 @@ namespace Metas.DomainCore.Service
             return result;
         }
 
+        public async Task<int> SendResultForApprovalJul(int anociclo)
+        {
+            var result = await _repository.RSendResultForApprovalJul(anociclo);
+            return result;
+        }
+
         public async Task<DataTable> Timeline()
         {
             DataTable ty = new DataTable();

@@ -189,6 +189,7 @@ namespace Metas.Application.Service
                 uLindicador.STATUSMETA = (int)RsultIndicador.Rows[J]["STATUSMETA"];
                 uLindicador.STATUSRESULTADO = (int)RsultIndicador.Rows[J]["STATUSRESULTADO"];
                 uLindicador.STATUSINDICADOR = (int)RsultIndicador.Rows[J]["STATUSINDICADOR"];
+                uLindicador.CELULATRABALHO = RsultIndicador.Rows[J]["CELULATRABALHO"].ToString();
                 if (RsultIndicador.Rows[J]["DTAAPURACAO"] != DBNull.Value) { uLindicador.DATAAPURACAO = (DateTime)RsultIndicador.Rows[J]["DTAAPURACAO"]; }
                 if (RsultIndicador.Rows[J]["SIMULADOAPURADO"] != DBNull.Value) { uLindicador.SIMULADOAPURADO = (decimal)RsultIndicador.Rows[J]["SIMULADOAPURADO"]; }
                 lIndicador.Add(uLindicador);
@@ -285,6 +286,20 @@ namespace Metas.Application.Service
         public async Task<int> OnSendResultForApproval(int anociclo)
         {
             var resultIndicador = await _ServiceRepresentante.SendResultForApproval(anociclo);
+
+            if (resultIndicador == 0)
+            {
+                EmailEnvia env = new EmailEnvia();
+                env.EnviaEmail("a", "a", "a", "a", "a");
+                // CHAMADA DO EMAIL
+            }
+
+            return resultIndicador;
+        }
+
+        public async Task<int> OnSendResultForApprovaljul(int anociclo)
+        {
+            var resultIndicador = await _ServiceRepresentante.SendResultForApprovalJul(anociclo);
 
             if (resultIndicador == 0)
             {

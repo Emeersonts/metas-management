@@ -19,5 +19,6 @@ namespace Metas.Infrastructure.Interface
         Task<DataTable> RGetListIndicatorAdd(int IDCELULATRABALHO);
         Task<DataTable> RGetIndicatorLibrary(int PAGINA, int NPAGINA, int ATIVO, string BUSCA);
         Task<int> RSaveFormLibrary(IndicadorSAP indicador);
+        Task<int> RSaveSchedule(CronogramaAplicado cronograma);
     }
 }
