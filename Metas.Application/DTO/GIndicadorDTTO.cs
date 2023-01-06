@@ -9,7 +9,6 @@ namespace Metas.Application.DTO
     {
         public int IDINDICADOR { get; set; }
         public string NOME { get; set; }
-        public string DESCRICAOINDICADOR { get; set; }
         public int IDUNIDADEMEDIDA { get; set; }
         public int IDFREQUENCIA { get; set; }
         public int PESO { get; set; }
