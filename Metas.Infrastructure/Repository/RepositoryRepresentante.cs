@@ -299,7 +299,18 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@APURADO", SqlDbType.Decimal);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = indicador.APURADO;
+
+            if (indicador.APURADO.HasValue)
+            {
+                parametro[cont].Value = indicador.APURADO;
+            }
+            else
+            {
+                parametro[cont].Value = DBNull.Value;
+            }
+            
+
+            //if (RsultIndicador.Rows[J]["MINIMO"] != DBNull.Value) { uLindicador.MINIMO = RsultIndicador.Rows[J]["MINIMO"].ToString(); }
 
             ClsData pk = new ClsData();
             var ui = await pk.ExecRunPar(parametro, "[SMetas].[I_INDICADOR]");

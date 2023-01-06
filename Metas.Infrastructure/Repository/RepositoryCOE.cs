@@ -384,7 +384,7 @@ namespace Metas.Infrastructure.Repository
             cont++;
             parametro[cont] = new SqlParameter("@APURADO", SqlDbType.Decimal);
             parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = indicador.APURADO;
+            parametro[cont].Value = indicador.APURADO.Value;
 
             cont++;
             parametro[cont] = new SqlParameter("@OPNEG", SqlDbType.VarChar);
