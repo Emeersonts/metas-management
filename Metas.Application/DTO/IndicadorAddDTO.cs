@@ -14,16 +14,16 @@ namespace Metas.Application.DTO
         public int IDFREQUENCIA { get; set; }
         public string DESCRICAO { get; set; }
         public int PESO { get; set; }
-        public string MINIMO { get; set; }
-        public string PLANEJADO { get; set; }
-        public string DESAFIO { get; set; }
+        public decimal MINIMO { get; set; }
+        public decimal PLANEJADO { get; set; }
+        public decimal DESAFIO { get; set; }
         public String DESCRICAOINDICADOR { get; set; }
         public int RESULTADO { get; set; }
-        public decimal APURADO { get; set; }
+        public decimal? APURADO { get; set; }
         public int ORDEMINICIO { get; set; }
         public int STATUSMETA { get; set; }
         public int STATUSRESULTADO { get; set; }
-        public decimal SIMULADOAPURADO { get; set; }
+        public decimal? SIMULADOAPURADO { get; set; }
         public DateTime DATAAPURACAO { get; set; }
         public int STATUSINDICADOR { get; set; }
         public string OPNEG { get; set; }
