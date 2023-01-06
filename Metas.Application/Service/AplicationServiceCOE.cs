@@ -205,7 +205,7 @@ namespace Metas.Application.Service
 
         public async Task<int> OnSaveForm(IndicadorNegocioDTO dto)
         {
-            var Indicador = new Metas.Domain.Indicador(dto.IDINDICADOR,dto.NOME, dto.NOME, dto.IDUNIDADEMEDIDA,
+            var Indicador = new Metas.Domain.Indicador(dto.IDINDICADOR,dto.NOME,dto.IDUNIDADEMEDIDA,
                 dto.IDFREQUENCIA, dto.PESO, dto.MINIMO, dto.PLANEJADO, dto.DESAFIO,dto.ANOCICLO,0,dto.APURADO, dto.ON
             );
 

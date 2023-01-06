@@ -314,7 +314,7 @@ namespace Metas.Infrastructure.Repository
         {
             int cont = 0;
 
-            SqlParameter[] parametro = new SqlParameter[16];
+            SqlParameter[] parametro = new SqlParameter[15];
 
             parametro[cont] = new SqlParameter("@PR_TIPO", SqlDbType.Int);
             parametro[cont].Direction = ParameterDirection.Input;
@@ -345,11 +345,6 @@ namespace Metas.Infrastructure.Repository
             parametro[cont] = new SqlParameter("@NOME", SqlDbType.VarChar);
             parametro[cont].Direction = ParameterDirection.Input;
             parametro[cont].Value = indicador.NOME;
-
-            cont++;
-            parametro[cont] = new SqlParameter("@DESCRICAOINDICADOR", SqlDbType.VarChar);
-            parametro[cont].Direction = ParameterDirection.Input;
-            parametro[cont].Value = indicador.DESCRICAOINDICADOR;
 
             cont++;
             parametro[cont] = new SqlParameter("@IDUNIDADEMEDIDA", SqlDbType.Int);
