@@ -225,23 +225,5 @@ namespace Metas.API.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("Ato")]
-        public async Task<ActionResult> Ato([FromQuery] int ANOCICLO, int IDCELULATRABALHO)
-        {
-
-            var result = await _applicationServiceGestor.OnAprovarResultsJul(ANOCICLO, IDCELULATRABALHO);
-            var ob = new InterrupcaoDTO();
-
-            if (result == 0)
-            {
-                return Ok();
-            }
-            else
-            {
-                return Ok(ob.IT(result));
-            }
-        }
-
     }
 }
