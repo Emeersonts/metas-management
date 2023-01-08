@@ -4,7 +4,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Metas.Infrastructure
 {
     public class ClsData
@@ -15,7 +14,6 @@ namespace Metas.Infrastructure
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
-            //DEV
             builder.DataSource = "dev-metas-system-management-database.c3vcojkjp9yx.us-east-1.rds.amazonaws.com";
             builder.UserID = "admin";
             builder.Password = "GHWFV8HB0oViP1FbEPhl";
@@ -67,6 +65,7 @@ namespace Metas.Infrastructure
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
+            //dev
             builder.DataSource = "dev-metas-system-management-database.c3vcojkjp9yx.us-east-1.rds.amazonaws.com";
             builder.UserID = "admin";
             builder.Password = "GHWFV8HB0oViP1FbEPhl";
